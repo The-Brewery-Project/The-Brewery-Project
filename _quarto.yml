@@ -3,18 +3,31 @@ project:
   output-dir: docs
 
 website:
-  title: "The-Brewery-Project"
+  title: "The Brewery Project"
+  favicon: images/beer-mug-icon.png
   navbar:
     left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+      - href: introduction.qmd
+        text: "Introduction"
+      - href: data_exploration.qmd
+        text: "Data Exploration"
+      - href: models_implemented.qmd
+        text: "Models Implemented"
+      - href: conclusion.qmd
+        text: "Conclusion"
+    right:
+      - icon: github
+        href: https://github.com/The-Brewery-Project/The-Brewery-Project
 
 format:
   html:
-    theme: cosmo
+    email-obfuscation: javascript
+    citations-hover: true
+    code-link: true
+    code-fold: true
+    theme:
+      - cosmo: cosmo
+      - default: default
+      - cerulean: cerulean
     css: styles.css
     toc: true
-
-
-

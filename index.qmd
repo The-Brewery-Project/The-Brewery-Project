@@ -1,11 +1,15 @@
 ---
-title: "The-Brewery-Project"
+title: "Index"
 ---
 
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+Welcome to the Brewery Project Project!
 
 ```{r}
-1 + 1
+# this is a code cell in R
+1+1
+```
+
+```{python}
+# this is a code cell in Python
+1+1
 ```

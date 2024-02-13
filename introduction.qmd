@@ -1,0 +1,7 @@
+---
+title: "Introduction"
+---
+
+Tab for our Introduction!
+
+The Introduction is 5+ paragraphs where a paragraph is at least 10 sentences. The Intro should also have images to help the reader to understand your topic area. Do not include anything about models or methods, datasets, etc. This area is only about the topic, what it is, why it matters, who it affects, what has been done so far, what can still be done. etc. You must also include ten questions that you seek to answer based on your dataset. This is a MUST. Ensure questions make sense and relate to real-life.
