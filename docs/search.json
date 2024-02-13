@@ -1,16 +1,44 @@
 [
   {
+    "objectID": "models_implemented.html",
+    "href": "models_implemented.html",
+    "title": "Models Implemented",
+    "section": "",
+    "text": "Tab for Models Implemented!"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "The-Brewery-Project",
+    "title": "Index",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+    "text": "Welcome to the Brewery Project Project!\n\nCode# this is a code cell in R\n1+1\n\n[1] 2\n\n\n\nCode# this is a code cell in Python\n1+1\n\n2"
+  },
+  {
+    "objectID": "conclusion.html",
+    "href": "conclusion.html",
+    "title": "Conclusion",
+    "section": "",
+    "text": "Tab for Conclusions and Results!"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "About this site\n\nCode1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "data_exploration.html",
+    "href": "data_exploration.html",
+    "title": "Data Exploration",
+    "section": "",
+    "text": "Tab for Data Exploration!"
+  },
+  {
+    "objectID": "introduction.html",
+    "href": "introduction.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "Tab for our Introduction!\nThe Introduction is 5+ paragraphs where a paragraph is at least 10 sentences. The Intro should also have images to help the reader to understand your topic area. Do not include anything about models or methods, datasets, etc. This area is only about the topic, what it is, why it matters, who it affects, what has been done so far, what can still be done. etc. You must also include ten questions that you seek to answer based on your dataset. This is a MUST. Ensure questions make sense and relate to real-life."
   }
 ]

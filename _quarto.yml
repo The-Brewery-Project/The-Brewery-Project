@@ -22,12 +22,13 @@ website:
 format:
   html:
     email-obfuscation: javascript
+    grid: 
+      body-width: 2000px
+      sidebar-width: 200px
+      margin-width: 200px
     citations-hover: true
     code-link: true
     code-fold: true
-    theme:
-      - cosmo: cosmo
-      - default: default
-      - cerulean: cerulean
+    theme: cosmo
     css: styles.css
     toc: true
