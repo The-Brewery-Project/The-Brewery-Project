@@ -5,6 +5,10 @@ project:
 website:
   title: "The Brewery Project"
   favicon: images/beer-mug-icon.png
+  page-footer:
+    center: "The Brewery Project"
+    background: "#158CBA"
+    
   navbar:
     left:
       - href: introduction.qmd
@@ -29,6 +33,7 @@ format:
     citations-hover: true
     code-link: true
     code-fold: true
-    theme: cosmo
+    theme: lumen
     css: styles.css
+    code-block-border-left: "#158CBA"
     toc: true
