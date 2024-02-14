@@ -4,12 +4,98 @@ title: "Index"
 
 Welcome to the Brewery Project Project!
 
-```{r}
-# this is a code cell in R
-1+1
+# Graphing Examples
+
+## Import Libraries
+```{python}
+# import libraries
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import plotly.express as px
+import plotly.graph_objects as go
 ```
 
+## load data
 ```{python}
-# this is a code cell in Python
-1+1
+df = px.data.tips()
+df.head()
 ```
+
+## Matplotlib Example
+```{python}
+# matplotlib example
+plt.scatter(data = df, x = 'total_bill', y = 'tip')
+```
+
+## Seaborn Example
+```{python}
+# seaborn example
+sns.scatterplot(data = df, x = 'total_bill', y = 'tip')
+```
+
+## Plotly Example
+```{python}
+# plotly example
+fig = px.scatter(df, x='total_bill', y="tip", color='time',
+                 symbol='sex', size='size', facet_row='day',
+                 facet_col='time')
+ 
+fig.show()
+```
+
+## Plotly Interactive Example
+```{python}
+# plotly interactivity example I
+plot = go.Figure(data=[go.Scatter(
+    x=df['day'],
+    y=df['tip'],
+    mode='markers',)
+])
+ 
+# Add dropdown
+plot.update_layout(
+    updatemenus=[
+        dict(
+            type="buttons",
+            direction="left",
+            buttons=list([
+                dict(
+                    args=["type", "scatter"],
+                    label="Scatter Plot",
+                    method="restyle"
+                ),
+                dict(
+                    args=["type", "bar"],
+                    label="Bar Chart",
+                    method="restyle"
+                )
+            ]),
+        ),
+    ]
+)
+ 
+plot.show()
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
