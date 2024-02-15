@@ -9,49 +9,49 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Index",
+    "title": "The Brewery Project - Information Page",
     "section": "",
     "text": "Welcome to the Brewery Project Project!"
   },
   {
     "objectID": "index.html#import-libraries",
     "href": "index.html#import-libraries",
-    "title": "Index",
+    "title": "The Brewery Project - Information Page",
     "section": "Import Libraries",
     "text": "Import Libraries\n\n\nCode\n# import libraries\nimport numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport plotly.express as px\nimport plotly.graph_objects as go"
   },
   {
     "objectID": "index.html#load-data",
     "href": "index.html#load-data",
-    "title": "Index",
+    "title": "The Brewery Project - Information Page",
     "section": "load data",
     "text": "load data\n\n\nCode\ndf = px.data.tips()\ndf.head()\n\n\n\n\n\n\n\n\n\ntotal_bill\ntip\nsex\nsmoker\nday\ntime\nsize\n\n\n\n\n0\n16.99\n1.01\nFemale\nNo\nSun\nDinner\n2\n\n\n1\n10.34\n1.66\nMale\nNo\nSun\nDinner\n3\n\n\n2\n21.01\n3.50\nMale\nNo\nSun\nDinner\n3\n\n\n3\n23.68\n3.31\nMale\nNo\nSun\nDinner\n2\n\n\n4\n24.59\n3.61\nFemale\nNo\nSun\nDinner\n4"
   },
   {
     "objectID": "index.html#matplotlib-example",
     "href": "index.html#matplotlib-example",
-    "title": "Index",
+    "title": "The Brewery Project - Information Page",
     "section": "Matplotlib Example",
     "text": "Matplotlib Example\n\n\nCode\n# matplotlib example\nplt.scatter(data = df, x = 'total_bill', y = 'tip')"
   },
   {
     "objectID": "index.html#seaborn-example",
     "href": "index.html#seaborn-example",
-    "title": "Index",
+    "title": "The Brewery Project - Information Page",
     "section": "Seaborn Example",
     "text": "Seaborn Example\n\n\nCode\n# seaborn example\nsns.scatterplot(data = df, x = 'total_bill', y = 'tip')"
   },
   {
     "objectID": "index.html#plotly-example",
     "href": "index.html#plotly-example",
-    "title": "Index",
+    "title": "The Brewery Project - Information Page",
     "section": "Plotly Example",
     "text": "Plotly Example\n\n\nCode\n# plotly example\nfig = px.scatter(df, x='total_bill', y=\"tip\", color='time',\n                 symbol='sex', size='size', facet_row='day',\n                 facet_col='time')\n \nfig.show()"
   },
   {
     "objectID": "index.html#plotly-interactive-example",
     "href": "index.html#plotly-interactive-example",
-    "title": "Index",
+    "title": "The Brewery Project - Information Page",
     "section": "Plotly Interactive Example",
     "text": "Plotly Interactive Example\n\n\nCode\n# plotly interactivity example I\nplot = go.Figure(data=[go.Scatter(\n    x=df['day'],\n    y=df['tip'],\n    mode='markers',)\n])\n \n# Add dropdown\nplot.update_layout(\n    updatemenus=[\n        dict(\n            type=\"buttons\",\n            direction=\"left\",\n            buttons=list([\n                dict(\n                    args=[\"type\", \"scatter\"],\n                    label=\"Scatter Plot\",\n                    method=\"restyle\"\n                ),\n                dict(\n                    args=[\"type\", \"bar\"],\n                    label=\"Bar Chart\",\n                    method=\"restyle\"\n                )\n            ]),\n        ),\n    ]\n)\n \nplot.show()"
   },
