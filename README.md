@@ -21,9 +21,8 @@
 5. it's good practice to make `git status` checks
 6. optional, but recommended, apply `quarto render` 
 7. `git add [file(s)]` (can use `git add .` to add all available files)
-8.
-  - if text editor set to appear to receive and edit message, use `git commit`
-  - else (or alternatively), use `git commit -m "message"`
+8i. if text editor set to appear to receive and edit message, use `git commit`
+8ii. else (or alternatively), use `git commit -m "message"`
 9. finally, `git push origin [branch]`; will most likely want to use `git push origin main`
 
 ## Data Sources
