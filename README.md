@@ -22,6 +22,16 @@
 6. optional, but recommended, apply `quarto render` 
 7. `git add [file(s)]` (can use `git add .` to add all available files)
 8.
-- if text editor set to appear to receive and edit message, use `git commit`
-- else (or alternatively), use `git commit -m "message"`
+  - if text editor set to appear to receive and edit message, use `git commit`
+  - else (or alternatively), use `git commit -m "message"`
 9. finally, `git push origin [branch]`; will most likely want to use `git push origin main`
+
+## Data Sources
+
+### [Open Brewery DB](https://www.openbrewerydb.org/)
+
+- [GitHub Directory](https://github.com/openbrewerydb/openbrewerydb/)
+  - [csv files](https://github.com/openbrewerydb/openbrewerydb/tree/master/data)
+- [API Documentation](https://www.openbrewerydb.org/documentation)
+- [openbrewerydb-python (*Python API Wrapper Module*)](https://jrbourbeau.github.io/openbrewerydb-python/)
+  - [Example Usage](https://jrbourbeau.github.io/openbrewerydb-python/examples.html)
