@@ -1,6 +1,6 @@
 # The Brewery Project
 
-<span>Website link: [The Brewery Project - Official Website](https://the-brewery-project.github.io/The-Brewery-Project/)</span>
+[The Brewery Project - Official Website](https://the-brewery-project.github.io/The-Brewery-Project/)
 
 ## General Procedures for Working with the Website
 
@@ -21,10 +21,9 @@
 5. it's good practice to make `git status` checks
 6. optional, but recommended, apply `quarto render` 
 7. `git add [file(s)]` (can use `git add .` to add all available files)
-8. commit contribution
-  1. if text editor set to appear to receive and edit message, use `git commit`
-  2. else (or alternatively), use `git commit -m "message"`
-9. finally, `git push origin [branch]`; will most likely want to use `git push origin main`
+8. commit contribution: if text editor set to appear to receive and edit message, use `git commit`
+9. commit contribution: (or alternatively), use `git commit -m "message"`
+10. finally, `git push origin [branch]`; will most likely want to use `git push origin main`
 
 ## Data Sources
 
