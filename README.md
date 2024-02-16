@@ -35,6 +35,8 @@
 - [openbrewerydb-python (*Python API Wrapper Module*)](https://jrbourbeau.github.io/openbrewerydb-python/)
   - [Example Usage](https://jrbourbeau.github.io/openbrewerydb-python/examples.html)
   
+### [Census](https://www.census.gov/data/tables/time-series/demo/popest/2020s-counties-detail.html)
+  
 ## Question Ideas
 - Prices of common beers across geographic location
 - Prices of common beers across stores/venues in geographic locations
@@ -48,6 +50,9 @@
 - conclusion: brewery location suggestion
 - breweries and population characteristic
 - action plan for if you want to drink beer, if you want to brew beer, if you want to buy beer (whole sale / parties)
+
+
+[**Google Colab**](https://colab.research.google.com/drive/1ibfuagpEE6WWkICI7EIa3ieKFlFbBQqU?authuser=1)
 
 
 
