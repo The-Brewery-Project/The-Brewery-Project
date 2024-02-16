@@ -19,7 +19,7 @@
 3. pay attention to branch; will most likely be working on branch `main`
 4. make contributions
 5. it's good practice to make `git status` checks
-6. optional, but recommended, apply `quarto render` 
+6. optional, but recommended, apply `quarto render`
 7. `git add [file(s)]` (can use `git add .` to add all available files)
 8. commit contribution: if text editor set to appear to receive and edit message, use `git commit`
 9. commit contribution: (or alternatively), use `git commit -m "message"`
@@ -34,3 +34,23 @@
 - [API Documentation](https://www.openbrewerydb.org/documentation)
 - [openbrewerydb-python (*Python API Wrapper Module*)](https://jrbourbeau.github.io/openbrewerydb-python/)
   - [Example Usage](https://jrbourbeau.github.io/openbrewerydb-python/examples.html)
+  
+## Question Ideas
+- Prices of common beers across geographic location
+- Prices of common beers across stores/venues in geographic locations
+- Breweries near 14ers
+- Breweries near other significant areas
+- Breweries near hobby specific areas / colleges/ tech hubs
+- Breweries and beer sales (common beers) throughout the year
+- average salary by concentration of breweries (micro breweries - type of brewery) <-> clustering
+- average age by concentration of breweries (micro breweries)
+- conclusion: destination suggestions recommendation engine
+- conclusion: brewery location suggestion
+- breweries and population characteristic
+- action plan for if you want to drink beer, if you want to brew beer, if you want to buy beer (whole sale / parties)
+
+
+
+
+
+
