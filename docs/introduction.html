@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -124,7 +143,17 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-is-the-project" id="toc-what-is-the-project" class="nav-link active" data-scroll-target="#what-is-the-project">What Is The Project?</a></li>
+  <li><a href="#why-does-the-project-matter" id="toc-why-does-the-project-matter" class="nav-link" data-scroll-target="#why-does-the-project-matter">Why Does The Project Matter?</a></li>
+  <li><a href="#who-does-the-project-affect" id="toc-who-does-the-project-affect" class="nav-link" data-scroll-target="#who-does-the-project-affect">Who Does The Project Affect?</a></li>
+  <li><a href="#what-has-been-done-so-far" id="toc-what-has-been-done-so-far" class="nav-link" data-scroll-target="#what-has-been-done-so-far">What Has Been Done So Far?</a></li>
+  <li><a href="#what-can-still-be-done" id="toc-what-can-still-be-done" class="nav-link" data-scroll-target="#what-can-still-be-done">What Can Still Be Done?</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -148,12 +177,90 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Tab for our Introduction!</p>
-<p>The Introduction is 5+ paragraphs where a paragraph is at least 10 sentences. The Intro should also have images to help the reader to understand your topic area. Do not include anything about models or methods, datasets, etc. This area is only about the topic, what it is, why it matters, who it affects, what has been done so far, what can still be done. etc. You must also include ten questions that you seek to answer based on your dataset. This is a MUST. Ensure questions make sense and relate to real-life.</p>
+<section id="what-is-the-project" class="level1">
+<h1>What Is The Project?</h1>
+<div class="columns">
+<div class="column" style="width:65%;">
+<p>The Brewery Project takes an in depth look into the world of Breweries and Beer in the US. This team will explore features of the brewing market from beer prices to brewery locations to common demographics of successful brewery towns. We will focus on key areas of interest for both the seasoned brew bros and potential brewery business builders. This study will include comparisons between micro to large-scale breweries across the country.</p>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:30%;">
+<p><img src="images/placeholder.jpg" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="why-does-the-project-matter" class="level1">
+<h1>Why Does The Project Matter?</h1>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><img src="images/placeholder.jpg" class="img-fluid"></p>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:65%;">
+<p>This gives insight into where brewery hot spots are, and how they are associated with communities and activities. We - as beer lovers ourselves - are always looking for new breweries with good beers. We find it interesting how brewing communities often cluster near mountain activity regions and would like to take a closer look at beer consumption across major cities, the composition of breweries (micro to large commercial), and what populations support local small scale breweries best.</p>
+<p>This information can ultimately inform business decisions in the brewery industry if you are a new or experienced brewery looking for a potential new location and want to know more about the behaviors of beer drinkers and the climate of brewery hot spots.</p>
+</div>
+</div>
+</section>
+<section id="who-does-the-project-affect" class="level1">
+<h1>Who Does The Project Affect?</h1>
+<div class="columns">
+<div class="column" style="width:65%;">
+<p>Beer drinkers, 21+ in the US! Certain localities have what’s called a “beer passport” (explain). We want to create a beer map/recommendation engine for top X metro areas.</p>
+<p>Beer brewers. Recommendation for entering the market, via analysis of gaps in the market</p>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:30%;">
+<p><img src="images/placeholder.jpg" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="what-has-been-done-so-far" class="level1">
+<h1>What Has Been Done So Far?</h1>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><img src="images/what_has_been_done.jpg" class="img-fluid"></p>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:65%;">
+<p>There are several websites, databases, and applications associated with individual beer brands, breweries, and venues.</p>
+<p>What could be considered as “the world’s most popular beer-rating platform” <span class="citation" data-cites="tyranny">[<a href="#ref-tyranny" role="doc-biblioref">1</a>]</span>, UNTAPPD <span class="citation" data-cites="untappd">[<a href="#ref-untappd" role="doc-biblioref">2</a>]</span> allows the community to rate beers and breweries. They maintain a robust database which helps maintain and showcase the ratings and sustain an almost social media like presences for individuals, brewers, and venues. Previously, they had API access for private app developers to use, but at this point in time has been discontinued.</p>
+<p>A completely open-source database project focused around brewery-related data known as the Open Brewery DB <span class="citation" data-cites="openbrewerydb">[<a href="#ref-openbrewerydb" role="doc-biblioref">3</a>]</span>. They maintain API access, a GitHub page with international brewery data available for download, and even a Discord for this community to discuss their projects surrounding this open-source data. They have a project page with featured projects using their database. Most apps and projects at least influenced by this project have a social media or geographical focus.</p>
+<p>The original data source and scrapers for the Open Brewery DB project was the Brewers Association <span class="citation" data-cites="brewersassociation">[<a href="#ref-brewersassociation" role="doc-biblioref">4</a>]</span>. Their stated purpose is to “promote and protect American craft brewers, their beers, and the community of brewing enthusiasts.” Their website features detailed exploratory analysis into the growth and other aspects of the brewing industry.</p>
+<p>In summary, many of the current applications have been initial data compilations of craft beer and breweries, and apps focused on a social media or geographical recommendation focus.</p>
+</div>
+</div>
+</section>
+<section id="what-can-still-be-done" class="level1">
+<h1>What Can Still Be Done?</h1>
+<div class="columns">
+<div class="column" style="width:65%;">
+<p>Text goes here.</p>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:30%;">
+<p><img src="images/placeholder.jpg" class="img-fluid"></p>
+</div>
+</div>
 
 
 
-</main> <!-- /main -->
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-tyranny" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Bernot K (2021) <a href="https://www.goodbeerhunting.com/sightlines/2021/2/23/how-untappd-ratings-became-craft-beers-most-fickle-prize"><span class="nocase">Tyranny of the tickers - how UNTAPPD ratings became craft beer<span>’</span>s most Fickle prize</span></a>. Good Beer Hunting</div>
+</div>
+<div id="ref-untappd" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">UNTAPPD (2024) <a href="https://untappd.com/">UNTAPPD</a></div>
+</div>
+<div id="ref-openbrewerydb" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">DB OB (2024) <a href="https://www.openbrewerydb.org/">Open brewery DB</a></div>
+</div>
+<div id="ref-brewersassociation" class="csl-entry" role="listitem">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">Association B (2024) <a href="https://www.brewersassociation.org/">Brewers association</a></div>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

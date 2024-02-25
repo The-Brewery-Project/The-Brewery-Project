@@ -1,7 +1,102 @@
 ---
 title: "Introduction"
+bibliography: references.bib
+csl: diabetologia.csl
 ---
 
-Tab for our Introduction!
+# What Is The Project?
 
-The Introduction is 5+ paragraphs where a paragraph is at least 10 sentences. The Intro should also have images to help the reader to understand your topic area. Do not include anything about models or methods, datasets, etc. This area is only about the topic, what it is, why it matters, who it affects, what has been done so far, what can still be done. etc. You must also include ten questions that you seek to answer based on your dataset. This is a MUST. Ensure questions make sense and relate to real-life.
+::: columns
+::: {.column width="65%"}
+
+The Brewery Project takes an in depth look into the world of Breweries and Beer in the US. This team will explore features of the brewing market from beer prices to brewery locations to common demographics of successful brewery towns. We will focus on key areas of interest for both the seasoned brew bros and potential brewery business builders. This study will include comparisons between micro to large-scale breweries across the country.
+
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="30%"}
+![](images/placeholder.jpg)
+:::
+:::
+
+# Why Does The Project Matter?
+
+::: columns
+::: {.column width="30%"}
+![](images/placeholder.jpg)
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="65%"}
+
+This gives insight into where brewery hot spots are, and how they are associated with communities and activities. We - as beer lovers ourselves - are always looking for new breweries with good beers. We find it interesting how brewing communities often cluster near mountain activity regions and would like to take a closer look at beer consumption across major cities, the composition of breweries (micro to large commercial), and what populations support local small scale breweries best. 
+
+This information can ultimately inform business decisions in the brewery industry if you are a new or experienced brewery looking for a potential new location and want to know more about the behaviors of beer drinkers and the climate of brewery hot spots.
+
+:::
+:::
+
+# Who Does The Project Affect?
+
+::: columns
+::: {.column width="65%"}
+
+Beer drinkers, 21+ in the US! Certain localities have what’s called a “beer passport” (explain). We want to create a beer map/recommendation engine for top X metro areas.
+
+Beer brewers. Recommendation for entering the market, via analysis of gaps in the market
+
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="30%"}
+![](images/placeholder.jpg)
+:::
+:::
+
+# What Has Been Done So Far?
+
+::: columns
+::: {.column width="30%"}
+![](images/what_has_been_done.jpg)
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="65%"}
+
+There are several websites, databases, and applications associated with individual beer brands, breweries, and venues.
+
+What could be considered as "the world's most popular beer-rating platform" [@tyranny], UNTAPPD [@untappd] allows the community to rate beers and breweries. They maintain a robust database which helps maintain and showcase the ratings and sustain an almost social media like presences for individuals, brewers, and venues. Previously, they had API access for private app developers to use, but at this point in time has been discontinued.
+
+A completely open-source database project focused around brewery-related data known as the Open Brewery DB [@openbrewerydb]. They maintain API access, a GitHub page with international brewery data available for download, and even a Discord for this community to discuss their projects surrounding this open-source data. They have a project page with featured projects using their database. Most apps and projects at least influenced by this project have a social media or geographical focus.
+
+The original data source and scrapers for the Open Brewery DB project was the Brewers Association [@brewersassociation]. Their stated purpose is to "promote and protect American craft brewers, their beers, and the community of brewing enthusiasts." Their website features detailed exploratory analysis into the growth and other aspects of the brewing industry.
+
+In summary, many of the current applications have been initial data compilations of craft beer and breweries, and apps focused on a social media or geographical recommendation focus. 
+
+:::
+:::
+
+# What Can Still Be Done?
+
+::: columns
+::: {.column width="65%"}
+
+Text goes here.
+
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="30%"}
+![](images/placeholder.jpg)
+:::
+:::
