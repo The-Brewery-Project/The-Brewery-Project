@@ -19,7 +19,7 @@ The Brewery Project will start with a look into beer sales and pricing across th
 :::
 
 ::: {.column width="30%"}
-![](images/placeholder.jpg)
+![](images/what_is_it.jpg)
 :::
 :::
 
@@ -85,7 +85,9 @@ A completely open-source database project focused around brewery-related data kn
 
 The original data source and scrapers for the Open Brewery DB project was the Brewers Association [@brewersassociation]. Their stated purpose is to "promote and protect American craft brewers, their beers, and the community of brewing enthusiasts." Their website features detailed exploratory analysis into the growth and other aspects of the brewing industry.
 
-In summary, many of the current applications have been initial data compilations of craft beer and breweries, and apps focused on a social media or geographical recommendation focus. 
+In summary, many of the current applications have been initial data compilations of craft beer and breweries, and apps focused on a social media or geographical recommendation focus.
+
+However, an industry which does have plenty of research and is potentially transferable is real estate. The article “5 Ways to Apply Data Science to Real Estate” by Nelson Lau provides a breakdown of how different features in data are applied to make price predictions, perform cluster analysis, and applications which use GIS.
 
 :::
 :::
@@ -108,3 +110,18 @@ To build this model, we intend to utilize the various available datasets related
 ![](images/placeholder.jpg)
 :::
 :::
+
+# Research Questions
+
+1. What are the prices of common beers across geographic locations?
+2. What are the prices of common beers across stores/venues within these geographic locations?
+3. What is the frequency of breweries near 14ers?
+4. What is the frequency of breweries near Beach Towns?
+5. What is the frequency of breweries near College Towns?
+6. What is the frequency of breweries near Tech hubs?
+7. What is the frequency of breweries near Major Cities?
+8. How can we define a brewery hotspot?
+9. What are the top brewery hotspots?
+10. What are the average population statistics (income, age, race, etc.) near brewery hotspots?
+11. What destinations can be recommended for new brewers looking to start a business?
+12. What destinations can be recommended for beer drinkers?
