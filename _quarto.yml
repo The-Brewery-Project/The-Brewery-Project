@@ -7,7 +7,7 @@ website:
   favicon: images/beer-mug-icon.png
   page-footer:
     center: "The Brewery Project"
-    background: "#158CBA"
+    background: "#EB6864"
     
   navbar:
     left:
@@ -33,7 +33,7 @@ format:
     citations-hover: true
     code-link: true
     code-fold: true
-    theme: lumen
+    theme: journal
     css: styles.css
-    code-block-border-left: "#158CBA"
+    code-block-border-left: "#EB6864"
     toc: true

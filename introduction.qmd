@@ -19,7 +19,19 @@ The Brewery Project will start with a look into beer sales and pricing across th
 :::
 
 ::: {.column width="30%"}
+:::
+:::
+
+::: columns
+::: {.column width="10%"}
+:::
+
+::: {.column width="80%"}
+
 ![](images/what_is_it.jpg)
+:::
+
+::: {.column width="10%"}
 :::
 :::
 
@@ -27,7 +39,7 @@ The Brewery Project will start with a look into beer sales and pricing across th
 
 ::: columns
 ::: {.column width="30%"}
-![](images/placeholder.jpg)
+![](images/why_does_it_matter.jpg)
 :::
 
 ::: {.column width="5%"}
@@ -61,7 +73,7 @@ Ultimately, if you are 21+ and want to drink beer, or brew it for others, this p
 :::
 
 ::: {.column width="30%"}
-![](images/placeholder.jpg)
+![](images/who_does_it_affect.jpg)
 :::
 :::
 
@@ -107,9 +119,11 @@ To build this model, we intend to utilize the various available datasets related
 :::
 
 ::: {.column width="30%"}
-![](images/placeholder.jpg)
+![](images/what_can_still_be_done.jpg)
 :::
 :::
+
+---
 
 # Research Questions
 
