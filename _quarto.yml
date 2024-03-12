@@ -23,7 +23,7 @@ website:
       - icon: github
         href: https://github.com/The-Brewery-Project/The-Brewery-Project
       - icon: file-pdf
-        href: docs/the-brewery-project.pdf
+        href: images/the-brewery-project.pdf
 
 format:
   html:

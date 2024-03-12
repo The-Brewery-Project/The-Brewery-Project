@@ -22,7 +22,7 @@ for pdf in pdfs:
     merger.append(pdf)
 
 # write the final merged pdf into the docs folder
-merger.write('../docs/the-brewery-project.pdf')
+merger.write('../images/the-brewery-project.pdf')
 
 # close pdf merger object
 merger.close()
