@@ -7,7 +7,7 @@ website:
   favicon: images/beer-mug-icon.png
   page-footer:
     center: "The Brewery Project"
-    background: "#EB6864"
+    background: primary
     
   navbar:
     left:
@@ -22,6 +22,8 @@ website:
     right:
       - icon: github
         href: https://github.com/The-Brewery-Project/The-Brewery-Project
+      - icon: file-pdf
+        href: docs/the-brewery-project.pdf
 
 format:
   html:
@@ -33,7 +35,13 @@ format:
     citations-hover: true
     code-link: true
     code-fold: true
-    theme: journal
+    theme: yeti
     css: styles.css
-    code-block-border-left: "#EB6864"
+    code-block-border-left: primary
     toc: true
+  pdf:
+    toc: true
+    number-sections: true
+    link-citations: true
+    colorlinks: true
+    documentclass: scrreprt

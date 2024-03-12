@@ -32,30 +32,12 @@
 - [GitHub Directory](https://github.com/openbrewerydb/openbrewerydb/)
   - [csv files](https://github.com/openbrewerydb/openbrewerydb/tree/master/data)
 - [API Documentation](https://www.openbrewerydb.org/documentation)
-- [openbrewerydb-python (*Python API Wrapper Module*)](https://jrbourbeau.github.io/openbrewerydb-python/)
-  - [Example Usage](https://jrbourbeau.github.io/openbrewerydb-python/examples.html)
+- See `[file].ipynb` for exploratory measures in extracting data via API
+- See `[file].py` for final extraction from the API into `[file].csv`
   
 ### [Census](https://www.census.gov/data/tables/time-series/demo/popest/2020s-counties-detail.html)
   
-## Question Ideas
-- Prices of common beers across geographic location
-- Prices of common beers across stores/venues in geographic locations
-- Breweries near 14ers
-- Breweries near other significant areas
-- Breweries near hobby specific areas / colleges/ tech hubs
-- Breweries and beer sales (common beers) throughout the year
-- average salary by concentration of breweries (micro breweries - type of brewery) <-> clustering
-- average age by concentration of breweries (micro breweries)
-- conclusion: destination suggestions recommendation engine
-- conclusion: brewery location suggestion
-- breweries and population characteristic
-- action plan for if you want to drink beer, if you want to brew beer, if you want to buy beer (whole sale / parties)
+## Project Management
 
-
-[**Google Colab**](https://colab.research.google.com/drive/1ibfuagpEE6WWkICI7EIa3ieKFlFbBQqU?authuser=1)
-
-
-
-
-
-
+- [**Google Colab**](https://colab.research.google.com/drive/1ibfuagpEE6WWkICI7EIa3ieKFlFbBQqU?authuser=1)
+- [**Project Introduction**](https://docs.google.com/document/d/1eNdriCLmfu4RV5lMJWjYJYKHs_v17lRWWTFNnlEVmzs/edit)
