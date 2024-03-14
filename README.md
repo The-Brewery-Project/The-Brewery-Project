@@ -33,9 +33,26 @@
   - [csv files](https://github.com/openbrewerydb/openbrewerydb/tree/master/data)
 - [API Documentation](https://www.openbrewerydb.org/documentation)
 - See `[file].ipynb` for exploratory measures in extracting data via API
-- See `[file].py` for final extraction from the API into `[file].csv`
+- See `open-brewery-db-extractor.py` for final extraction from the API into `open-brewery-db.csv`
   
 ### [Census](https://www.census.gov/data/tables/time-series/demo/popest/2020s-counties-detail.html)
+
+## Directory
+
+## Compiling
+
+### Website and Report
+1. `cd` into project root directory (will likely look like `The-Brewery-Project (main)`)
+2. run `quarto render`
+3. `cd` into `scripts`
+4. run `python pdf_manager.py`
+5. `cd` back into project root directory (`cd ..`)
+6. run `quarto render` again
+
+### Data Management
+1. `cd` into project root directory (will likely look like `The-Brewery-Project (main)`)
+2. `cd` into `scripts`
+3. run `python open-brewery-db-extractor.py`
   
 ## Project Management
 
