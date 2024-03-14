@@ -52,4 +52,4 @@ data_us['street'] = data_us['street'].apply(func=lower_strip)
 data_us['website_url'] = data_us['website_url'].apply(func=lower_strip)
 
 # export file
-data_us.to_csv('../data/open-brewery-db.csv')
+data_us.to_csv('../data/open-brewery-db.csv', index = False)
