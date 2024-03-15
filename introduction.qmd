@@ -132,15 +132,14 @@ To build this model, we intend to utilize the various available datasets related
 
 # Research Questions
 
-1. What are the prices of common beers across geographic locations?
-2. What are the prices of common beers across stores/venues within these geographic locations?
-3. What is the frequency of breweries near 14ers?
-4. What is the frequency of breweries near Beach Towns?
-5. What is the frequency of breweries near College Towns?
-6. What is the frequency of breweries near Tech hubs?
-7. What is the frequency of breweries near Major Cities?
-8. How can we define a brewery hotspot?
-9. What are the top brewery hotspots?
-10. What are the average population statistics (income, age, race, etc.) near brewery hotspots?
-11. What destinations can be recommended for new brewers looking to start a business?
-12. What destinations can be recommended for beer drinkers?
+1. What is the frequency of breweries by US state?
+2. What is the frequency of breweries near Outdoor Recreational Areas (hiking hotspots, ski resorts, state or national parks, etc.)?
+3. What is the frequency of breweries near Beach Towns?
+4. What is the frequency of breweries near College Towns?
+5. What is the frequency of breweries near Tech hubs?
+6. What is the frequency of breweries near Major Cities?
+7. How can we define a brewery hotspot?
+8. What are the top brewery hotspots?
+9. What are the average population statistics (income, age, race, etc.) near brewery hotspots?
+10. What destinations can be recommended for new brewers looking to start a business?
+11. What destinations can be recommended for beer drinkers?

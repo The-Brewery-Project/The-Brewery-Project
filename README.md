@@ -57,4 +57,4 @@
 ## Project Management
 
 - [**Google Colab**](https://colab.research.google.com/drive/1ibfuagpEE6WWkICI7EIa3ieKFlFbBQqU?authuser=1)
-- [**Project Introduction**](https://docs.google.com/document/d/1eNdriCLmfu4RV5lMJWjYJYKHs_v17lRWWTFNnlEVmzs/edit)
+- [**Google Document**](https://docs.google.com/document/d/1eNdriCLmfu4RV5lMJWjYJYKHs_v17lRWWTFNnlEVmzs/edit)
