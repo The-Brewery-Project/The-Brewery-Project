@@ -1,0 +1,153 @@
+city,state,colleges
+stanford,california,stanford university
+williamsburg,virginia,william & mary
+pasadena,california,california institute of technology
+princeton,new jersey,princeton university
+charlottesville,virginia,university of virginia
+ann arbor,michigan,university of michigan-ann arbor
+cambridge,massachusetts,"harvard university, massachusetts institute of technology, lesley university"
+berkeley,california,university of california-berkeley
+champaign,illinois,university of illinois urbana-champaign
+gainesville,florida,"university of florida, santa fe college"
+west lafayette,indiana,purdue university
+morgantown,west virginia,west virginia university
+chapel hill,north carolina,university of north carolina at chapel hill
+evanston,illinois,northwestern university
+fairfax,virginia,george mason university
+university park,pennsylvania,pennsylvania state university
+oxford,mississippi,university of mississippi
+east lansing,michigan,michigan state university
+davis,california,university of california-davis
+college station,texas,texas a & m university-college station
+shepherdstown,west virginia,shepherd university
+boulder,colorado,university of colorado boulder
+ithaca,new york,"ithaca college, cornell university"
+athens,georgia,university of georgia
+eugene,oregon,university of oregon
+los angeles,california,"university of california-los angeles, university of southern california, occidental college, loyola marymount university, california state university-los angeles, mount saint mary's university"
+iowa city,iowa,university of iowa
+newark,delaware,university of delaware
+madison,wisconsin,"edgewood college, university of wisconsin-madison, herzing university-madison"
+college park,maryland,university of maryland-college park
+stillwater,oklahoma,oklahoma state university
+tallahassee,florida,"florida state university, florida agricultural and mechanical university"
+bloomington,indiana,indiana university-bloomington
+columbia,missouri,"university of missouri-columbia, columbia college, stephens college"
+blacksburg,virginia,virginia polytechnic institute and state university
+rolla,missouri,missouri university of science and technology
+provo,utah,brigham young university
+la jolla,california,"university of california-san diego, national university"
+minneapolis,minnesota,"dunwoody college of technology, university of minnesota-twin cities, augsburg university"
+tucson,arizona,university of arizona
+notre dame,indiana,"university of notre dame, saint mary's college"
+norman,oklahoma,university of oklahoma-norman campus
+new brunswick,new jersey,rutgers university-new brunswick
+baton rouge,louisiana,"louisiana state university, southern university and a & m college"
+clemson,south carolina,clemson university
+lexington,virginia,"washington and lee university, virginia military institute"
+columbia,south carolina,"university of south carolina-columbia, benedict college, columbia college"
+lexington,kentucky,university of kentucky
+ames,iowa,iowa state university
+golden,colorado,colorado school of mines
+seattle,washington,"seattle university, university of washington-seattle campus, seattle pacific university, city university of seattle, seattle central college, north seattle college, south seattle college"
+fayetteville,arkansas,university of arkansas
+pittsburgh,pennsylvania,"university of pittsburgh, chatham university, carnegie mellon university, duquesne university, point park university, la roche university, carlow university"
+fredericksburg,virginia,university of mary washington
+chico,california,california state university-chico
+west chester,pennsylvania,west chester university of pennsylvania
+northridge,california,california state university-northridge
+tuscaloosa,alabama,the university of alabama
+fort collins,colorado,colorado state university
+manhattan,new york,"columbia university, new york university, barnard college, cuny john jay college of criminal justice, cuny city college, marymount manhattan college, nyack college, cuny hunter college, cuny bernard m baruch college, touro college, fashion institute of
+technology, the new school, yeshiva university, pace university, metropolitan college of new york, cuny graduate school and university center"
+atlanta,georgia,"emory university, georgia institute of technology, spelman college, morehouse college, atlanta metropolitan state college, oglethorpe university, clark atlanta university, georgia state university, american intercontinental university-atlanta"
+laramie,wyoming,university of wyoming
+new haven,connecticut,"yale university, albertus magnus college, southern connecticut state university"
+la crosse,wisconsin,"university of wisconsin-la crosse, viterbo university"
+lawrence,kansas,university of kansas
+auburn,alabama,auburn university
+harrisburg,pennsylvania,harrisburg university of science and technology
+las cruces,new mexico,new mexico state university
+houghton,michigan,michigan technological university
+cookeville,tennessee,tennessee technological university
+flagstaff,arizona,northern arizona university
+san jose,california,san jose state university
+santa barbara,california,"university of california-santa barbara, albertus magnus college"
+menomonie,wisconsin,university of wisconsin-stout
+boone,north carolina,appalachian state university
+knoxville,tennessee,the university of tennessee-knoxville
+raleigh,north carolina,"meredith college, north carolina state university at raleigh, shaw university"
+storrs,connecticut,university of connecticut
+greenville,south carolina,"furman university, bob jones university"
+philadelphia,pennsylvania,"university of pennsylvania, temple university, chestnut hill college, drexel university, thomas jefferson university, saint joseph's university, la salle university, holy family university"
+austin,texas,"the university of texas at austin, saint edward's university, huston-tillotson university, concordia university texas"
+st louis,missouri,"washington university in st louis, saint louis university, fontbonne university, missouri baptist university, harris-stowe state university, university of missouri-st louis, maryville university of saint louis, webster university"
+oxford,ohio,miami university-oxford
+dillon,montana,the university of montana-western
+ashland,oregon,southern oregon university
+buzzards bay,massachusetts,massachusetts maritime academy
+eau claire,wisconsin,university of wisconsin-eau claire
+cleveland,ohio,"notre dame college, case western reserve university, cleveland state university"
+new paltz,new york,state university of new york at new paltz
+pullman,washington,washington state university
+berrien springs,michigan,andrews university
+kirksville,missouri,truman state university
+syracuse,new york,"syracuse university, le moyne college, suny college of environmental science and forestry"
+chicago,illinois,"university of chicago, columbia college chicago, saint augustine college, illinois institute of technology, loyola university chicago, university of illinois chicago, depaul university, saint xavier university, roosevelt university, north park university,
+national louis university, chicago state university, northeastern illinois university"
+buffalo,new york,"canisius college, medaille college, d'youville college, university at buffalo, suny buffalo state"
+columbus,ohio,"ohio state university, capital university, ohio dominican university"
+winona,minnesota,"winona state university, saint mary's university of minnesota"
+annapolis,maryland,united states naval academy
+manhattan,kansas,kansas state university
+cedar city,utah,southern utah university
+reno,nevada,university of nevada-reno
+starkville,mississippi,mississippi state university
+university center,michigan,saginaw valley state university
+san marcos,texas,texas state university
+stony brook,new york,stony brook university
+sacramento,california,california state university-sacramento
+bellingham,washington,western washington university
+bethlehem,pennsylvania,"lehigh university, moravian college"
+durham,north carolina,"duke university, north carolina central university"
+providence,rhode island,"brown university, providence college, rhode island college, johnson & wales university-providence"
+bozeman,montana,montana state university
+castine,maine,maine maritime academy
+greenville,north carolina,east carolina university
+grand junction,colorado,colorado mesa university
+cheney,washington,eastern washington university
+burlington,vermont,"champlain college, university of vermont"
+appleton,wisconsin,lawrence university
+huntington,west virginia,marshall university
+stevens point,wisconsin,university of wisconsin-stevens point
+denton,texas,"university of north texas, texas woman's university"
+louisville,kentucky,"university of louisville, bellarmine university, spalding university, sullivan university"
+long beach,california,california state university-long beach
+fullerton,california,"california state university-fullerton, hope international university"
+wilmington,north carolina,"platt college-miller-motte-wilmington, university of north carolina wilmington"
+richardson,texas,the university of texas at dallas
+pembroke,north carolina,university of north carolina at pembroke
+mount pleasant,michigan,central michigan university
+cedar falls,iowa,university of northern iowa
+platteville,wisconsin,university of wisconsin-platteville
+lubbock,texas,"texas tech university, lubbock christian university"
+cortland,new york,suny cortland
+newark,new jersey,"new jersey institute of technology, rutgers university-newark"
+terre haute,indiana,indiana state university
+san luis obispo,california,california polytechnic state university-san luis obispo
+normal,illinois,illinois state university
+phoenix,arizona,"arizona state university-downtown phoenix, university of phoenix-arizona, grand canyon university"
+moscow,idaho,university of idaho
+hattiesburg,mississippi,"university of southern mississippi, william carey university"
+ellensburg,washington,central washington university
+nashville,tennessee,"vanderbilt university, belmont university, lipscomb university, tennessee state university, trevecca nazarene university"
+cullowhee,north carolina,western carolina university
+lewisburg,pennsylvania,bucknell university
+ruston,louisiana,louisiana tech university
+salisbury,maryland,salisbury university
+hammond,louisiana,southeastern louisiana university
+river falls,wisconsin,university of wisconsin-river falls
+chattanooga,tennessee,the university of tennessee-chattanooga
+arcata,california,humboldt state university
+medford,massachusetts,tufts university
+greensboro,north carolina,"guilford college, university of north carolina at greensboro, north carolina a & t state university"
