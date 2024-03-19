@@ -39,9 +39,9 @@ format:
     css: styles.css
     code-block-border-left: primary
     toc: true
-  pdf:
-    toc: true
-    number-sections: true
-    link-citations: true
-    colorlinks: true
-    documentclass: scrreprt
+  # pdf:
+  #   toc: true
+  #   number-sections: true
+  #   link-citations: true
+  #   colorlinks: true
+  #   documentclass: scrreprt
