@@ -2,4 +2,46 @@
 title: "Data Exploration"
 ---
 
-Tab for Data Exploration!
+This page features our process for gathering, cleaning, and providing an initial exploratory analysis of the data used.
+
+# Open Brewery DB
+
+The driving dataset of our project, this was pulled via API from the Open Brewery DB [webiste](https://www.openbrewerydb.org/).
+
+## Data Cleaning
+
+### Initial Dataset
+
+![](images/data_exploration/open-brewery-db-1.png) ![](images/data_exploration/open-brewery-db-2.png)
+
+### Cleaning Process
+
+We first reviewed the countries available, and found cleaning and slicing on the country name column were warranted.
+
+![](images/data_exploration/open-brewery-db-4.png)
+
+After applying a strip and lowercase on the country column, we filtered just for the United States, and then examined the null values.
+
+With this amount of data and for the purposes of our project, we could probably remove the rows which don't contain a tier-1 address.
+
+Most tier-2 and tier-3 addresses are missing, so let's just remove those columns.
+
+Additionally, **street** is an identical column to **address_1** as is **state** to **state_province**. We can remove the duplicate columns.
+
+After removing  nonessential rows and columns, we applied the strip and lowercase procedure on the remaining columns, and then reexamined the null values.
+
+![](images/data_exploration/open-brewery-db-5.png)
+
+We decided to move forward with this data, and potentially massage any longitude/latitude data issues later. The phone and website_url columns will likely be irrelevant.
+
+### Cleaned Dataset
+
+![](images/data_exploration/open-brewery-db-6.png) ![](images/data_exploration/open-brewery-db-7.png)
+
+## Data Exploration
+
+Our initial observation of the data is that we are dealing almost primarily with categorical values.
+
+![](images/data_exploration/open-brewery-db-6.png)
+
+A useful starting point in the visualizations would be to find the top-5 and bottom-5 for brewery counts by state, and then provide an overall heat map of the United States by brewery.

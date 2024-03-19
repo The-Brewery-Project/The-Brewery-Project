@@ -129,8 +129,23 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="data_exploration.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#open-brewery-db" id="toc-open-brewery-db" class="nav-link active" data-scroll-target="#open-brewery-db">Open Brewery DB</a>
+  <ul class="collapse">
+  <li><a href="#data-cleaning" id="toc-data-cleaning" class="nav-link" data-scroll-target="#data-cleaning">Data Cleaning</a>
+  <ul class="collapse">
+  <li><a href="#initial-dataset" id="toc-initial-dataset" class="nav-link" data-scroll-target="#initial-dataset">Initial Dataset</a></li>
+  <li><a href="#cleaning-process" id="toc-cleaning-process" class="nav-link" data-scroll-target="#cleaning-process">Cleaning Process</a></li>
+  <li><a href="#cleaned-dataset" id="toc-cleaned-dataset" class="nav-link" data-scroll-target="#cleaned-dataset">Cleaned Dataset</a></li>
+  </ul></li>
+  <li><a href="#data-exploration" id="toc-data-exploration" class="nav-link" data-scroll-target="#data-exploration">Data Exploration</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -153,9 +168,42 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Tab for Data Exploration!</p>
+<p>This page features our process for gathering, cleaning, and providing an initial exploratory analysis of the data used.</p>
+<section id="open-brewery-db" class="level1">
+<h1>Open Brewery DB</h1>
+<p>The driving dataset of our project, this was pulled via API from the Open Brewery DB <a href="https://www.openbrewerydb.org/">webiste</a>.</p>
+<section id="data-cleaning" class="level2">
+<h2 class="anchored" data-anchor-id="data-cleaning">Data Cleaning</h2>
+<section id="initial-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="initial-dataset">Initial Dataset</h3>
+<p><img src="images/data_exploration/open-brewery-db-1.png" class="img-fluid"> <img src="images/data_exploration/open-brewery-db-2.png" class="img-fluid"></p>
+</section>
+<section id="cleaning-process" class="level3">
+<h3 class="anchored" data-anchor-id="cleaning-process">Cleaning Process</h3>
+<p>We first reviewed the countries available, and found cleaning and slicing on the country name column were warranted.</p>
+<p><img src="images/data_exploration/open-brewery-db-4.png" class="img-fluid"></p>
+<p>After applying a strip and lowercase on the country column, we filtered just for the United States, and then examined the null values.</p>
+<p>With this amount of data and for the purposes of our project, we could probably remove the rows which don’t contain a tier-1 address.</p>
+<p>Most tier-2 and tier-3 addresses are missing, so let’s just remove those columns.</p>
+<p>Additionally, <strong>street</strong> is an identical column to <strong>address_1</strong> as is <strong>state</strong> to <strong>state_province</strong>. We can remove the duplicate columns.</p>
+<p>After removing nonessential rows and columns, we applied the strip and lowercase procedure on the remaining columns, and then reexamined the null values.</p>
+<p><img src="images/data_exploration/open-brewery-db-5.png" class="img-fluid"></p>
+<p>We decided to move forward with this data, and potentially massage any longitude/latitude data issues later. The phone and website_url columns will likely be irrelevant.</p>
+</section>
+<section id="cleaned-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="cleaned-dataset">Cleaned Dataset</h3>
+<p><img src="images/data_exploration/open-brewery-db-6.png" class="img-fluid"> <img src="images/data_exploration/open-brewery-db-7.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="data-exploration" class="level2">
+<h2 class="anchored" data-anchor-id="data-exploration">Data Exploration</h2>
+<p>Our initial observation of the data is that we are dealing almost primarily with categorical values.</p>
+<p><img src="images/data_exploration/open-brewery-db-6.png" class="img-fluid"></p>
+<p>A useful starting point in the visualizations would be to find the top-5 and bottom-5 for brewery counts by state, and then provide an overall heat map of the United States by brewery.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
