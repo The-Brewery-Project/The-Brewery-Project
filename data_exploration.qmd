@@ -18,21 +18,19 @@ The driving dataset of our project, this was pulled via API from the Open Brewer
 
 We first reviewed the countries available, and found cleaning and slicing on the country name column were warranted.
 
-![](images/data_exploration/open-brewery-db-4.png)
+![](images/data_exploration/open-brewery-db-1.png)
 
 After applying a strip and lowercase on the country column, we filtered just for the United States, and then examined the null values.
 
-With this amount of data and for the purposes of our project, we could probably remove the rows which don't contain a tier-1 address.
+There are quite a few missing rows in **address_1** column, and even some incomplete addresses at that. With the the completeness of the **city**, **state**, and **postal_code**, we can disregaard the other address columns and drop all three.
 
-Most tier-2 and tier-3 addresses are missing, so let's just remove those columns.
-
-Additionally, **street** is an identical column to **address_1** as is **state** to **state_province**. We can remove the duplicate columns.
+Additionally, **state** is identical to **state_province**. We can remove the duplicate columns.
 
 After removing  nonessential rows and columns, we applied the strip and lowercase procedure on the remaining columns, and then reexamined the null values.
 
-![](images/data_exploration/open-brewery-db-3.png)
+![](images/data_exploration/open-brewery-db-2.png)
 
-We decided to move forward with this data, and potentially massage any longitude/latitude data issues later. The phone and website_url columns will likely be irrelevant.
+We decided to move forward with this data, and potentially massage any **longitude/latitude** data issues later. Keeping the column could be useful later. The **phone** and **website_url** columns will likely be irrelevant, but they may prove useful in the future so retained those columns.
 
 ### Cleaned Dataset
 
@@ -42,7 +40,7 @@ We decided to move forward with this data, and potentially massage any longitude
 
 Our initial observation of the data is that we are dealing almost primarily with categorical values.
 
-![](images/data_exploration/open-brewery-db-8.png)
+![](images/data_exploration/open-brewery-db-3.png)
 
 The latitudes and longitudes are *float* numeric values, however, they're more for mapping so less meaningful to analyze other than geographically.
 
@@ -52,14 +50,14 @@ Let's take a look at how numerous the overall categories are.
 
 ### Categorical Spread
 
-![](images/data_exploration/open-brewery-db-9.png)
+![](images/data_exploration/open-brewery-db-4.png)
 
 
 A useful starting point in the visualizations would be to break down the spread of brewery types and find the top-5 and bottom-5 for brewery counts by state, leading into some heat maps of these spreads.
 
 ### Brewery Type
 
-![](images/data_exploration/open-brewery-db-10.png)
+![](images/data_exploration/open-brewery-db-6.png)
 
 The overwhelming amount of breweries are classified as *micro* breweries, and that the bottom 5 breweries have such small counts that they don't even appear on the plot. Another important observation is that *closed* breweries are somewhat significant in that they appear as a bar on the plot. *Closed* could become a factor in later models, so we decided to leave these data points in.
 
@@ -68,14 +66,14 @@ The overwhelming amount of breweries are classified as *micro* breweries, and th
 ::: columns
 ::: {.column width="45%"}
 
-![](images/data_exploration/open-brewery-db-11.png)
+![](images/data_exploration/open-brewery-db-6.png)
 :::
 
 ::: {.column width="10%"}
 :::
 
 ::: {.column width="45%"}
-![](images/data_exploration/open-brewery-db-12.png)
+![](images/data_exploration/open-brewery-db-7.png)
 :::
 :::
 

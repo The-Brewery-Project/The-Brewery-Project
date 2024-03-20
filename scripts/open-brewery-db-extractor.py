@@ -31,24 +31,22 @@ data_df.reset_index(inplace = True, drop = True)
 # lambda function to make lower case, remove trailing or leading spaces
 lower_strip = lambda text: text.lower().strip() if text is not None else None
 
-
 # clean country column and filter for "united states"
 data_df['country'] = data_df['country'].apply(func=lower_strip)
 data_us = data_df[data_df['country'] == 'united states']
 
-# drop all locations without addy 1, and remove addy 2 and addy 3 columns
-data_us.dropna(subset = ['address_1'], axis = 0, inplace = True)
-data_us.drop(['address_2', 'address_3'], axis = 1, inplace = True)
+# city, state, and postal code are all present and will be enough for our purposes
+# drop all address columns (street is equivlent of address_1 )
+data_us.drop(['address_1', 'address_2', 'address_3', 'street'], axis = 1, inplace = True)
 
-# remove address_1 and state_province columns (these are equivalents of street and state)
-data_us.drop(['address_1', 'state_province'], axis = 1, inplace = True)
+# state_province columns (equivalent of state)
+data_us.drop(['state_province'], axis = 1, inplace = True)
 
 # clean name, brewery_type, city, state, street, and website_url columns
 data_us['name'] = data_us['name'].apply(func=lower_strip)
 data_us['brewery_type'] = data_us['brewery_type'].apply(func=lower_strip)
 data_us['city'] = data_us['city'].apply(func=lower_strip)
 data_us['state'] = data_us['state'].apply(func=lower_strip)
-data_us['street'] = data_us['street'].apply(func=lower_strip)
 data_us['website_url'] = data_us['website_url'].apply(func=lower_strip)
 
 # export file
