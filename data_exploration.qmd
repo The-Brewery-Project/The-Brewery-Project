@@ -6,13 +6,13 @@ This page features our process for gathering, cleaning, and providing an initial
 
 # Open Brewery DB
 
-The driving dataset of our project, this was pulled via API from the Open Brewery DB [webiste](https://www.openbrewerydb.org/).
+The driving dataset of our project, this was pulled via API from the Open Brewery DB [website](https://www.openbrewerydb.org/).
 
 ## Data Cleaning
 
 ### Initial Dataset
 
-![](images/data_exploration/open-brewery-db-1.png) ![](images/data_exploration/open-brewery-db-2.png)
+![](images/data_exploration/open-brewery-db-a.png)
 
 ### Cleaning Process
 
@@ -30,18 +30,80 @@ Additionally, **street** is an identical column to **address_1** as is **state**
 
 After removing  nonessential rows and columns, we applied the strip and lowercase procedure on the remaining columns, and then reexamined the null values.
 
-![](images/data_exploration/open-brewery-db-5.png)
+![](images/data_exploration/open-brewery-db-3.png)
 
 We decided to move forward with this data, and potentially massage any longitude/latitude data issues later. The phone and website_url columns will likely be irrelevant.
 
 ### Cleaned Dataset
 
-![](images/data_exploration/open-brewery-db-6.png) ![](images/data_exploration/open-brewery-db-7.png)
+![](images/data_exploration/open-brewery-db-b.png)
 
 ## Data Exploration
 
 Our initial observation of the data is that we are dealing almost primarily with categorical values.
 
-![](images/data_exploration/open-brewery-db-6.png)
+![](images/data_exploration/open-brewery-db-8.png)
 
-A useful starting point in the visualizations would be to find the top-5 and bottom-5 for brewery counts by state, and then provide an overall heat map of the United States by brewery.
+The latitudes and longitudes are *float* numeric values, however, they're more for mapping so less meaningful to analyze other than geographically.
+
+One method we could use to gather some numerical essence from this is to analyze the categories (i.e. counts of breweries per state or per city, types of breweries per state or per city, etc.).
+
+Let's take a look at how numerous the overall categories are.
+
+### Categorical Spread
+
+![](images/data_exploration/open-brewery-db-9.png)
+
+
+A useful starting point in the visualizations would be to break down the spread of brewery types and find the top-5 and bottom-5 for brewery counts by state, leading into some heat maps of these spreads.
+
+### Brewery Type
+
+![](images/data_exploration/open-brewery-db-10.png)
+
+The overwhelming amount of breweries are classified as *micro* breweries, and that the bottom 5 breweries have such small counts that they don't even appear on the plot. Another important observation is that *closed* breweries are somewhat significant in that they appear as a bar on the plot. *Closed* could become a factor in later models, so we decided to leave these data points in.
+
+### States with the Most and Least Breweries
+
+::: columns
+::: {.column width="45%"}
+
+![](images/data_exploration/open-brewery-db-11.png)
+:::
+
+::: {.column width="10%"}
+:::
+
+::: {.column width="45%"}
+![](images/data_exploration/open-brewery-db-12.png)
+:::
+:::
+
+From this initial glance, we can see what that the breweries per state varies wildly.
+
+### Geographical Representations
+
+We can create an interactive map. *Note that just the dataset of brewery counts by states will be uploaded to promote efficiency.*
+
+**Import libraries:**
+
+```{python}
+import numpy as np
+import pandas as pd
+import plotly.express as px
+breweries_by_state = pd.read_csv('data/brewery-count-by-state.csv')
+```
+
+**Interactive Plot**
+
+```{python}
+# geographical representations
+fig = px.choropleth(breweries_by_state,
+                    locationmode = 'USA-states',
+                    locations = 'State',
+                    scope = 'usa',
+                    color = 'Count',
+                    color_continuous_scale = 'Viridis_r',
+                    title = 'Breweries by State')
+fig.show()
+```

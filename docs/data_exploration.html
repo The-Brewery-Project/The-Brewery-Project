@@ -20,10 +20,44 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -67,6 +101,25 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<script type="text/javascript">
+window.PlotlyConfig = {MathJaxConfig: 'local'};
+if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+if (typeof require !== 'undefined') {
+require.undef("plotly");
+requirejs.config({
+    paths: {
+        'plotly': ['https://cdn.plot.ly/plotly-2.12.1.min']
+    }
+});
+require(['plotly'], function(Plotly) {
+    window._Plotly = Plotly;
+});
+}
+</script>
+
 
 
 <link rel="stylesheet" href="styles.css">
@@ -141,7 +194,13 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#cleaning-process" id="toc-cleaning-process" class="nav-link" data-scroll-target="#cleaning-process">Cleaning Process</a></li>
   <li><a href="#cleaned-dataset" id="toc-cleaned-dataset" class="nav-link" data-scroll-target="#cleaned-dataset">Cleaned Dataset</a></li>
   </ul></li>
-  <li><a href="#data-exploration" id="toc-data-exploration" class="nav-link" data-scroll-target="#data-exploration">Data Exploration</a></li>
+  <li><a href="#data-exploration" id="toc-data-exploration" class="nav-link" data-scroll-target="#data-exploration">Data Exploration</a>
+  <ul class="collapse">
+  <li><a href="#categorical-spread" id="toc-categorical-spread" class="nav-link" data-scroll-target="#categorical-spread">Categorical Spread</a></li>
+  <li><a href="#brewery-type" id="toc-brewery-type" class="nav-link" data-scroll-target="#brewery-type">Brewery Type</a></li>
+  <li><a href="#states-with-the-most-and-least-breweries" id="toc-states-with-the-most-and-least-breweries" class="nav-link" data-scroll-target="#states-with-the-most-and-least-breweries">States with the Most and Least Breweries</a></li>
+  <li><a href="#geographical-representations" id="toc-geographical-representations" class="nav-link" data-scroll-target="#geographical-representations">Geographical Representations</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -171,12 +230,12 @@ ul.task-list li input[type="checkbox"] {
 <p>This page features our process for gathering, cleaning, and providing an initial exploratory analysis of the data used.</p>
 <section id="open-brewery-db" class="level1">
 <h1>Open Brewery DB</h1>
-<p>The driving dataset of our project, this was pulled via API from the Open Brewery DB <a href="https://www.openbrewerydb.org/">webiste</a>.</p>
+<p>The driving dataset of our project, this was pulled via API from the Open Brewery DB <a href="https://www.openbrewerydb.org/">website</a>.</p>
 <section id="data-cleaning" class="level2">
 <h2 class="anchored" data-anchor-id="data-cleaning">Data Cleaning</h2>
 <section id="initial-dataset" class="level3">
 <h3 class="anchored" data-anchor-id="initial-dataset">Initial Dataset</h3>
-<p><img src="images/data_exploration/open-brewery-db-1.png" class="img-fluid"> <img src="images/data_exploration/open-brewery-db-2.png" class="img-fluid"></p>
+<p><img src="images/data_exploration/open-brewery-db-a.png" class="img-fluid"></p>
 </section>
 <section id="cleaning-process" class="level3">
 <h3 class="anchored" data-anchor-id="cleaning-process">Cleaning Process</h3>
@@ -187,21 +246,102 @@ ul.task-list li input[type="checkbox"] {
 <p>Most tier-2 and tier-3 addresses are missing, so let’s just remove those columns.</p>
 <p>Additionally, <strong>street</strong> is an identical column to <strong>address_1</strong> as is <strong>state</strong> to <strong>state_province</strong>. We can remove the duplicate columns.</p>
 <p>After removing nonessential rows and columns, we applied the strip and lowercase procedure on the remaining columns, and then reexamined the null values.</p>
-<p><img src="images/data_exploration/open-brewery-db-5.png" class="img-fluid"></p>
+<p><img src="images/data_exploration/open-brewery-db-3.png" class="img-fluid"></p>
 <p>We decided to move forward with this data, and potentially massage any longitude/latitude data issues later. The phone and website_url columns will likely be irrelevant.</p>
 </section>
 <section id="cleaned-dataset" class="level3">
 <h3 class="anchored" data-anchor-id="cleaned-dataset">Cleaned Dataset</h3>
-<p><img src="images/data_exploration/open-brewery-db-6.png" class="img-fluid"> <img src="images/data_exploration/open-brewery-db-7.png" class="img-fluid"></p>
+<p><img src="images/data_exploration/open-brewery-db-b.png" class="img-fluid"></p>
 </section>
 </section>
 <section id="data-exploration" class="level2">
 <h2 class="anchored" data-anchor-id="data-exploration">Data Exploration</h2>
 <p>Our initial observation of the data is that we are dealing almost primarily with categorical values.</p>
-<p><img src="images/data_exploration/open-brewery-db-6.png" class="img-fluid"></p>
-<p>A useful starting point in the visualizations would be to find the top-5 and bottom-5 for brewery counts by state, and then provide an overall heat map of the United States by brewery.</p>
+<p><img src="images/data_exploration/open-brewery-db-8.png" class="img-fluid"></p>
+<p>The latitudes and longitudes are <em>float</em> numeric values, however, they’re more for mapping so less meaningful to analyze other than geographically.</p>
+<p>One method we could use to gather some numerical essence from this is to analyze the categories (i.e.&nbsp;counts of breweries per state or per city, types of breweries per state or per city, etc.).</p>
+<p>Let’s take a look at how numerous the overall categories are.</p>
+<section id="categorical-spread" class="level3">
+<h3 class="anchored" data-anchor-id="categorical-spread">Categorical Spread</h3>
+<p><img src="images/data_exploration/open-brewery-db-9.png" class="img-fluid"></p>
+<p>A useful starting point in the visualizations would be to break down the spread of brewery types and find the top-5 and bottom-5 for brewery counts by state, leading into some heat maps of these spreads.</p>
+</section>
+<section id="brewery-type" class="level3">
+<h3 class="anchored" data-anchor-id="brewery-type">Brewery Type</h3>
+<p><img src="images/data_exploration/open-brewery-db-10.png" class="img-fluid"></p>
+<p>The overwhelming amount of breweries are classified as <em>micro</em> breweries, and that the bottom 5 breweries have such small counts that they don’t even appear on the plot. Another important observation is that <em>closed</em> breweries are somewhat significant in that they appear as a bar on the plot. <em>Closed</em> could become a factor in later models, so we decided to leave these data points in.</p>
+</section>
+<section id="states-with-the-most-and-least-breweries" class="level3">
+<h3 class="anchored" data-anchor-id="states-with-the-most-and-least-breweries">States with the Most and Least Breweries</h3>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><img src="images/data_exploration/open-brewery-db-11.png" class="img-fluid"></p>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<p><img src="images/data_exploration/open-brewery-db-12.png" class="img-fluid"></p>
+</div>
+</div>
+<p>From this initial glance, we can see what that the breweries per state varies wildly.</p>
+</section>
+<section id="geographical-representations" class="level3">
+<h3 class="anchored" data-anchor-id="geographical-representations">Geographical Representations</h3>
+<p>We can create an interactive map. <em>Note that just the dataset of brewery counts by states will be uploaded to promote efficiency.</em></p>
+<p><strong>Import libraries:</strong></p>
+<div id="0e408b09" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>breweries_by_state <span class="op">=</span> pd.read_csv(<span class="st">'data/brewery-count-by-state.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><strong>Interactive Plot</strong></p>
+<div id="c398ab3b" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># geographical representations</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.choropleth(breweries_by_state,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                    locationmode <span class="op">=</span> <span class="st">'USA-states'</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                    locations <span class="op">=</span> <span class="st">'State'</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                    scope <span class="op">=</span> <span class="st">'usa'</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                    color <span class="op">=</span> <span class="st">'Count'</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                    color_continuous_scale <span class="op">=</span> <span class="st">'Viridis_r'</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                    title <span class="op">=</span> <span class="st">'Breweries by State'</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>                            <div id="42e49915-3690-4e9e-a550-f1452ce6cc89" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("42e49915-3690-4e9e-a550-f1452ce6cc89")) {                    Plotly.newPlot(                        "42e49915-3690-4e9e-a550-f1452ce6cc89",                        [{"coloraxis":"coloraxis","geo":"geo","hovertemplate":"State=%{location}<br>Count=%{z}<extra></extra>","locationmode":"USA-states","locations":["CA","WA","CO","NY","MI","PA","TX","OR","NC","OH","FL","IL","VA","WI","MN","IN","MA","MO","AZ","ME","NJ","IA","TN","MD","MT","GA","NM","SC","NH","CT","ID","VT","KY","NE","AK","NV","SD","OK","UT","AR","WY","KS","AL","WV","LA","RI","DE","ND","HI","MS","DC"],"name":"","z":[829,459,390,370,353,307,294,285,274,274,273,227,222,212,167,142,141,138,110,107,101,91,88,88,81,81,78,71,69,69,66,55,55,53,48,46,44,41,41,41,41,39,37,37,35,31,26,26,23,15,14],"type":"choropleth"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"geo":{"domain":{"x":[0.0,1.0],"y":[0.0,1.0]},"center":{},"scope":"usa"},"coloraxis":{"colorbar":{"title":{"text":"Count"}},"colorscale":[[0.0,"#fde725"],[0.1111111111111111,"#b5de2b"],[0.2222222222222222,"#6ece58"],[0.3333333333333333,"#35b779"],[0.4444444444444444,"#1f9e89"],[0.5555555555555556,"#26828e"],[0.6666666666666666,"#31688e"],[0.7777777777777778,"#3e4989"],[0.8888888888888888,"#482878"],[1.0,"#440154"]]},"legend":{"tracegroupgap":0},"title":{"text":"Breweries by State"}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('42e49915-3690-4e9e-a550-f1452ce6cc89');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };                });            </script>        </div>
+</div>
+</div>
 
 
+</section>
 </section>
 </section>
 
