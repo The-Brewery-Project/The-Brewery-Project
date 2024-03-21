@@ -79,7 +79,7 @@ The overwhelming amount of breweries are classified as *micro* breweries, and th
 
 From this initial glance, we can see what that the breweries per state varies wildly.
 
-### Geographical Representations
+### Geographical Representation
 
 We can create an interactive map. *Note that just the dataset of brewery counts by states will be uploaded to promote efficiency.*
 
@@ -92,7 +92,7 @@ import plotly.express as px
 breweries_by_state = pd.read_csv('data/brewery-count-by-state.csv')
 ```
 
-**Interactive Plot**
+**Interactive Plot:**
 
 ```{python}
 # geographical representations
@@ -105,3 +105,78 @@ fig = px.choropleth(breweries_by_state,
                     title = 'Breweries by State')
 fig.show()
 ```
+
+# Top College Towns
+
+The top 150 college towns in the United States were scraped from this article [article](https://listwithclever.com/research/best-college-towns-2021/). We plan on seeing if college towns are a driving factor of breweries. *Note that these are popular college towns as defined by the article and the author.*
+
+## Data Cleaning
+
+### Initial Dataset
+
+![](images/data_exploration/top_colleges_a.png)
+
+### Cleaning Process
+
+The data was essentially *complete* due to the data scraped being contained in a table. However, a few tweaks were required. Namely, applying the lower case format and separating city and state. Additionally, after separating the city and state, we noticed the article used unconventional abbreviations for the states. Therefore, we applied a custom dictionary to show the states in full text.
+
+### Cleaned Dataset
+
+![](images/data_exploration/top_colleges_b.png)
+
+## Data Exploration
+
+Perhaps the most efficient method to illustrate the concentration of top college towns by state is through a geographical representation.
+
+### Geographical Representation
+
+We can create an interactive map similar to the brewery map above.
+
+**Import libraries:**
+
+```{python}
+import numpy as np
+import pandas as pd
+import plotly.express as px
+college_towns_by_state = pd.read_csv('data/college-town-count-by-state.csv')
+```
+
+**Interactive Plot**
+
+```{python}
+# geographical representations
+fig = px.choropleth(college_towns_by_state,
+                    locationmode = 'USA-states',
+                    locations = 'State',
+                    scope = 'usa',
+                    color = 'Count',
+                    color_continuous_scale = 'Viridis_r',
+                    title = 'Top College Town Counts by State')
+fig.show()
+```
+
+There are definite similarities in the heat maps, let's continue digging into this.
+
+### Breweries in College Towns
+
+Are there a significant amount of breweries in *college towns*? In this next exploration, we're looking directly at city to city matches, and not including surrounding areas. This could be something to return to given more geographical data.
+
+We can create a new column in the dataframe scraped from the **open-brewery-db** with booleans on if the brewery lies in a college town. Out of all the breweries, **15.8%** of the total breweries are located in a college town.
+
+When we look at our **Top and Bottom 5 States by Brewery**, we can examine how many of these breweries are located in college towns.
+
+::: columns
+::: {.column width="45%"}
+
+![](images/data_exploration/top_colleges_1.png)
+:::
+
+::: {.column width="10%"}
+:::
+
+::: {.column width="45%"}
+![](images/data_exploration/top_colleges_2.png)
+:::
+:::
+
+An interesting distinction from above is that there are more total breweries and breweries in college towns in the top 5 states for breweries, however in at least one of the bottom 5 states by brewery counts, more than half of the breweries are contained within a college town.
