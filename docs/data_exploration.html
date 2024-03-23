@@ -54,7 +54,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -216,6 +235,63 @@ require(['plotly'], function(Plotly) {
   <li><a href="#breweries-in-college-towns" id="toc-breweries-in-college-towns" class="nav-link" data-scroll-target="#breweries-in-college-towns">Breweries in College Towns</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#top-metropolitan-cities" id="toc-top-metropolitan-cities" class="nav-link" data-scroll-target="#top-metropolitan-cities">Top Metropolitan Cities</a>
+  <ul class="collapse">
+  <li><a href="#data-cleaning-2" id="toc-data-cleaning-2" class="nav-link" data-scroll-target="#data-cleaning-2">Data Cleaning</a>
+  <ul class="collapse">
+  <li><a href="#initial-dataset-2" id="toc-initial-dataset-2" class="nav-link" data-scroll-target="#initial-dataset-2">Initial Dataset</a></li>
+  <li><a href="#cleaning-process-2" id="toc-cleaning-process-2" class="nav-link" data-scroll-target="#cleaning-process-2">Cleaning Process</a></li>
+  <li><a href="#cleaned-dataset-2" id="toc-cleaned-dataset-2" class="nav-link" data-scroll-target="#cleaned-dataset-2">Cleaned Dataset</a></li>
+  </ul></li>
+  <li><a href="#data-exploration-2" id="toc-data-exploration-2" class="nav-link" data-scroll-target="#data-exploration-2">Data Exploration</a>
+  <ul class="collapse">
+  <li><a href="#central-tendency-of-city-populations" id="toc-central-tendency-of-city-populations" class="nav-link" data-scroll-target="#central-tendency-of-city-populations">Central Tendency of City Populations</a></li>
+  <li><a href="#regional-population-distributions" id="toc-regional-population-distributions" class="nav-link" data-scroll-target="#regional-population-distributions">Regional Population Distributions</a></li>
+  <li><a href="#regional-city-distributions" id="toc-regional-city-distributions" class="nav-link" data-scroll-target="#regional-city-distributions">Regional City Distributions</a></li>
+  <li><a href="#breweries-in-metropolitan-cities" id="toc-breweries-in-metropolitan-cities" class="nav-link" data-scroll-target="#breweries-in-metropolitan-cities">Breweries in Metropolitan Cities</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#top-tech-hubs" id="toc-top-tech-hubs" class="nav-link" data-scroll-target="#top-tech-hubs">Top Tech Hubs</a>
+  <ul class="collapse">
+  <li><a href="#data-cleaning-3" id="toc-data-cleaning-3" class="nav-link" data-scroll-target="#data-cleaning-3">Data Cleaning</a>
+  <ul class="collapse">
+  <li><a href="#initial-dataset-3" id="toc-initial-dataset-3" class="nav-link" data-scroll-target="#initial-dataset-3">Initial Dataset</a></li>
+  <li><a href="#cleaning-process-3" id="toc-cleaning-process-3" class="nav-link" data-scroll-target="#cleaning-process-3">Cleaning Process</a></li>
+  <li><a href="#cleaned-dataset-3" id="toc-cleaned-dataset-3" class="nav-link" data-scroll-target="#cleaned-dataset-3">Cleaned Dataset</a></li>
+  </ul></li>
+  <li><a href="#data-exploration-3" id="toc-data-exploration-3" class="nav-link" data-scroll-target="#data-exploration-3">Data Exploration</a>
+  <ul class="collapse">
+  <li><a href="#regional-population-distributions-1" id="toc-regional-population-distributions-1" class="nav-link" data-scroll-target="#regional-population-distributions-1">Regional Population Distributions</a></li>
+  <li><a href="#tech-hubs-across-the-us-map" id="toc-tech-hubs-across-the-us-map" class="nav-link" data-scroll-target="#tech-hubs-across-the-us-map">Tech Hubs Across the US Map</a></li>
+  <li><a href="#breweries-in-tech-hubs" id="toc-breweries-in-tech-hubs" class="nav-link" data-scroll-target="#breweries-in-tech-hubs">Breweries in Tech Hubs</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#ski-resorts" id="toc-ski-resorts" class="nav-link" data-scroll-target="#ski-resorts">Ski Resorts</a>
+  <ul class="collapse">
+  <li><a href="#data-cleaning-4" id="toc-data-cleaning-4" class="nav-link" data-scroll-target="#data-cleaning-4">Data Cleaning</a>
+  <ul class="collapse">
+  <li><a href="#initial-dataset-4" id="toc-initial-dataset-4" class="nav-link" data-scroll-target="#initial-dataset-4">Initial Dataset</a></li>
+  <li><a href="#cleaning-process-4" id="toc-cleaning-process-4" class="nav-link" data-scroll-target="#cleaning-process-4">Cleaning Process</a></li>
+  <li><a href="#cleaned-dataset-4" id="toc-cleaned-dataset-4" class="nav-link" data-scroll-target="#cleaned-dataset-4">Cleaned Dataset</a></li>
+  </ul></li>
+  <li><a href="#data-exploration-4" id="toc-data-exploration-4" class="nav-link" data-scroll-target="#data-exploration-4">Data Exploration</a>
+  <ul class="collapse">
+  <li><a href="#resorts-by-state" id="toc-resorts-by-state" class="nav-link" data-scroll-target="#resorts-by-state">Resorts by State</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#national-parks" id="toc-national-parks" class="nav-link" data-scroll-target="#national-parks">National Parks</a>
+  <ul class="collapse">
+  <li><a href="#data-cleaning-5" id="toc-data-cleaning-5" class="nav-link" data-scroll-target="#data-cleaning-5">Data Cleaning</a>
+  <ul class="collapse">
+  <li><a href="#initial-dataset-5" id="toc-initial-dataset-5" class="nav-link" data-scroll-target="#initial-dataset-5">Initial Dataset</a></li>
+  <li><a href="#cleaning-process-5" id="toc-cleaning-process-5" class="nav-link" data-scroll-target="#cleaning-process-5">Cleaning Process</a></li>
+  <li><a href="#cleaned-dataset-5" id="toc-cleaned-dataset-5" class="nav-link" data-scroll-target="#cleaned-dataset-5">Cleaned Dataset</a></li>
+  </ul></li>
+  <li><a href="#data-exploration-5" id="toc-data-exploration-5" class="nav-link" data-scroll-target="#data-exploration-5">Data Exploration</a>
+  <ul class="collapse">
+  <li><a href="#national-parks-by-state" id="toc-national-parks-by-state" class="nav-link" data-scroll-target="#national-parks-by-state">National Parks by State</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -244,7 +320,7 @@ require(['plotly'], function(Plotly) {
 <p>This page features our process for gathering, cleaning, and providing an initial exploratory analysis of the data used.</p>
 <section id="open-brewery-db" class="level1">
 <h1>Open Brewery DB</h1>
-<p>The driving dataset of our project, this was pulled via API from the Open Brewery DB <a href="https://www.openbrewerydb.org/">website</a>.</p>
+<p>The driving dataset of our project, this was pulled via API from the Open Brewery DB <a href="https://www.openbrewerydb.org/">website</a> <span class="citation" data-cites="openbrewerydb">[<a href="#ref-openbrewerydb" role="doc-biblioref">1</a>]</span>.</p>
 <section id="data-cleaning" class="level2">
 <h2 class="anchored" data-anchor-id="data-cleaning">Data Cleaning</h2>
 <section id="initial-dataset" class="level3">
@@ -256,11 +332,11 @@ require(['plotly'], function(Plotly) {
 <p>We first reviewed the countries available, and found cleaning and slicing on the country name column were warranted.</p>
 <p><img src="images/data_exploration/open-brewery-db-1.png" class="img-fluid"></p>
 <p>After applying a strip and lowercase on the country column, we filtered just for the United States, and then examined the null values.</p>
-<p>There are quite a few missing rows in <strong>address_1</strong> column, and even some incomplete addresses at that. With the the completeness of the <strong>city</strong>, <strong>state</strong>, and <strong>postal_code</strong>, we can disregaard the other address columns and drop all three.</p>
-<p>Additionally, <strong>state</strong> is identical to <strong>state_province</strong>. We can remove the duplicate columns.</p>
+<p>There were quite a few missing rows in <strong>address_1</strong> column, and even some incomplete addresses at that. With the completeness provided by <strong>city</strong>, <strong>state</strong>, and <strong>postal_code</strong>, we disregarded the other address columns, dropping all three.</p>
+<p>Additionally, <strong>state</strong> is identical to <strong>state_province</strong>. We dropped <strong>state_province</strong>.</p>
 <p>After removing nonessential rows and columns, we applied the strip and lowercase procedure on the remaining columns, and then reexamined the null values.</p>
 <p><img src="images/data_exploration/open-brewery-db-2.png" class="img-fluid"></p>
-<p>We decided to move forward with this data, and potentially massage any <strong>longitude/latitude</strong> data issues later. Keeping the column could be useful later. The <strong>phone</strong> and <strong>website_url</strong> columns will likely be irrelevant, but they may prove useful in the future so retained those columns.</p>
+<p>We decided to move forward with this data, and potentially massage any <strong>longitude/latitude</strong> data issues later. Even though there were quite a few missing values for <strong>longitude/latitude</strong>, keeping the columns could prove useful later. The <strong>phone</strong> and <strong>website_url</strong> columns will likely be irrelevant, and both have a high number of null values, but we retained them for the similar reason they may prove useful later.</p>
 </section>
 <section id="cleaned-dataset" class="level3">
 <h3 class="anchored" data-anchor-id="cleaned-dataset">Cleaned Dataset</h3>
@@ -271,13 +347,13 @@ require(['plotly'], function(Plotly) {
 <h2 class="anchored" data-anchor-id="data-exploration">Data Exploration</h2>
 <p>Our initial observation of the data is that we are dealing almost primarily with categorical values.</p>
 <p><img src="images/data_exploration/open-brewery-db-3.png" class="img-fluid"></p>
-<p>The latitudes and longitudes are <em>float</em> numeric values, however, they’re more for mapping so less meaningful to analyze other than geographically.</p>
-<p>One method we could use to gather some numerical essence from this is to analyze the categories (i.e.&nbsp;counts of breweries per state or per city, types of breweries per state or per city, etc.).</p>
+<p>The latitudes and longitudes are <em>float</em> numeric values, however, they’re more relevant from a geographical perspective than a numerical analysis perspective.</p>
+<p>One method we could use to gather some numerical essence from the cleaned data is to analyze the categories (i.e.&nbsp;counts of breweries per state or per city, types of breweries per state or per city, etc.).</p>
 <p>Let’s take a look at how numerous the overall categories are.</p>
 <section id="categorical-spread" class="level3">
 <h3 class="anchored" data-anchor-id="categorical-spread">Categorical Spread</h3>
 <p><img src="images/data_exploration/open-brewery-db-4.png" class="img-fluid"></p>
-<p>A useful starting point in the visualizations would be to break down the spread of brewery types and find the top-5 and bottom-5 for brewery counts by state, leading into some heat maps of these spreads.</p>
+<p>A useful starting point in the visualizations would be to break down the spread of brewery types and find the top-5 and bottom-5 for brewery counts by state, ultimately leading into some heat maps of these spreads.</p>
 </section>
 <section id="brewery-type" class="level3">
 <h3 class="anchored" data-anchor-id="brewery-type">Brewery Type</h3>
@@ -301,7 +377,7 @@ require(['plotly'], function(Plotly) {
 <h3 class="anchored" data-anchor-id="geographical-representation">Geographical Representation</h3>
 <p>We can create an interactive map. <em>Note that just the dataset of brewery counts by states will be uploaded to promote efficiency.</em></p>
 <p><strong>Import libraries:</strong></p>
-<div id="652d4df5" class="cell" data-execution_count="1">
+<div id="bf429fb7" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -311,7 +387,7 @@ require(['plotly'], function(Plotly) {
 </details>
 </div>
 <p><strong>Interactive Plot:</strong></p>
-<div id="d04734f4" class="cell" data-execution_count="2">
+<div id="004f3d12" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># geographical representations</span></span>
@@ -325,9 +401,9 @@ require(['plotly'], function(Plotly) {
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<div>                            <div id="0b631fba-a6e2-4357-a5cd-f986739b76ed" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("0b631fba-a6e2-4357-a5cd-f986739b76ed")) {                    Plotly.newPlot(                        "0b631fba-a6e2-4357-a5cd-f986739b76ed",                        [{"coloraxis":"coloraxis","geo":"geo","hovertemplate":"State=%{location}<br>Count=%{z}<extra></extra>","locationmode":"USA-states","locations":["CA","WA","CO","NY","MI","TX","PA","FL","NC","OH","OR","VA","IL","WI","MN","MA","IN","MO","AZ","NJ","ME","TN","MD","GA","CT","MT","IA","NM","SC","NH","ID","VT","KY","NE","NV","AK","KS","AL","UT","AR","SD","OK","WY","LA","WV","RI","DE","ND","HI","MS","DC"],"name":"","z":[912,474,431,418,375,352,345,312,307,303,295,254,254,225,182,163,162,142,124,115,114,110,109,100,94,92,91,83,79,76,67,59,58,57,51,51,47,45,45,45,45,44,43,43,40,31,28,26,23,16,16],"type":"choropleth"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"geo":{"domain":{"x":[0.0,1.0],"y":[0.0,1.0]},"center":{},"scope":"usa"},"coloraxis":{"colorbar":{"title":{"text":"Count"}},"colorscale":[[0.0,"#fde725"],[0.1111111111111111,"#b5de2b"],[0.2222222222222222,"#6ece58"],[0.3333333333333333,"#35b779"],[0.4444444444444444,"#1f9e89"],[0.5555555555555556,"#26828e"],[0.6666666666666666,"#31688e"],[0.7777777777777778,"#3e4989"],[0.8888888888888888,"#482878"],[1.0,"#440154"]]},"legend":{"tracegroupgap":0},"title":{"text":"Breweries by State"}},                        {"responsive": true}                    ).then(function(){
+<div>                            <div id="ba29402c-9633-4f09-8b6f-edca544ed962" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("ba29402c-9633-4f09-8b6f-edca544ed962")) {                    Plotly.newPlot(                        "ba29402c-9633-4f09-8b6f-edca544ed962",                        [{"coloraxis":"coloraxis","geo":"geo","hovertemplate":"State=%{location}<br>Count=%{z}<extra></extra>","locationmode":"USA-states","locations":["CA","WA","CO","NY","MI","TX","PA","FL","NC","OH","OR","VA","IL","WI","MN","MA","IN","MO","AZ","NJ","ME","TN","MD","GA","CT","MT","IA","NM","SC","NH","ID","VT","KY","NE","NV","AK","KS","AL","UT","AR","SD","OK","WY","LA","WV","RI","DE","ND","HI","MS","DC"],"name":"","z":[912,474,431,418,375,352,345,312,307,303,295,254,254,225,182,163,162,142,124,115,114,110,109,100,94,92,91,83,79,76,67,59,58,57,51,51,47,45,45,45,45,44,43,43,40,31,28,26,23,16,16],"type":"choropleth"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"geo":{"domain":{"x":[0.0,1.0],"y":[0.0,1.0]},"center":{},"scope":"usa"},"coloraxis":{"colorbar":{"title":{"text":"Count"}},"colorscale":[[0.0,"#fde725"],[0.1111111111111111,"#b5de2b"],[0.2222222222222222,"#6ece58"],[0.3333333333333333,"#35b779"],[0.4444444444444444,"#1f9e89"],[0.5555555555555556,"#26828e"],[0.6666666666666666,"#31688e"],[0.7777777777777778,"#3e4989"],[0.8888888888888888,"#482878"],[1.0,"#440154"]]},"legend":{"tracegroupgap":0},"title":{"text":"Breweries by State"}},                        {"responsive": true}                    ).then(function(){
                             
-var gd = document.getElementById('0b631fba-a6e2-4357-a5cd-f986739b76ed');
+var gd = document.getElementById('ba29402c-9633-4f09-8b6f-edca544ed962');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
@@ -357,7 +433,7 @@ if (outputEl) {{
 </section>
 <section id="top-college-towns" class="level1">
 <h1>Top College Towns</h1>
-<p>The top 150 college towns in the United States were scraped from this article <a href="https://listwithclever.com/research/best-college-towns-2021/">article</a>. We plan on seeing if college towns are a driving factor of breweries. <em>Note that these are popular college towns as defined by the article and the author.</em></p>
+<p>The top 150 college towns in the United States were scraped from this article <a href="https://listwithclever.com/research/best-college-towns-2021/">article</a> <span class="citation" data-cites="collegetowns">[<a href="#ref-collegetowns" role="doc-biblioref">2</a>]</span>. We plan on seeing if college towns are a driving factor of breweries. <em>Note that these are popular college towns as defined by the article and the author.</em></p>
 <section id="data-cleaning-1" class="level2">
 <h2 class="anchored" data-anchor-id="data-cleaning-1">Data Cleaning</h2>
 <section id="initial-dataset-1" class="level3">
@@ -366,7 +442,7 @@ if (outputEl) {{
 </section>
 <section id="cleaning-process-1" class="level3">
 <h3 class="anchored" data-anchor-id="cleaning-process-1">Cleaning Process</h3>
-<p>The data was essentially <em>complete</em> due to the data scraped being contained in a table. However, a few tweaks were required. Namely, applying the lower case format and separating city and state. Additionally, after separating the city and state, we noticed the article used unconventional abbreviations for the states. Therefore, we applied a custom dictionary to show the states in full text.</p>
+<p>The data was essentially <em>complete</em> due to the scraped data being contained in a table. However, a few tweaks were required. Namely, applying the lower case format and separating city and state. Additionally, after separating the city and state, we noticed the article used unconventional abbreviations for the states. Therefore, we applied a custom dictionary to show the states in full text.</p>
 </section>
 <section id="cleaned-dataset-1" class="level3">
 <h3 class="anchored" data-anchor-id="cleaned-dataset-1">Cleaned Dataset</h3>
@@ -380,7 +456,7 @@ if (outputEl) {{
 <h3 class="anchored" data-anchor-id="geographical-representation-1">Geographical Representation</h3>
 <p>We can create an interactive map similar to the brewery map above.</p>
 <p><strong>Import libraries:</strong></p>
-<div id="cda7551f" class="cell" data-execution_count="3">
+<div id="13b61781" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -390,7 +466,7 @@ if (outputEl) {{
 </details>
 </div>
 <p><strong>Interactive Plot</strong></p>
-<div id="f0b5014c" class="cell" data-execution_count="4">
+<div id="82ec5863" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># geographical representations</span></span>
@@ -404,9 +480,9 @@ if (outputEl) {{
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<div>                            <div id="233af13d-b24c-4066-8264-3cba0a34cde5" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("233af13d-b24c-4066-8264-3cba0a34cde5")) {                    Plotly.newPlot(                        "233af13d-b24c-4066-8264-3cba0a34cde5",                        [{"coloraxis":"coloraxis","geo":"geo","hovertemplate":"State=%{location}<br>Count=%{z}<extra></extra>","locationmode":"USA-states","locations":["CA","NC","WI","NY","PA","TX","MI","VA","WA","TN","CO","MO","IN","IL","MS","WV","OH","IA","NJ","MD","MA","AZ","LA","SC","MT","KS","CT","AL","KY","MN","UT","OK","FL","OR","GA","AR","WY","NM","DE","NV","RI","ME","VT","ID"],"name":"","z":[15,9,8,7,7,6,6,6,5,4,4,4,4,4,3,3,3,3,3,3,3,3,3,3,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1],"type":"choropleth"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"geo":{"domain":{"x":[0.0,1.0],"y":[0.0,1.0]},"center":{},"scope":"usa"},"coloraxis":{"colorbar":{"title":{"text":"Count"}},"colorscale":[[0.0,"#fde725"],[0.1111111111111111,"#b5de2b"],[0.2222222222222222,"#6ece58"],[0.3333333333333333,"#35b779"],[0.4444444444444444,"#1f9e89"],[0.5555555555555556,"#26828e"],[0.6666666666666666,"#31688e"],[0.7777777777777778,"#3e4989"],[0.8888888888888888,"#482878"],[1.0,"#440154"]]},"legend":{"tracegroupgap":0},"title":{"text":"Top College Town Counts by State"}},                        {"responsive": true}                    ).then(function(){
+<div>                            <div id="2c0a41da-bd63-4f22-a5dd-2a1c6d32e286" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("2c0a41da-bd63-4f22-a5dd-2a1c6d32e286")) {                    Plotly.newPlot(                        "2c0a41da-bd63-4f22-a5dd-2a1c6d32e286",                        [{"coloraxis":"coloraxis","geo":"geo","hovertemplate":"State=%{location}<br>Count=%{z}<extra></extra>","locationmode":"USA-states","locations":["CA","NC","WI","NY","PA","TX","MI","VA","WA","TN","CO","MO","IN","IL","MS","WV","OH","IA","NJ","MD","MA","AZ","LA","SC","MT","KS","CT","AL","KY","MN","UT","OK","FL","OR","GA","AR","WY","NM","DE","NV","RI","ME","VT","ID"],"name":"","z":[15,9,8,7,7,6,6,6,5,4,4,4,4,4,3,3,3,3,3,3,3,3,3,3,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1],"type":"choropleth"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"geo":{"domain":{"x":[0.0,1.0],"y":[0.0,1.0]},"center":{},"scope":"usa"},"coloraxis":{"colorbar":{"title":{"text":"Count"}},"colorscale":[[0.0,"#fde725"],[0.1111111111111111,"#b5de2b"],[0.2222222222222222,"#6ece58"],[0.3333333333333333,"#35b779"],[0.4444444444444444,"#1f9e89"],[0.5555555555555556,"#26828e"],[0.6666666666666666,"#31688e"],[0.7777777777777778,"#3e4989"],[0.8888888888888888,"#482878"],[1.0,"#440154"]]},"legend":{"tracegroupgap":0},"title":{"text":"Top College Town Counts by State"}},                        {"responsive": true}                    ).then(function(){
                             
-var gd = document.getElementById('233af13d-b24c-4066-8264-3cba0a34cde5');
+var gd = document.getElementById('2c0a41da-bd63-4f22-a5dd-2a1c6d32e286');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
@@ -431,13 +507,13 @@ if (outputEl) {{
                         })                };                });            </script>        </div>
 </div>
 </div>
-<p>There are definite similarities in the heat maps, let’s continue digging into this.</p>
+<p>There are definite similarities in the heat maps between brewery counts per state and college towns per state, let’s continue digging into this.</p>
 </section>
 <section id="breweries-in-college-towns" class="level3">
 <h3 class="anchored" data-anchor-id="breweries-in-college-towns">Breweries in College Towns</h3>
 <p>Are there a significant amount of breweries in <em>college towns</em>? In this next exploration, we’re looking directly at city to city matches, and not including surrounding areas. This could be something to return to given more geographical data.</p>
 <p>We can create a new column in the dataframe scraped from the <strong>open-brewery-db</strong> with booleans on if the brewery lies in a college town. Out of all the breweries, <strong>15.8%</strong> of the total breweries are located in a college town.</p>
-<p>When we look at our <strong>Top and Bottom 5 States by Brewery</strong>, we can examine how many of these breweries are located in college towns.</p>
+<p>When we look at our <strong>Top and Bottom 5 States by Brewery Count</strong>, we can examine how many of these breweries are located in college towns.</p>
 <div class="columns">
 <div class="column" style="width:45%;">
 <p><img src="images/data_exploration/top_colleges_1.png" class="img-fluid"></p>
@@ -448,13 +524,184 @@ if (outputEl) {{
 </div>
 </div>
 <p>An interesting distinction from above is that there are more total breweries and breweries in college towns in the top 5 states for breweries, however in at least one of the bottom 5 states by brewery counts, more than half of the breweries are contained within a college town.</p>
+</section>
+</section>
+</section>
+<section id="top-metropolitan-cities" class="level1">
+<h1>Top Metropolitan Cities</h1>
+<p>The top 300 metropolitan cities were scraped from an article <a href="https://worldpopulationreview.com/us-cities">here</a> <span class="citation" data-cites="topmetro">[<a href="#ref-topmetro" role="doc-biblioref">3</a>]</span> which provided the city, rank and the current 2024 population. If large populations promote breweries, this data set will be helpful to demonstrate this relationship (or lack thereof).</p>
+<section id="data-cleaning-2" class="level2">
+<h2 class="anchored" data-anchor-id="data-cleaning-2">Data Cleaning</h2>
+<section id="initial-dataset-2" class="level3">
+<h3 class="anchored" data-anchor-id="initial-dataset-2">Initial Dataset</h3>
+<p><img src="images/data_exploration/metroDataUncleaned.png" class="img-fluid"></p>
+</section>
+<section id="cleaning-process-2" class="level3">
+<h3 class="anchored" data-anchor-id="cleaning-process-2">Cleaning Process</h3>
+<p>The data scraped from the website had a couple of areas to be cleaned and transformed. First, this data should be accompanied with an additional set of columns for full state names, region and division to which the city belongs. In order to complete this, the State column needed to be capitalized to allow the appropriate merge. Once the adjustments to the original state column the Regions data set was merged in. This produced two columns using the same State column name. Columns were renamed to differentiate state code from state name. Then, the web scraper pulled city population including these commas which are preventing this column from being recognized as numeric. The commas were removed from the 2024 Population column, then these values were converted to integers.</p>
+</section>
+<section id="cleaned-dataset-2" class="level3">
+<h3 class="anchored" data-anchor-id="cleaned-dataset-2">Cleaned Dataset</h3>
+<p><img src="images/data_exploration/metroDataCleaned.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="data-exploration-2" class="level2">
+<h2 class="anchored" data-anchor-id="data-exploration-2">Data Exploration</h2>
+<p>The Metropolitan Cities data set identifies the top 300 most populated cities in the United States. If breweries thrive in large cities, this will help us identify key examples. This is a pretty large data set though. Let’s explore more about these cities and perhaps find a cutoff to scope down the data set.</p>
+<section id="central-tendency-of-city-populations" class="level3">
+<h3 class="anchored" data-anchor-id="central-tendency-of-city-populations">Central Tendency of City Populations</h3>
+<p>Basic measurements were taken from the 300 city populations. These were the key results:</p>
+<ul>
+<li>The mean of the populations is 313522.52</li>
+<li>The minimum of the populations is 109513</li>
+<li>The median of the populations is 179505</li>
+<li>The maximum of the populations is 7931147</li>
+<li>The standard deviation of the populations is 568306.62</li>
+</ul>
+<p>This data is showing a clear skew. While there is only a difference of about 70,000 people between the lower 50% of metropolitan cities, the upper 50% of populations has a difference of 7.7 million people. This is a very noteworthy distribution. Let’s visualize this data to understand this pattern more fully across each region of the US.</p>
+</section>
+<section id="regional-population-distributions" class="level3">
+<h3 class="anchored" data-anchor-id="regional-population-distributions">Regional Population Distributions</h3>
+<p>Below is a Box and Whisker plot comparing the spread of city populations in each of the 4 US regions: South, Northeast, Midwest and West. In general, these regions are showing similar distribution patterns. Mainly, about 75% of major metropolitan cities in the US are less than approximately 400,000 people. There are a handful of outliers in the plot below that represent extremely large populations in comparison.</p>
+<p><img src="images/data_exploration/metroDataBoxPlot.png" class="img-fluid"></p>
+</section>
+<section id="regional-city-distributions" class="level3">
+<h3 class="anchored" data-anchor-id="regional-city-distributions">Regional City Distributions</h3>
+<p>While visualizing the spread is helpful, it is challenging to see patterns related to how many metropolitan cities each region holds. For this, we can use donut charts. It is interesting to observe from the three charts provided that the proportion of metropolitan cities each region holds is relatively constant whether you look at the full 300 cities, only the top 50 or even the top 10.</p>
+<p><img src="images/data_exploration/metroDataDonut.png" class="img-fluid"></p>
+</section>
+<section id="breweries-in-metropolitan-cities" class="level3">
+<h3 class="anchored" data-anchor-id="breweries-in-metropolitan-cities">Breweries in Metropolitan Cities</h3>
+<p>The results above demonstrate that our data show consistent patterns and relatively comparable distributions at smaller scopes. To improve efficiency of our model, we may scope these cities down to the top 150 (upper 50%) of the metropolitan data set to avoid increasing the load and processing time of our models. In future work in this project, the location of metropolitan cities will be linked to the Brewery data set that has been developed above. WE know that most metropolitan cities occur in the West and the South. We’ll look for any correlation with the frequency of breweries as we get into the proceeding modeling work.</p>
+</section>
+</section>
+</section>
+<section id="top-tech-hubs" class="level1">
+<h1>Top Tech Hubs</h1>
+<p>26 tech hubs were identified by this <a href="https://www.zdnet.com/education/computers-tech/top-tech-hubs-in-the-us/">site</a> <span class="citation" data-cites="toptech">[<a href="#ref-toptech" role="doc-biblioref">4</a>]</span> that assessed tech hubs and the living conditions in each location. For the purposes of this project, only the city names were scraped to use in review of their correlation with brewery hotspots. This data set will support the ability to compare the occurrence of breweries to the presence of tech hubs.</p>
+<section id="data-cleaning-3" class="level2">
+<h2 class="anchored" data-anchor-id="data-cleaning-3">Data Cleaning</h2>
+<section id="initial-dataset-3" class="level3">
+<h3 class="anchored" data-anchor-id="initial-dataset-3">Initial Dataset</h3>
+<p><img src="images/data_exploration/techDataUncleaned.png" class="img-fluid"></p>
+</section>
+<section id="cleaning-process-3" class="level3">
+<h3 class="anchored" data-anchor-id="cleaning-process-3">Cleaning Process</h3>
+<p>The data scraped from the website had several needed improvements. The data was formatted as [City],[State code] when initially pulled from the web source. For our purposes this column needed to be split into two columns at the comma. It was noted that Dallas and Fort Worth, Texas were combined into one entry and also did not include a state code. After data was split and the original column was removed. The Dallas-Ft.Worth entry was removed and separate Dallas and Fort Worth entries were appended to the data set. With properly formatted City and State columns, the Regions data set was merged in based on the state code.</p>
+</section>
+<section id="cleaned-dataset-3" class="level3">
+<h3 class="anchored" data-anchor-id="cleaned-dataset-3">Cleaned Dataset</h3>
+<p><img src="images/data_exploration/techDataCleaned.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="data-exploration-3" class="level2">
+<h2 class="anchored" data-anchor-id="data-exploration-3">Data Exploration</h2>
+<p>The Tech Hubs data set identifies the 26 popular tech hubs across the United States. If breweries are more successful near places of technology and innovation, this will help us identify the correlation.</p>
+<p>Let’s review the distribution of these tech hubs across the country then map them to see the distribution.</p>
+<section id="regional-population-distributions-1" class="level3">
+<h3 class="anchored" data-anchor-id="regional-population-distributions-1">Regional Population Distributions</h3>
+<p>In exploring this data, we find the distribution of tech hubs by region as follows: South (9), West (7), Midwest (6), and Northeast (4). We can represent this with a donut chart.</p>
+<p><img src="images/data_exploration/techDataDonut.png" class="img-fluid"></p>
+</section>
+<section id="tech-hubs-across-the-us-map" class="level3">
+<h3 class="anchored" data-anchor-id="tech-hubs-across-the-us-map">Tech Hubs Across the US Map</h3>
+<p>Understanding the spread of distribution by region is helpful, but it is also telling to review tech hubs by state. Below we can identify that Texas, California and Ohio, are the only states to contain more than two tech hubs.</p>
+<p><img src="images/data_exploration/techDataHeatMap.png" class="img-fluid"></p>
+</section>
+<section id="breweries-in-tech-hubs" class="level3">
+<h3 class="anchored" data-anchor-id="breweries-in-tech-hubs">Breweries in Tech Hubs</h3>
+<p>The summary above demonstrates some basic patterns in the Tech Hub data set. These patterns will be considered alongside the other features in our project to understand if Tech Hubs tend to have an increased/decreased number of breweries within the area. Further models will consider whether the breweries of the Brewery Database fall in or near the Tech Hubs that we have found.</p>
+</section>
+</section>
+</section>
+<section id="ski-resorts" class="level1">
+<h1>Ski Resorts</h1>
+<p>A full list of currently operational US ski resorts was scraped from this <a href="https://en.wikipedia.org/wiki/List_of_ski_areas_and_resorts_in_the_United_States">source</a> <span class="citation" data-cites="skiresorts">[<a href="#ref-skiresorts" role="doc-biblioref">5</a>]</span>. The source included the name of the ski resort, as well as the city and state the resort is located in. This data will help inform our question of whether brewery locations are correlated with outdoor recreational hotspots such as ski resorts</p>
+<section id="data-cleaning-4" class="level2">
+<h2 class="anchored" data-anchor-id="data-cleaning-4">Data Cleaning</h2>
+<section id="initial-dataset-4" class="level3">
+<h3 class="anchored" data-anchor-id="initial-dataset-4">Initial Dataset</h3>
+<p><img src="images/data_exploration/ski_resorts_initial_data.png" class="img-fluid"></p>
+</section>
+<section id="cleaning-process-4" class="level3">
+<h3 class="anchored" data-anchor-id="cleaning-process-4">Cleaning Process</h3>
+<p>Pictured above is a snapshot of the initial dataset. The dataset requires a handful of manipulations to the city names in order to clean it up for analysis. As pictured above, some of the ski resorts are located near certain cities, and are designated as such (eg “near Wenatchee”). Obtaining the nearest city is suitable for our purposes, so the “near “ was removed. Next, some of the city names have additional information listed after them (eg “Stampede Pass (private)” to indicate this is a private resort). Any text found in brackets was removed. Finally, certain resorts such as The Summit at Snoqualmie have multiple cities listed. Only the first city was kept as this was suitable for our purposes.</p>
+</section>
+<section id="cleaned-dataset-4" class="level3">
+<h3 class="anchored" data-anchor-id="cleaned-dataset-4">Cleaned Dataset</h3>
+<p>Pictured below is a snippet of the cleaned dataset:</p>
+<p><img src="images/data_exploration/ski_resorts_cleaned_data.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="data-exploration-4" class="level2">
+<h2 class="anchored" data-anchor-id="data-exploration-4">Data Exploration</h2>
+<p><img src="images/data_exploration/ski_resorts_data_exploration_1.png" class="img-fluid"></p>
+<p>Utilizing the <code>.info()</code> function, we can see that our fields include Ski Resort, City, and State. All of the values are filled in for each field and we are dealing with exclusively object data types in this dataset.</p>
+<section id="resorts-by-state" class="level3">
+<h3 class="anchored" data-anchor-id="resorts-by-state">Resorts by State</h3>
+<p><img src="images/data_exploration/ski_resorts_data_exploration_2.png" class="img-fluid"></p>
+<p>We know that our top 5 states with the most breweries are California, Washington, Colorado, New York, and Michigan. The pie chart above shows the distribution of ski resorts by state as a percentage of the total. The cut off for being included in the “other” pie slice was 7 ski resorts. We can see that all of our top brewery states are listed in the pie chart as having their own slice. We also know that our bottom 5 states with the least breweries are Delaware, North Dakota, Hawaii, Mississippi, and District of Columbia. Interestingly, none of those states have their own slice in the chart above.</p>
+<p><img src="images/data_exploration/ski_resorts_data_exploration_3.png" class="img-fluid"></p>
+<p>Next, we took a look at just the top 5 states with the most ski resorts, as pictured in the bar chart above. Notably, we find 3 out of 5 of our top brewery states also being listed in the top 5 ski resort states (New York, Michigan, and California). This indicates that there may be some association between the incidence of ski resorts and breweries.</p>
+</section>
+</section>
+</section>
+<section id="national-parks" class="level1">
+<h1>National Parks</h1>
+<p>A full list of national parks in the US was scraped from this <a href="https://www.nationalparktrips.com/parks/us-national-parks-by-state-list/">source</a> <span class="citation" data-cites="nationalparks">[<a href="#ref-nationalparks" role="doc-biblioref">6</a>]</span>. The source included the name of the national park and the state it is located in. Both data points were captured by the scraper. This data will help inform our question of whether brewery locations are correlated with outdoor recreational hotspots such as national parks</p>
+<section id="data-cleaning-5" class="level2">
+<h2 class="anchored" data-anchor-id="data-cleaning-5">Data Cleaning</h2>
+<section id="initial-dataset-5" class="level3">
+<h3 class="anchored" data-anchor-id="initial-dataset-5">Initial Dataset</h3>
+<p><img src="images/data_exploration/natl_parks_initial_dataset.png" class="img-fluid"></p>
+</section>
+<section id="cleaning-process-5" class="level3">
+<h3 class="anchored" data-anchor-id="cleaning-process-5">Cleaning Process</h3>
+<p>Pictured above is a snippet of the initial dataset. There is not much cleaning necessary as the data is pretty straightforward and the source does not include any additional information/text. However we did utilize a geolocator package to add the latitude and longitude to each national park as this may be useful for future modeling.</p>
+<p>Pictured below is a snippet of the cleaned dataset with the latitude and longitude added in. Notably, there are a handful of null values that the geolocator could not fill in. We have decided to leave those values as is while we determine whether we will be using the coordinates.</p>
+</section>
+<section id="cleaned-dataset-5" class="level3">
+<h3 class="anchored" data-anchor-id="cleaned-dataset-5">Cleaned Dataset</h3>
+<p><img src="images/data_exploration/natl_parks_cleaned_dataset.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="data-exploration-5" class="level2">
+<h2 class="anchored" data-anchor-id="data-exploration-5">Data Exploration</h2>
+<p><img src="images/data_exploration/natl_parks_data_exploration_1.png" class="img-fluid"></p>
+<p>Utilizing the <code>.info()</code> function, we can see that our fields include National Park, State, Latitude, and Longitude. National Park and State values are objects and all values are filled in. Latitude and Longitude values are float and we do have a handful of NaN values there. As mentioned, we are going to leave those for now while we determine whether we will be utilizing the coordinates.</p>
+<section id="national-parks-by-state" class="level3">
+<h3 class="anchored" data-anchor-id="national-parks-by-state">National Parks by State</h3>
+<p><img src="images/data_exploration/natl_parks_data_exploration_2.png" class="img-fluid"></p>
+<p>We know that our top 5 states with the most breweries are California, Washington, Colorado, New York, and Michigan. The pie chart above shows the distribution of national parks by state as a percentage of the total. The cut off for being included in the “other” pie slice was less than 2 national parks. We can see that 3 out of 5 of our top brewery states (California, Colorado, and Washington) are listed in the pie chart as having their own slice. We also know that our bottom 5 states with the least breweries are Delaware, North Dakota, Hawaii, Mississippi, and District of Columbia. We see that Hawaii is the only bottom 5 state to have its own pie slice.</p>
+<p><img src="images/data_exploration/natl_parks_data_exploration_3.png" class="img-fluid"></p>
+<p>Next, we took a look at just the top 5 states with the most ski resorts, as pictured in the bar chart above. Notably, we find 2 out of 5 of our top brewery states also being listed in the top 5 ski resort states (California and Colorado). This indicates that there may be some association between the incidence of national parks and breweries. However, we found less of our top 5 brewery states in the top 5 of national parks compared to the top 5 of ski resorts.</p>
+
 
 
 </section>
 </section>
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-openbrewerydb" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">DB OB (2024) <a href="https://www.openbrewerydb.org/">Open brewery DB</a></div>
+</div>
+<div id="ref-collegetowns" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Michelle Delgado DrFO (2023) <a href="https://listwithclever.com/research/best-college-towns-2021/">The 150 best college towns</a></div>
+</div>
+<div id="ref-topmetro" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Review WP (2024) <a href="https://worldpopulationreview.com/us-cities/">The 200 largest cities in the united states by population 2024</a></div>
+</div>
+<div id="ref-toptech" class="csl-entry" role="listitem">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">Sweeney M (2022) <a href="https://www.zdnet.com/education/computers-tech/top-tech-hubs-in-the-us/">Top tech hubs in the US</a>. ZDNET</div>
+</div>
+<div id="ref-skiresorts" class="csl-entry" role="listitem">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline">Wikipedia (2024) <a href="https://en.wikipedia.org/wiki/List_of_ski_areas_and_resorts_in_the_United_States/">List of ski areas and resorts in the united states</a></div>
+</div>
+<div id="ref-nationalparks" class="csl-entry" role="listitem">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline">STAFF (2021) <a href="https://www.nationalparktrips.com/parks/us-national-parks-by-state-list/">U.s. National parks by state</a>. Outside Interactive, Inc</div>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
