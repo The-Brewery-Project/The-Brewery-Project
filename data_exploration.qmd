@@ -110,7 +110,7 @@ fig.show()
 
 # Top College Towns
 
-The top 150 college towns in the United States were scraped from this article [article](https://listwithclever.com/research/best-college-towns-2021/) [@collegetowns]. We plan on seeing if college towns are a driving factor of breweries. *Note that these are popular college towns as defined by the article and the author.*
+The top 150 college towns in the United States were scraped from this [article](https://listwithclever.com/research/best-college-towns-2021/) [@collegetowns]. We plan on seeing if college towns are a driving factor of breweries. *Note that these are popular college towns as defined by the article and the author.*
 
 ## Data Cleaning
 

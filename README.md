@@ -4,12 +4,13 @@
 
 ## General Procedures for Working with the Website
 
+0. The following assumes a *forked* or *cloned* repository.
 1. Install Quarto and `install.packages("rmarkdown")` if you haven't already (**VSCode** is an additional option to RStudio/Quarto).
 2. Whenever you do git pull, always rebase: `git pull --rebase`.
 3. If attempting something *major*, create a branch for any work that could have a major effect (aka the `.qmd` files), and start your branch name with initials, e.g. `CK_Branch_1`.
 4. **ALWAYS** keep your git updated, do `git pull` always before any committing, pushing, branches, etc.
 5. Recommended to perform `quarto render` on the CLI/bash before pushing.
-6. When pushing, a force may be necessary. Make sure to pay attention to which branch is being pushed.
+6. When pushing, a force push may be necessary. Make sure to pay attention to which branch is being pushed.
 7. Github will automatically turn the `docs/` folder file changes into the website.
 
 ## Example Command Line and Work Procedure
@@ -32,10 +33,38 @@
 - [GitHub Directory](https://github.com/openbrewerydb/openbrewerydb/)
   - [csv files](https://github.com/openbrewerydb/openbrewerydb/tree/master/data)
 - [API Documentation](https://www.openbrewerydb.org/documentation)
-- See `[file].ipynb` for exploratory measures in extracting data via API
+- See `open-brewery-db-exploration.ipynb` for exploratory measures in extracting data via API
 - See `open-brewery-db-extractor.py` for final extraction from the API into `open-brewery-db.csv`
   
+### [Top College Towns](https://listwithclever.com/research/best-college-towns-2021/)
+
+- See `top-colleges-exploration.ipynb` for exploratory measures in extracting data via API
+- See `top-colleges-extractor.py` for final extraction from the API into `top_colleges.csv`
+
+### [Top Metropolitan Cities](https://worldpopulationreview.com/us-cities)
+
+- See `The_Brewery_Project_EDA_(Metro).ipynb` for exploratory measures in extracting data via API
+- See `the_brewery_project_web_scraping_(metro).py` for final extraction from the API into `file.csv`
+
+### [Top Tech Hubs](https://www.zdnet.com/education/computers-tech/top-tech-hubs-in-the-us/)
+
+- See `The_Brewery_Project_EDA_(Tech).ipynb` for exploratory measures in extracting data via API
+- See `the_brewery_project_web_scraping_(tech).py` for final extraction from the API into `file.csv`
+
+### [Ski Resorts](https://en.wikipedia.org/wiki/List_of_ski_areas_and_resorts_in_the_United_States)
+
+- See `The_Brewery_Project_EDA_(Ski_Resorts).ipynb` for exploratory measures in extracting data via API
+- See `the_brewery_project_web_scraping_(ski_resorts).py` for final extraction from the API into `file.csv`
+
+### [National Parks](https://www.nationalparktrips.com/parks/us-national-parks-by-state-list/)
+
+- See `the_brewery_project_web_scraping_(national_parks).py` for exploratory measures in extracting data via API
+- See `open-brewery-db-extractor.py` for final extraction from the API into `file.csv`
+  
 ### [Census](https://www.census.gov/data/tables/time-series/demo/popest/2020s-counties-detail.html)
+
+- See `[file].ipynb` for exploratory measures in extracting data via API
+- See `[file].py` for final extraction from the API into `file.csv`
 
 ## Directory
 
@@ -47,7 +76,6 @@
 3. `cd` into `scripts`
 4. run `python pdf_manager.py`
 5. `cd` back into project root directory (`cd ..`)
-6. run `quarto render` again
 
 ### Data Management
 1. `cd` into project root directory (will likely look like `The-Brewery-Project (main)`)
