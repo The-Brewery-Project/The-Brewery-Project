@@ -76,11 +76,26 @@ censusData['City, State'] = censusData['City, State'].str.replace(' CDP,', ",")
 censusData['City, State'] = censusData['City, State'].str.replace(' town,', ",")
 censusData.head()
 
-censusData[['City','State','overflow']] = censusData["City, State"].str.split(",",expand=True)
+censusData[['City','State','overflow']] = censusData["City, State"].str.split(", ",expand=True)
 censusData = censusData[censusData["overflow"].isna()]
-censusData = censusData.drop(["City, State"], axis = 1)
+censusData = censusData.drop(["City, State", "overflow"], axis = 1)
+
+censusData["City"] = censusData["City"].str.lower()
+censusData["State"] = censusData["State"].str.lower()
+censusData = censusData[censusData["State"] != "puerto rico"]
 
 censusData
+
+#Merge in region data to metroData
+regions = pd.read_csv('https://raw.githubusercontent.com/cphalpert/census-regions/master/us%20census%20bureau%20regions%20and%20divisions.csv')
+regions = pd.DataFrame(regions)
+regions["State"] = regions["State"].str.lower()
+regions.head()
+
+censusData = censusData.merge(regions, left_on='State', right_on='State')
+censusData = censusData.drop(["State Code", "Division"], axis = 1)
+censusData["Region"] = censusData["Region"].str.lower()
+censusData.head()
 
 #Export censusData as .csv
 censusData.to_csv('censusData.csv')
