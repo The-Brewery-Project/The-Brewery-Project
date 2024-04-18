@@ -1,0 +1,27 @@
+,City,State Code,State Name,Region,Division
+0,Atlanta,GA,Georgia,South,South Atlantic
+1,Austin,TX,Texas,South,West South Central
+2,Houston,TX,Texas,South,West South Central
+3,Dallas,TX,Texas,South,West South Central
+4,Fort Worth,TX,Texas,South,West South Central
+5,Baltimore,MD,Maryland,South,South Atlantic
+6,Boston,MA,Massachusetts,Northeast,New England
+7,Burlington,VT,Vermont,Northeast,New England
+8,Charlotte,NC,North Carolina,South,South Atlantic
+9,Chicago,IL,Illinois,Midwest,East North Central
+10,Cleveland,OH,Ohio,Midwest,East North Central
+11,Columbus,OH,Ohio,Midwest,East North Central
+12,Denver,CO,Colorado,West,Mountain
+13,Detroit,MI,Michigan,Midwest,East North Central
+14,Indianapolis,IN,Indiana,Midwest,East North Central
+15,Los Angeles,CA,California,West,Pacific
+16,San Diego,CA,California,West,Pacific
+17,Miami,FL,Florida,South,South Atlantic
+18,Minneapolis,MN,Minnesota,Midwest,West North Central
+19,Nashville,TN,Tennessee,South,East South Central
+20,New York City,NY,New York,Northeast,Middle Atlantic
+21,Philadelphia,PA,Pennsylvania,Northeast,Middle Atlantic
+22,Phoenix,AZ,Arizona,West,Mountain
+23,Portland,OR,Oregon,West,Pacific
+24,Salt Lake City,UT,Utah,West,Mountain
+25,Seattle,WA,Washington,West,Pacific

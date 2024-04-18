@@ -29,7 +29,7 @@ for city in techCities:
 techData = pd.DataFrame(cityState)
 techData = techData.rename(columns={0: "City, State"})
 
-techData.head(10) #Uncleaned Data
+# techData.head(10) #Uncleaned Data # commented out by CK for script running
 
 #Cleaning:
 #Split city and state on ","
@@ -37,7 +37,7 @@ techData[["City","State"]]= techData["City, State"].str.split(pat = ', ',expand 
 
 techData = techData.drop(["City, State"], axis = 1)# Removes unnecessary columns
 
-techData.info()
+# techData.info() # commented out by CK for script running
 
 #Notice Dallas-Fort Worth do not have Texas as the associated state.
 #Remove this combined row and append to records for the separate cities
@@ -60,7 +60,7 @@ techData = techData.merge(regions, left_on='State', right_on='State Code')
 techData = techData.drop(["State Code"], axis = 1)
 techData = techData.rename(columns={"State_x": "State Code", "State_y": "State Name"})
 
-techData.head()
+# techData.head() # commented out by CK for script running
 
 #Export techData as .csv
-techData.to_csv('techHubs.csv')
+techData.to_csv('../data/techHubs.csv')

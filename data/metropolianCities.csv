@@ -1,0 +1,301 @@
+,City Names,Rank,State Code,2024 Population,State Name,Region,Division
+0,New York,1,NY,7931147,New York,Northeast,Middle Atlantic
+5,Los Angeles,2,CA,3748640,California,West,Pacific
+67,Chicago,3,IL,2590002,Illinois,Midwest,East North Central
+74,Houston,4,TX,2305889,Texas,South,West South Central
+113,Phoenix,5,AZ,1676481,Arizona,West,Mountain
+125,Philadelphia,6,PA,1533916,Pennsylvania,Northeast,Middle Atlantic
+75,San Antonio,7,TX,1506593,Texas,South,West South Central
+6,San Diego,8,CA,1375452,California,West,Pacific
+76,Dallas,9,TX,1295447,Texas,South,West South Central
+128,Jacksonville,10,FL,990931,Florida,South,South Atlantic
+77,Fort Worth,11,TX,989842,Texas,South,West South Central
+78,Austin,12,TX,983126,Texas,South,West South Central
+7,San Jose,13,CA,932636,California,West,Pacific
+152,Charlotte,14,NC,920325,North Carolina,South,South Atlantic
+162,Columbus,15,OH,909676,Ohio,Midwest,East North Central
+168,Indianapolis (balance),16,IN,874089,Indiana,Midwest,East North Central
+171,Seattle,17,WA,757992,Washington,West,Pacific
+8,San Francisco,18,CA,746481,California,West,Pacific
+179,Denver,19,CO,708948,Colorado,West,Mountain
+188,Oklahoma City,20,OK,706576,Oklahoma,South,West South Central
+192,Nashville (balance),21,TN,677519,Tennessee,South,East South Central
+79,El Paso,22,TX,675872,Texas,South,West South Central
+198,Washington,23,DC,672738,District of Columbia,South,South Atlantic
+199,Las Vegas,24,NV,665811,Nevada,West,Mountain
+208,Boston,25,MA,629842,Massachusetts,Northeast,New England
+213,Portland,26,OR,616840,Oregon,West,Pacific
+216,Louisville/Jefferson County (balance),27,KY,616447,Kentucky,South,East South Central
+193,Memphis,28,TN,610944,Tennessee,South,East South Central
+218,Detroit,29,MI,603410,Michigan,Midwest,East North Central
+224,Albuquerque,30,NM,557161,New Mexico,West,Mountain
+227,Baltimore,31,MD,556723,Maryland,South,South Atlantic
+114,Tucson,32,AZ,550472,Arizona,West,Mountain
+228,Milwaukee,33,WI,550099,Wisconsin,Midwest,East North Central
+9,Fresno,34,CA,548687,California,West,Pacific
+10,Sacramento,35,CA,530334,California,West,Pacific
+115,Mesa,36,AZ,519133,Arizona,West,Mountain
+230,Kansas City,37,MO,510411,Missouri,Midwest,West North Central
+235,Atlanta,38,GA,498386,Georgia,South,South Atlantic
+180,Colorado Springs,39,CO,492204,Colorado,West,Mountain
+153,Raleigh,40,NC,488854,North Carolina,South,South Atlantic
+242,Omaha,41,NE,477705,Nebraska,Midwest,West North Central
+129,Miami,42,FL,456229,Florida,South,South Atlantic
+244,Virginia Beach,43,VA,451590,Virginia,South,South Atlantic
+11,Long Beach,44,CA,437166,California,West,Pacific
+12,Oakland,45,CA,420233,California,West,Pacific
+252,Minneapolis,46,MN,419508,Minnesota,Midwest,West North Central
+13,Bakersfield,47,CA,416113,California,West,Pacific
+189,Tulsa,48,OK,410131,Oklahoma,South,West South Central
+130,Tampa,49,FL,408438,Florida,South,South Atlantic
+181,Aurora,50,CO,400325,Colorado,West,Mountain
+80,Arlington,51,TX,394992,Texas,South,West South Central
+255,Wichita,52,KS,394381,Kansas,Midwest,West North Central
+260,New Orleans,53,LA,356280,Louisiana,South,West South Central
+163,Cleveland,54,OH,351397,Ohio,Midwest,East North Central
+200,Henderson,55,NV,343791,Nevada,West,Mountain
+14,Anaheim,56,CA,341817,California,West,Pacific
+265,Honolulu,57,HI,338455,Hawaii,West,Pacific
+15,Riverside,58,CA,326059,California,West,Pacific
+131,Orlando,59,FL,324429,Florida,South,South Atlantic
+16,Stockton,60,CA,322615,California,West,Pacific
+17,Irvine,61,CA,318396,California,West,Pacific
+217,Lexington,62,KY,318081,Kentucky,South,East South Central
+81,Corpus Christi,63,TX,314431,Texas,South,West South Central
+164,Cincinnati,64,OH,309452,Ohio,Midwest,East North Central
+18,Santa Ana,65,CA,306457,California,West,Pacific
+154,Greensboro,66,NC,305314,North Carolina,South,South Atlantic
+126,Pittsburgh,67,PA,303034,Pennsylvania,Northeast,Middle Atlantic
+266,Newark,68,NJ,300075,New Jersey,Northeast,Middle Atlantic
+201,North Las Vegas,69,NV,299895,Nevada,West,Mountain
+155,Durham,70,NC,299494,North Carolina,South,South Atlantic
+253,St. Paul,71,MN,295222,Minnesota,Midwest,West North Central
+243,Lincoln,72,NE,293678,Nebraska,Midwest,West North Central
+82,Plano,73,TX,292706,Texas,South,West South Central
+116,Chandler,74,AZ,284095,Arizona,West,Mountain
+270,Anchorage,75,AK,283424,Alaska,West,Pacific
+19,Chula Vista,76,CA,282299,California,West,Pacific
+202,Reno,77,NV,281931,Nevada,West,Mountain
+117,Gilbert,78,AZ,281535,Arizona,West,Mountain
+267,Jersey City,79,NJ,281421,New Jersey,Northeast,Middle Atlantic
+229,Madison,80,WI,275493,Wisconsin,Midwest,East North Central
+1,Buffalo,81,NY,275352,New York,Northeast,Middle Atlantic
+231,St. Louis,82,MO,272673,Missouri,Midwest,West North Central
+169,Fort Wayne,83,IN,271493,Indiana,Midwest,East North Central
+83,Lubbock,84,TX,269886,Texas,South,West South Central
+132,St. Petersburg,85,FL,263515,Florida,South,South Atlantic
+165,Toledo,86,OH,262336,Ohio,Midwest,East North Central
+84,Laredo,87,TX,256895,Texas,South,West South Central
+133,Port St. Lucie,88,FL,256772,Florida,South,South Atlantic
+118,Glendale,89,AZ,255368,Arizona,West,Mountain
+245,Chesapeake,90,VA,255173,Virginia,South,South Atlantic
+156,Winston-Salem,91,NC,252907,North Carolina,South,South Atlantic
+85,Irving,92,TX,252564,Texas,South,West South Central
+119,Scottsdale,93,AZ,244234,Arizona,West,Mountain
+134,Cape Coral,94,FL,238576,Florida,South,South Atlantic
+271,Boise,95,ID,237250,Idaho,West,Mountain
+86,Frisco,96,TX,236432,Texas,South,West South Central
+203,Enterprise,97,NV,236331,Nevada,West,Mountain
+87,Garland,98,TX,236258,Texas,South,West South Central
+246,Arlington,99,VA,236007,Virginia,South,South Atlantic
+247,Richmond,100,VA,231782,Virginia,South,South Atlantic
+172,Spokane,101,WA,231133,Washington,West,Pacific
+248,Norfolk,102,VA,228252,Virginia,South,South Atlantic
+274,Huntsville,103,AL,227522,Alabama,South,East South Central
+173,Tacoma,104,WA,223859,Washington,West,Pacific
+204,Spring Valley,105,NV,221531,Nevada,West,Mountain
+20,San Bernardino,106,CA,218628,California,West,Pacific
+135,Hialeah,107,FL,218194,Florida,South,South Atlantic
+21,Fremont,108,CA,217548,California,West,Pacific
+88,McKinney,109,TX,217540,Texas,South,West South Central
+22,Modesto,110,CA,217484,California,West,Pacific
+261,Baton Rouge,111,LA,216641,Louisiana,South,West South Central
+23,Fontana,112,CA,216330,California,West,Pacific
+24,Moreno Valley,113,CA,214741,California,West,Pacific
+25,Santa Clarita,114,CA,214625,California,West,Pacific
+279,Sioux Falls,115,SD,210747,South Dakota,Midwest,West North Central
+157,Fayetteville,116,NC,209642,North Carolina,South,South Atlantic
+280,Salt Lake City,117,UT,208656,Utah,West,Mountain
+284,Des Moines,118,IA,208254,Iowa,Midwest,West North Central
+2,Rochester,119,NY,207537,New York,Northeast,Middle Atlantic
+89,Grand Prairie,120,TX,207408,Texas,South,West South Central
+209,Worcester,121,MA,205575,Massachusetts,Northeast,New England
+136,Tallahassee,122,FL,205536,Florida,South,South Atlantic
+3,Yonkers,123,NY,205253,New York,Northeast,Middle Atlantic
+120,Peoria,124,AZ,203771,Arizona,West,Mountain
+286,Little Rock,125,AR,203106,Arkansas,South,West South Central
+236,Augusta-Richmond County (balance),126,GA,202192,Georgia,South,South Atlantic
+90,Amarillo,127,TX,202075,Texas,South,West South Central
+194,Knoxville,128,TN,200300,Tennessee,South,East South Central
+26,Oxnard,129,CA,198586,California,West,Pacific
+205,Sunrise Manor,130,NV,198463,Nevada,West,Mountain
+237,Columbus,131,GA,198234,Georgia,South,South Atlantic
+174,Vancouver,132,WA,197765,Washington,West,Pacific
+256,Overland Park,133,KS,197730,Kansas,Midwest,West North Central
+219,Grand Rapids,134,MI,195118,Michigan,Midwest,East North Central
+275,Montgomery,135,AL,193948,Alabama,South,East South Central
+276,Birmingham,136,AL,193491,Alabama,South,East South Central
+91,Brownsville,137,TX,191774,Texas,South,West South Central
+121,Tempe,138,AZ,190220,Arizona,West,Mountain
+27,Huntington Beach,139,CA,190210,California,West,Pacific
+206,Paradise,140,NV,189495,Nevada,West,Mountain
+287,Providence,141,RI,188398,Rhode Island,Northeast,New England
+166,Akron,142,OH,186888,Ohio,Midwest,East North Central
+195,Chattanooga,143,TN,186612,Tennessee,South,East South Central
+196,Clarksville,144,TN,186449,Tennessee,South,East South Central
+158,Cary,145,NC,185266,North Carolina,South,South Atlantic
+137,Fort Lauderdale,146,FL,183412,Florida,South,South Atlantic
+249,Newport News,147,VA,182579,Virginia,South,South Atlantic
+28,Glendale,148,CA,182447,California,West,Pacific
+29,Ontario,149,CA,182270,California,West,Pacific
+277,Mobile,150,AL,179967,Alabama,South,East South Central
+214,Salem,151,OR,179043,Oregon,West,Pacific
+215,Eugene,152,OR,178457,Oregon,West,Pacific
+30,Elk Grove,153,CA,178384,California,West,Pacific
+31,Rancho Cucamonga,154,CA,178101,California,West,Pacific
+32,Santa Rosa,155,CA,176527,California,West,Pacific
+68,Aurora,156,IL,175535,Illinois,Midwest,East North Central
+262,Shreveport,157,LA,173479,Louisiana,South,West South Central
+197,Murfreesboro,158,TN,171059,Tennessee,South,East South Central
+232,Springfield,159,MO,170970,Missouri,Midwest,West North Central
+33,Oceanside,160,CA,170484,California,West,Pacific
+138,Pembroke Pines,161,FL,168690,Florida,South,South Atlantic
+182,Fort Collins,162,CO,168519,Colorado,West,Mountain
+34,Garden Grove,163,CA,166749,California,West,Pacific
+35,Lancaster,164,CA,165330,California,West,Pacific
+92,Killeen,165,TX,164618,Texas,South,West South Central
+122,Surprise,166,AZ,164001,Arizona,West,Mountain
+36,Corona,167,CA,161585,California,West,Pacific
+37,Roseville,168,CA,161148,California,West,Pacific
+93,Denton,169,TX,159609,Texas,South,West South Central
+38,Salinas,170,CA,158744,California,West,Pacific
+39,Palmdale,171,CA,158063,California,West,Pacific
+288,Charleston,172,SC,156602,South Carolina,South,South Atlantic
+183,Lakewood,173,CO,156004,Colorado,West,Mountain
+238,Macon-Bibb County,174,GA,155369,Georgia,South,South Atlantic
+268,Paterson,175,NJ,154169,New Jersey,Northeast,Middle Atlantic
+175,Bellevue,176,WA,153768,Washington,West,Pacific
+210,Springfield,177,MA,152721,Massachusetts,Northeast,New England
+139,Hollywood,178,FL,152508,Florida,South,South Atlantic
+250,Alexandria,179,VA,151925,Virginia,South,South Atlantic
+40,Sunnyvale,180,CA,150918,California,West,Pacific
+41,Hayward,181,CA,150906,California,West,Pacific
+69,Naperville,182,IL,150456,Illinois,Midwest,East North Central
+257,Kansas City,183,KS,150403,Kansas,Midwest,West North Central
+70,Joliet,184,IL,149845,Illinois,Midwest,East North Central
+258,Olathe,185,KS,149657,Kansas,Midwest,West North Central
+42,Escondido,186,CA,149401,California,West,Pacific
+291,Bridgeport,187,CT,148589,Connecticut,Northeast,New England
+239,Savannah,188,GA,148566,Georgia,South,South Atlantic
+140,Gainesville,189,FL,148225,Florida,South,South Atlantic
+94,Waco,190,TX,147434,Texas,South,West South Central
+95,McAllen,191,TX,146763,Texas,South,West South Central
+96,Mesquite,192,TX,146132,Texas,South,West South Central
+43,Visalia,193,CA,146073,California,West,Pacific
+71,Rockford,194,IL,145019,Illinois,Midwest,East North Central
+184,Thornton,195,CO,144388,Colorado,West,Mountain
+97,Pasadena,196,TX,143965,Texas,South,West South Central
+292,New Haven,197,CT,143871,Connecticut,Northeast,New England
+289,Columbia,198,SC,143210,South Carolina,South,South Atlantic
+4,Syracuse,199,NY,142110,New York,Northeast,Middle Atlantic
+44,Pomona,200,CA,141001,California,West,Pacific
+272,Meridian,201,ID,140067,Idaho,West,Mountain
+141,Miramar,202,FL,139954,Florida,South,South Atlantic
+45,Victorville,203,CA,139810,California,West,Pacific
+296,Jackson,204,MS,138998,Mississippi,South,East South Central
+263,Metairie,205,LA,138958,Louisiana,South,West South Central
+251,Hampton,206,VA,138798,Virginia,South,South Atlantic
+142,Palm Bay,207,FL,138314,Florida,South,South Atlantic
+46,Fullerton,208,CA,137663,California,West,Pacific
+297,Fargo,209,ND,136909,North Dakota,Midwest,West North Central
+293,Stamford,210,CT,136828,Connecticut,Northeast,New England
+98,Midland,211,TX,136012,Texas,South,West South Central
+99,Lewisville,212,TX,136002,Texas,South,West South Central
+47,Torrance,213,CA,135663,California,West,Pacific
+285,Cedar Rapids,214,IA,135116,Iowa,Midwest,West North Central
+220,Warren,215,MI,135113,Michigan,Midwest,East North Central
+167,Dayton,216,OH,134404,Ohio,Midwest,East North Central
+100,Carrollton,217,TX,134083,Texas,South,West South Central
+281,West Valley City,218,UT,133333,Utah,West,Mountain
+48,Orange,219,CA,132928,California,West,Pacific
+101,Round Rock,220,TX,132863,Texas,South,West South Central
+143,Coral Springs,221,FL,132579,Florida,South,South Atlantic
+176,Kent,222,WA,132204,Washington,West,Pacific
+269,Elizabeth,223,NJ,131915,New Jersey,Northeast,Middle Atlantic
+190,Norman,224,OK,131093,Oklahoma,South,West South Central
+221,Sterling Heights,225,MI,131022,Michigan,Midwest,East North Central
+233,Columbia,226,MO,130624,Missouri,Midwest,West North Central
+49,Pasadena,227,CA,130118,California,West,Pacific
+240,Athens-Clarke County (balance),228,GA,129879,Georgia,South,South Atlantic
+102,Abilene,229,TX,129366,Texas,South,West South Central
+50,Clovis,230,CA,128452,California,West,Pacific
+103,Pearland,231,TX,127909,Texas,South,West South Central
+104,College Station,232,TX,127875,Texas,South,West South Central
+144,Lakeland,233,FL,126248,Florida,South,South Atlantic
+51,Santa Clara,234,CA,125966,California,West,Pacific
+159,Wilmington,235,NC,124892,North Carolina,South,South Atlantic
+259,Topeka,236,KS,124479,Kansas,Midwest,West North Central
+127,Allentown,237,PA,124466,Pennsylvania,Northeast,Middle Atlantic
+145,West Palm Beach,238,FL,124372,Florida,South,South Atlantic
+146,Lehigh Acres,239,FL,124357,Florida,South,South Atlantic
+298,Billings,240,MT,122715,Montana,West,Mountain
+52,Simi Valley,241,CA,122461,California,West,Pacific
+105,The Woodlands,242,TX,122272,Texas,South,West South Central
+254,Rochester,243,MN,122191,Minnesota,Midwest,West North Central
+191,Broken Arrow,244,OK,121900,Oklahoma,South,West South Central
+53,Thousand Oaks,245,CA,121760,California,West,Pacific
+290,North Charleston,246,SC,121653,South Carolina,South,South Atlantic
+264,Lafayette,247,LA,121333,Louisiana,South,West South Central
+54,Vallejo,248,CA,121242,California,West,Pacific
+294,Hartford,249,CT,120734,Connecticut,Northeast,New England
+273,Nampa,250,ID,120599,Idaho,West,Mountain
+147,Spring Hill,251,FL,120022,Florida,South,South Atlantic
+55,Concord,252,CA,119994,California,West,Pacific
+234,Independence,253,MO,119430,Missouri,Midwest,West North Central
+56,Fairfield,254,CA,118802,California,West,Pacific
+185,Arvada,255,CO,118768,Colorado,West,Mountain
+211,Cambridge,256,MA,118627,Massachusetts,Northeast,New England
+106,Richardson,257,TX,118281,Texas,South,West South Central
+107,New Braunfels,258,TX,117793,Texas,South,West South Central
+108,Allen,259,TX,117565,Texas,South,West South Central
+123,Buckeye,260,AZ,117380,Arizona,West,Mountain
+278,Tuscaloosa,261,AL,116990,Alabama,South,East South Central
+148,Clearwater,262,FL,116770,Florida,South,South Atlantic
+282,West Jordan,263,UT,116304,Utah,West,Mountain
+57,Murrieta,264,CA,116248,California,West,Pacific
+109,League City,265,TX,116157,Texas,South,West South Central
+222,Ann Arbor,266,MI,116125,Michigan,Midwest,East North Central
+225,Las Cruces,267,NM,116077,New Mexico,West,Mountain
+160,High Point,268,NC,115909,North Carolina,South,South Atlantic
+295,Waterbury,269,CT,115739,Connecticut,Northeast,New England
+58,Menifee,270,CA,115640,California,West,Pacific
+59,Antioch,271,CA,115277,California,West,Pacific
+299,Manchester,272,NH,114783,New Hampshire,Northeast,New England
+170,Evansville,273,IN,114134,Indiana,Midwest,East North Central
+149,Brandon,274,FL,114109,Florida,South,South Atlantic
+241,South Fulton,275,GA,114098,Georgia,South,South Atlantic
+60,East Los Angeles,276,CA,113940,California,West,Pacific
+124,Goodyear,277,AZ,113900,Arizona,West,Mountain
+161,Concord,278,NC,113825,North Carolina,South,South Atlantic
+61,Berkeley,279,CA,113694,California,West,Pacific
+62,Temecula,280,CA,113491,California,West,Pacific
+63,Carlsbad,281,CA,113424,California,West,Pacific
+186,Westminster,282,CO,112764,Colorado,West,Mountain
+150,Pompano Beach,283,FL,112650,Florida,South,South Atlantic
+223,Lansing,284,MI,112520,Michigan,Midwest,East North Central
+110,Tyler,285,TX,112296,Texas,South,West South Central
+72,Springfield,286,IL,112282,Illinois,Midwest,East North Central
+64,Richmond,287,CA,112235,California,West,Pacific
+283,Provo,288,UT,111944,Utah,West,Mountain
+212,Lowell,289,MA,111850,Massachusetts,Northeast,New England
+226,Rio Rancho,290,NM,111803,New Mexico,West,Mountain
+177,Everett,291,WA,111793,Washington,West,Pacific
+73,Elgin,292,IL,111750,Illinois,Midwest,East North Central
+111,Conroe,293,TX,111563,Texas,South,West South Central
+178,Spokane Valley,294,WA,111125,Washington,West,Pacific
+187,Pueblo,295,CO,111021,Colorado,West,Mountain
+112,Odessa,296,TX,110886,Texas,South,West South Central
+65,Santa Maria,297,CA,110508,California,West,Pacific
+66,Jurupa Valley,298,CA,109905,California,West,Pacific
+207,Sparks,299,NV,109576,Nevada,West,Mountain
+151,Miami Gardens,300,FL,109513,Florida,South,South Atlantic

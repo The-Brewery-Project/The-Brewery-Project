@@ -71,6 +71,6 @@ for index, row in national_parks_df.iterrows():
 
 # Convert and download CSV file
 
-national_parks_df.to_csv('national_parks.csv', index=False)
+national_parks_df.to_csv('../data/national_parks.csv', index=False)
 
-FileLink('national_parks.csv')
+# FileLink('../data/national_parks.csv') # commented out by CK for script running

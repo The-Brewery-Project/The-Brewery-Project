@@ -55,6 +55,6 @@ ski_resorts_df['City'] = ski_resorts_df['City'].str.split('\n').str[0]
 
 #display(ski_resorts_df)
 
-ski_resorts_df.to_csv('ski_resorts.csv', index=False)
+ski_resorts_df.to_csv('../data/ski_resorts.csv', index=False)
 
-FileLink('ski_resorts.csv')
+# FileLink('../data/ski_resorts.csv') # commented out by CK for script running

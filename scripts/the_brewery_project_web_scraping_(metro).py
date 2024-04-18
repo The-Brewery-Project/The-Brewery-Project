@@ -18,7 +18,7 @@ soup = BeautifulSoup(response.text, 'html.parser')
 
 metroCitiesGroup = soup.find_all('table', class_='tp-table-body is-narrow w-full min-w-full table-auto border-separate border-spacing-0 border bg-white')
 metroCitiesGroup = metroCitiesGroup[1]
-print(metroCitiesGroup)
+# print(metroCitiesGroup) # commented out by CK for script running
 metroCities = metroCitiesGroup.find_all("tr",class_="odd:bg-white even:bg-gray-100")
 #print(metroCities[10])
 
@@ -27,11 +27,13 @@ ranks = []
 stateNames = []
 totalPopulations = []
 
+city_rank_count = 1 # edited by CK
 for city in metroCities:
     cityName = city.find('a').get_text()
     cityDetails = city.find_all('td', class_="z-40 border px-2 py-0.5")
-    cityRank = cityDetails[0].get_text()
-    cityPopulation = cityDetails[1].get_text()
+    cityRank = city_rank_count # edited by CK
+    city_rank_count += 1
+    cityPopulation = cityDetails[0].get_text()
     cityStateTxt = city.find('a')['href'].split("-population")[0][-2:]
     if cityName and cityRank:
         cityNames.append(cityName)
@@ -39,15 +41,15 @@ for city in metroCities:
         stateNames.append(cityStateTxt)
         totalPopulations.append(cityPopulation)
 
-dict = {'City Names': cityNames, 'Rank': ranks,"State": stateNames, '2024 Population': totalPopulations}
-metroData = pd.DataFrame(dict)
-metroData
+met_dict = {'City Names': cityNames, 'Rank': ranks,"State": stateNames, '2024 Population': totalPopulations}
+metroData = pd.DataFrame(met_dict)
+# metroData # commented out by CK for script running
 
-metroData.info()
+# metroData.info() # commented out by CK for script running
 
-metroData.info()
+# metroData.info() # commented out by CK for script running
 
-metroData.dtypes
+# metroData.dtypes # commented out by CK for script running
 
 #Fix Data Types:
 #Particulatly the population column to be integer
@@ -65,14 +67,14 @@ for i in range(0,len(metroData["State"])):
 #Merge in region data to metroData
 regions = pd.read_csv('https://raw.githubusercontent.com/cphalpert/census-regions/master/us%20census%20bureau%20regions%20and%20divisions.csv')
 regions = pd.DataFrame(regions)
-regions
+# regions # commented out by CK for script running
 
 metroData = metroData.merge(regions, left_on='State', right_on='State Code')
 metroData = metroData.sort_values(by = ["Rank"])
 metroData = metroData.drop(["State Code"], axis = 1)
 metroData = metroData.rename(columns={"State_x": "State Code", "State_y": "State Name"})
 
-metroData
+# metroData # commented out by CK for script running
 
 #Export metroData as .csv
-metroData.to_csv('metropolianCities.csv')
+metroData.to_csv('../data/metropolianCities.csv')
