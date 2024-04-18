@@ -98,4 +98,4 @@ censusData["Region"] = censusData["Region"].str.lower()
 censusData.head()
 
 #Export censusData as .csv
-censusData.to_csv('censusData.csv')
+censusData.to_csv('../data/censusData.csv')
