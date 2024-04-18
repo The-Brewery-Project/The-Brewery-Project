@@ -45,6 +45,10 @@ print(censusData.dtypes)
 censusData["% Male"] = censusData["Total Men"]/ censusData["Total Population"]
 censusData = censusData.drop(["state","place", "Total Men", "Total Women"], axis = 1)
 
+
+
+censusData
+
 censusData.head()
 
 url = "https://api.census.gov/data/2021/acs/acs1?get=NAME,B06011_001E&for=place:*"
@@ -63,7 +67,7 @@ incomeData = incomeData.drop(["state","place"], axis = 1)
 
 incomeData.head()
 
-censusData = censusData.merge(incomeData, on= "City, State")
+censusData = pd.merge(censusData,incomeData,how = "left", on = ["City, State"])
 
 #need to remove town, city, CDP designation from "City, State"
 
@@ -74,3 +78,5 @@ censusData.head()
 
 #Export censusData as .csv
 censusData.to_csv('censusData.csv')
+
+censusData
