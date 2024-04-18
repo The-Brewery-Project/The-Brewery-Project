@@ -76,7 +76,11 @@ censusData['City, State'] = censusData['City, State'].str.replace(' CDP,', ",")
 censusData['City, State'] = censusData['City, State'].str.replace(' town,', ",")
 censusData.head()
 
-#Export censusData as .csv
-censusData.to_csv('censusData.csv')
+censusData[['City','State','overflow']] = censusData["City, State"].str.split(",",expand=True)
+censusData = censusData[censusData["overflow"].isna()]
+censusData = censusData.drop(["City, State"], axis = 1)
 
 censusData
+
+#Export censusData as .csv
+censusData.to_csv('censusData.csv')
