@@ -15,62 +15,102 @@ from bs4 import BeautifulSoup
 from IPython.display import FileLink
 from IPython.display import display
 import re
-from geopy.geocoders import Nominatim
-import numpy as np
 
 # Build scraper
 
-url = "https://www.nationalparktrips.com/parks/us-national-parks-by-state-list/"
+url = "https://en.wikipedia.org/wiki/List_of_national_parks_of_the_United_States"
 
 response = requests.get(url)
 
 soup = BeautifulSoup(response.text, 'html.parser')
 
+state_headings = soup.find_all("h3")
+
 national_parks_data = []
 
-state_headings = soup.find_all("h2")
+table = soup.find("table", {"class": "wikitable"})
 
-for index, heading in enumerate(state_headings):
-  state = heading.text.strip()
-  if state != "12 Trip Planners":
-    next_sibling = heading.find_next_sibling()
-    while next_sibling and next_sibling.name != "h2":
-      park_info = next_sibling.text.split(", ")
-      if len(park_info) == 1:
-        park_info = next_sibling.text.split(" - ")
-      national_park = park_info[0].strip()
-      national_parks_data.append({"National Park": national_park, "State": state})
-      next_sibling = next_sibling.find_next_sibling()
+for row in table.find_all("tr")[1:]:
+  columns = row.find_all("td")
+  if len(columns) >= 7:
+    park_link = columns[0].find("a")
+    if park_link:
+      park_name = park_link.text.strip()
+    else:
+      park_name = columns[0].text.strip()
+    visitors = columns[5].text.strip().replace(',', '')
+    national_parks_data.append({"National Park": park_name, "Visitors": visitors})
+  else:
+    park_name_th = row.find("th")
+    if park_name_th:
+      park_link = park_name_th.find("a")
+      if park_link:
+        park_name = park_link.text.strip()
+        visitors = columns[4].text.strip().replace(',', '')
+        national_parks_data.append({"National Park": park_name, "Visitors": visitors})
 
 national_parks_df = pd.DataFrame(national_parks_data)
-#display(national_parks_df)
 
-# Data cleaning/preprocessing
-# Primarily used for adding latitude and longitude coordinates necessary for future modeling
+national_parks_df["National Park"] = national_parks_df["National Park"].apply(lambda x: x + " National Park")
+national_parks_df.loc[national_parks_df['National Park'] == 'Denali National Park', 'National Park'] = 'Denali National Park & Preserve'
+national_parks_df.loc[national_parks_df['National Park'] == 'Gates of the Arctic National Park', 'National Park'] = 'Gates of the Arctic National Park & Preserve'
+national_parks_df.loc[national_parks_df['National Park'] == 'Glacier Bay National Park', 'National Park'] = 'Glacier Bay National Park & Preserve'
+national_parks_df.loc[national_parks_df['National Park'] == 'Great Sand Dunes National Park', 'National Park'] = 'Great Sand Dunes National Park & Preserve'
+national_parks_df.loc[national_parks_df['National Park'] == 'Katmai National Park', 'National Park'] = 'Katmai National Park & Preserve'
+national_parks_df.loc[national_parks_df['National Park'] == 'Kings Canyon National Park', 'National Park'] = 'Sequoia & Kings Canyon National Parks'
+national_parks_df.loc[national_parks_df['National Park'] == 'Lake Clark National Park', 'National Park'] = 'Lake Clark National Park & Preserve'
+national_parks_df.loc[national_parks_df['National Park'] == 'Redwood National Park', 'National Park'] = 'Redwood National and State Parks'
+national_parks_df.loc[national_parks_df['National Park'] == 'Sequoia National Park', 'National Park'] = 'Sequoia & Kings Canyon National Parks'
+national_parks_df.loc[59, 'National Park'] = 'Wrangell - St Elias National Park & Preserve'
+national_parks_df.loc[national_parks_df['National Park'] == 'American Samoa National Park', 'National Park'] = 'National Park of American Samoa'
+national_parks_df.loc[national_parks_df['National Park'] == 'New River Gorge National Park', 'National Park'] = 'New River Gorge National Park & Preserve'
 
-def find_lat_long(location):
-  geolocator = Nominatim(user_agent="park_locator")
-  try:
-    location = geolocator.geocode(location, timeout=60)
-    if location:
-      return location.latitude, location.longitude
-  except Exception as e:
-    print(f"Unable to find latitude and longitude for {location}")
-  return None, None
+national_parks_df
 
-national_parks_df["Latitude"] = np.nan
-national_parks_df["Longitude"] = np.nan
+def fetch_park_data(api_url, park_codes, api_key):
+  park_data = []
+  for park_code in park_codes:
+    url = f"{api_url}?parkCode={park_code}&api_key={api_key}"
+    response = requests.get(url)
+    if response.status_code == 200:
+      data = response.json()
+      for park in data["data"]:
+        park_name = park["fullName"]
+        state = park["states"]
+        city = park["addresses"][0]["city"] if park["addresses"] else "N/A"
+        park_zip = park["addresses"][0]["postalCode"] if park["addresses"] else "N/A"
+        park_data.append({"Park Name": park_name, "State": state, "City": city, "Zip Code": park_zip})
+  return park_data
 
-for index, row in national_parks_df.iterrows():
-  location = f"{row['National Park']}, {row['State']}"
-  latitude, longitude = find_lat_long(location)
-  national_parks_df.at[index, "Latitude"] = latitude
-  national_parks_df.at[index, "Longitude"] = longitude
+api_url = "https://developer.nps.gov/api/v1/parks"
+park_codes = ['NPSA', 'JEFF', 'ACAD', 'ARCH', 'BADL', 'BIBE', 'BISC', 'BLCA', 'BRCA', 'CANY', 'CARE', 'CAVE', 'CHIS', 'CONG', 'CRLA', 'CUVA', 'DEVA', 'DENA', 'DRTO', 'EVER', 'GAAR', 'GLAC', 'GLBA', 'GRCA', 'GRTE', 'GRBA', 'GRSA', 'GRSM', 'GUMO', 'HALE', 'HAVO', 'HOSP', 'INDU', 'ISRO', 'JOTR', 'KATM', 'KEFJ', 'SEKI', 'KOVA', 'LACL', 'LAVO', 'MACA', 'MEVE', 'MORA', 'NERI', 'NPSA', 'NOCA', 'OLYM', 'PEFO', 'PINN', 'REDW', 'ROMO', 'SAGU', 'SEKI', 'SHEN', 'THRO', 'VIIS', 'VOYA', 'WHSA', 'WICA', 'WRST', 'YELL', 'YOSE', 'ZION']
+api_key = "c568bXQvtf8sNnNDCS9IO12FnW0nRLhbVCux0g8h"
 
-#display(national_parks_df)
+park_data = fetch_park_data(api_url, park_codes, api_key)
 
-# Convert and download CSV file
+api_df = pd.DataFrame(park_data)
 
-national_parks_df.to_csv('../data/national_parks.csv', index=False)
+api_df
+
+national_parks_df['National Park'] = national_parks_df['National Park'].str.lower()
+api_df['Park Name'] = api_df['Park Name'].str.lower()
+api_df['City'] = api_df['City'].str.lower()
+api_df['State'] = api_df['State'].str.lower()
+
+merged_df = pd.merge(national_parks_df, api_df[['Park Name', 'City', 'State', 'Zip Code']], left_on="National Park", right_on="Park Name")
+
+merged_df.drop(columns=["Park Name"], inplace=True)
+
+merged_df['State'] = merged_df['State'].str.split(',').str[0]
+
+merged_df = merged_df.drop(1)
+merged_df = merged_df.drop(38)
+merged_df = merged_df.drop(40)
+
+merged_df
+
+merged_df.to_csv('national_parks.csv', index=False)
+
+FileLink('national_parks.csv')
 
 # FileLink('../data/national_parks.csv') # commented out by CK for script running
