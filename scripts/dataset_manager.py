@@ -6,6 +6,7 @@ python file to extract all datasets and combine them into a single dataframe for
 # import libraries
 import numpy as np
 import pandas as pd
+import regex as re
 
 # import datasets
 open_brewery_df = pd.read_csv('../data/open-brewery-db.csv')
@@ -13,17 +14,18 @@ metro_df = pd.read_csv('../data/metropolianCities.csv')
 national_park_df = pd.read_csv('../data/national_parks.csv')
 ski_resorts_df = pd.read_csv('../data/ski_resorts.csv')
 tech_df = pd.read_csv('../data/techHubs.csv')
+census_df = pd.read_csv('../data/censusData.csv').drop(['Unnamed: 0'], axis = 1)
 
 '''
 Open Brewery DB
 '''
 # get number of breweries per city
 breweries_per_city = pd.DataFrame(open_brewery_df['city'].value_counts()).reset_index()
-breweries_per_city.columns = ['city', 'city_count']
+breweries_per_city.columns = ['city', 'city_brewery_count']
 
 # get number of breweries per state
 breweries_per_state = pd.DataFrame(open_brewery_df['state'].value_counts()).reset_index()
-breweries_per_state.columns = ['state', 'state_count']
+breweries_per_state.columns = ['state', 'state_brewery_count']
 
 # merge cities with states
 city_state = open_brewery_df[['city', 'state']]
@@ -66,14 +68,87 @@ National Parks
 national_park_df['State'] = national_park_df['State'].str.lower()
 national_park_df['State'] = national_park_df['State'].str.strip()
 
-# national parks by state
-national_park_df['State'].value_counts()
-national_park_counts = pd.DataFrame(national_park_df['State'].value_counts()).reset_index()
-national_park_counts.columns = ['state', 'national_park_count']
+# state names from abbreviated
+us_state_abbrev = {
+            'AL': 'Alabama',
+            'AK': 'Alaska',
+            'AZ': 'Arizona',
+            'AR': 'Arkansas',
+            'CA': 'California',
+            'CO': 'Colorado',
+            'CT': 'Connecticut',
+            'DE': 'Delaware',
+            'FL': 'Florida',
+            'GA': 'Georgia',
+            'HI': 'Hawaii',
+            'ID': 'Idaho',
+            'IL': 'Illinois',
+            'IN': 'Indiana',
+            'IA': 'Iowa',
+            'KS': 'Kansas',
+            'KY': 'Kentucky',
+            'LA': 'Louisiana',
+            'ME': 'Maine',
+            'MD': 'Maryland',
+            'MA': 'Massachusetts',
+            'MI': 'Michigan',
+            'MN': 'Minnesota',
+            'MS': 'Mississippi',
+            'MO': 'Missouri',
+            'MT': 'Montana',
+            'NE': 'Nebraska',
+            'NV': 'Nevada',
+            'NH': 'New Hampshire',
+            'NJ': 'New Jersey',
+            'NM': 'New Mexico',
+            'NY': 'New York',
+            'NC': 'North Carolina',
+            'ND': 'North Dakota',
+            'OH': 'Ohio',
+            'OK': 'Oklahoma',
+            'OR': 'Oregon',
+            'PA': 'Pennsylvania',
+            'RI': 'Rhode Island',
+            'SC': 'South Carolina',
+            'SD': 'South Dakota',
+            'TN': 'Tennessee',
+            'TX': 'Texas',
+            'UT': 'Utah',
+            'VT': 'Vermont',
+            'VA': 'Virginia',
+            'WA': 'Washington',
+            'WV': 'West Virginia',
+            'WI': 'Wisconsin',
+            'WY': 'Wyoming',
+            'DC': 'District of Columbia',
+            'MP': 'Northern Mariana Islands',
+            'PW': 'Palau',
+            'PR': 'Puerto Rico',
+            'VI': 'Virgin Islands',
+            'AA': 'Armed Forces Americas (Except Canada)',
+            'AE': 'Armed Forces Africa/Canada/Europe/Middle East',
+            'AP': 'Armed Forces Pacific',
+            'AS': 'America Samoa'
+        }
+
+us_state_abbrev = {k.lower():us_state_abbrev[k].lower() for k in us_state_abbrev}
+
+national_park_df['State'] = national_park_df['State'].apply(lambda state: us_state_abbrev[state])
+
+
+# drop non pertinent columns
+national_park_df.drop(['National Park', 'Zip Code'], axis = 1, inplace=True)
+
+# rename columns
+national_park_df.columns = ['national_park_vistors', 'city', 'state']
+national_park_df = national_park_df[['city', 'state', 'national_park_vistors']]
+
+# sum duplicates
+national_park_df = national_park_df.groupby(['city','state'], as_index=False).sum()
 
 # find in city_level_df
-city_level_df = pd.merge(city_level_df, national_park_counts, how = 'left', on=['state'])
-city_level_df['national_park_count'] = city_level_df['national_park_count'].fillna(0)
+city_level_df = pd.merge(city_level_df, national_park_df, how = 'left', on=['city', 'state'])
+city_level_df['national_park_vistors'] = city_level_df['national_park_vistors'].fillna(0)
 
 '''
 Ski Resorts
@@ -117,9 +192,52 @@ city_level_df = pd.merge(city_level_df, tech_cities, how = 'left', on=['city', '
 city_level_df['tech_city'] = city_level_df['tech_city'].fillna(0)
 
 '''
+Census Data
+'''
+# rename city and state columns
+census_df.columns = census_df.columns.str.lower()
+
+# strip just in case
+census_df['city'] = census_df['city'].str.strip()
+census_df['state'] = census_df['state'].str.strip()
+
+# average (to deal with percents) duplicates
+census_df = census_df.groupby(['city','state'], as_index=False).mean()
+
+# find in city_level_df
+city_level_df = pd.merge(city_level_df, census_df, how = 'left', on=['city', 'state'])
+
+# nulls = 723 brewery cities not matched with census
+city_nulls = city_level_df[city_level_df['total population'].isnull()]
+# city_nulls_info = city_nulls.describe() # commented out for scripting
+
+# remove matched values
+def remove_matched_census(df1 = census_df, df2 = city_level_df):
+    # Create a boolean mask where 'city' and 'state' match
+    mask = df1.apply(lambda row: (row['city'], row['state']) in zip(df2['city'], df2['state']), axis=1)
+    
+    # Get the indices where the values match
+    matching_indices = df1.index[mask].tolist()
+    
+    # drop indices
+    df1 = census_df.drop(matching_indices)
+    df1.reset_index(drop = True, inplace = True)
+    return df1
+
+# check indices for matching 
+def find_matched_indices(df1 = census_df, df2 = city_level_df):
+    # Create a boolean mask where 'city' and 'state' match
+    mask = df1.apply(lambda row: (row['city'], row['state']) in zip(df2['city'], df2['state']), axis=1)
+    
+    # Get the indices where the values match
+    matching_indices = df1.index[mask].tolist()
+    return matching_indices
+
+
+'''
 One Last Data Review
 '''
-# check nulls - following should return 0 if good
+# check nulls - following should return 0 if good (currently with 723 from census)
 # city_level_df.isnull().sum().sum() # comment out for scripting
 
 # check duplicates - following should return False if good

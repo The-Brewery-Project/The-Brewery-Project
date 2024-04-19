@@ -65,7 +65,7 @@ national_parks_df.loc[59, 'National Park'] = 'Wrangell - St Elias National Park 
 national_parks_df.loc[national_parks_df['National Park'] == 'American Samoa National Park', 'National Park'] = 'National Park of American Samoa'
 national_parks_df.loc[national_parks_df['National Park'] == 'New River Gorge National Park', 'National Park'] = 'New River Gorge National Park & Preserve'
 
-national_parks_df
+# national_parks_df
 
 def fetch_park_data(api_url, park_codes, api_key):
   park_data = []
@@ -90,7 +90,7 @@ park_data = fetch_park_data(api_url, park_codes, api_key)
 
 api_df = pd.DataFrame(park_data)
 
-api_df
+# api_df
 
 national_parks_df['National Park'] = national_parks_df['National Park'].str.lower()
 api_df['Park Name'] = api_df['Park Name'].str.lower()
@@ -107,10 +107,10 @@ merged_df = merged_df.drop(1)
 merged_df = merged_df.drop(38)
 merged_df = merged_df.drop(40)
 
-merged_df
+# merged_df
 
-merged_df.to_csv('national_parks.csv', index=False)
+merged_df.to_csv('../data/national_parks.csv', index=False)
 
-FileLink('national_parks.csv')
+# FileLink('national_parks.csv')
 
 # FileLink('../data/national_parks.csv') # commented out by CK for script running

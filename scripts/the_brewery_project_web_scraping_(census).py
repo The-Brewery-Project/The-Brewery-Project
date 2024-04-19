@@ -41,15 +41,15 @@ censusData[[ "% age 21+","% age 65+","% Race - White", "% Race - Black",
             "% age 65+","% Race - White", "% Race - Black",
            "% Race - American Native","% Race  - Asian","% Race - Pacific Islander",
             "% Race - Other","% Race - Hispanic/Latino"]].apply(pd.to_numeric)
-print(censusData.dtypes)
+# print(censusData.dtypes)
 censusData["% Male"] = censusData["Total Men"]/ censusData["Total Population"]
 censusData = censusData.drop(["state","place", "Total Men", "Total Women"], axis = 1)
 
 
 
-censusData
+# censusData
 
-censusData.head()
+# censusData.head()
 
 url = "https://api.census.gov/data/2021/acs/acs1?get=NAME,B06011_001E&for=place:*"
 response = requests.get(url)
@@ -65,7 +65,7 @@ array = array[1:]
 incomeData = pd.DataFrame(array, columns = ["City, State","2021 Median Income","state","place"])
 incomeData = incomeData.drop(["state","place"], axis = 1)
 
-incomeData.head()
+# incomeData.head()
 
 censusData = pd.merge(censusData,incomeData,how = "left", on = ["City, State"])
 
@@ -84,18 +84,18 @@ censusData["City"] = censusData["City"].str.lower()
 censusData["State"] = censusData["State"].str.lower()
 censusData = censusData[censusData["State"] != "puerto rico"]
 
-censusData
+# censusData
 
 #Merge in region data to metroData
 regions = pd.read_csv('https://raw.githubusercontent.com/cphalpert/census-regions/master/us%20census%20bureau%20regions%20and%20divisions.csv')
 regions = pd.DataFrame(regions)
 regions["State"] = regions["State"].str.lower()
-regions.head()
+# regions.head()
 
 censusData = censusData.merge(regions, left_on='State', right_on='State')
 censusData = censusData.drop(["State Code", "Division"], axis = 1)
 censusData["Region"] = censusData["Region"].str.lower()
-censusData.head()
+# censusData.head()
 
 #Export censusData as .csv
 censusData.to_csv('../data/censusData.csv')
