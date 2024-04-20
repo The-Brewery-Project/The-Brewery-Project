@@ -7,6 +7,69 @@
     "text": "Here we consolidate our data and results from our exploratory analyses to answer our research questions and ultimately provide for multiple facets within the brewery community."
   },
   {
+    "objectID": "models_implemented.html#the-starting-dataset",
+    "href": "models_implemented.html#the-starting-dataset",
+    "title": "Models Implemented",
+    "section": "The Starting Dataset",
+    "text": "The Starting Dataset\n\n\nCode\nimport numpy as np\nimport pandas as pd\nfrom itables import show\ncity_df = pd.read_csv('data/city_level.csv')\n\n\n\n\nCode\nshow(city_df)\n\n\n\n\n    \n      \n      city\n      city_brewery_count\n      state\n      state_brewery_count\n      bar\n      brewpub\n      closed\n      contract\n      large\n      location\n      micro\n      nano\n      planning\n      proprietor\n      regional\n      taproom\n      major_city\n      national_park_vistors\n      ski_resort\n      tech_city\n      total population\n      % age 21+\n      % age 65+\n      % race - white\n      % race - black\n      % race - american native\n      % race  - asian\n      % race - pacific islander\n      % race - other\n      % race - hispanic/latino\n      % male\n      2021 median income\n      region\n    \n  Loading... (need help?)"
+  },
+  {
+    "objectID": "models_implemented.html#frequency-by-outdoor-areas",
+    "href": "models_implemented.html#frequency-by-outdoor-areas",
+    "title": "Models Implemented",
+    "section": "Frequency by Outdoor Areas",
+    "text": "Frequency by Outdoor Areas"
+  },
+  {
+    "objectID": "models_implemented.html#frequency-by-college-towns",
+    "href": "models_implemented.html#frequency-by-college-towns",
+    "title": "Models Implemented",
+    "section": "Frequency by College Towns",
+    "text": "Frequency by College Towns"
+  },
+  {
+    "objectID": "models_implemented.html#frequency-by-tech-hubs",
+    "href": "models_implemented.html#frequency-by-tech-hubs",
+    "title": "Models Implemented",
+    "section": "Frequency by Tech Hubs",
+    "text": "Frequency by Tech Hubs"
+  },
+  {
+    "objectID": "models_implemented.html#frequency-by-metropolitan-areas",
+    "href": "models_implemented.html#frequency-by-metropolitan-areas",
+    "title": "Models Implemented",
+    "section": "Frequency by Metropolitan Areas",
+    "text": "Frequency by Metropolitan Areas"
+  },
+  {
+    "objectID": "models_implemented.html#defining-a-brewery-hotspots",
+    "href": "models_implemented.html#defining-a-brewery-hotspots",
+    "title": "Models Implemented",
+    "section": "Defining a Brewery Hotspots",
+    "text": "Defining a Brewery Hotspots"
+  },
+  {
+    "objectID": "models_implemented.html#classifying-brewery-hotspots",
+    "href": "models_implemented.html#classifying-brewery-hotspots",
+    "title": "Models Implemented",
+    "section": "Classifying Brewery Hotspots",
+    "text": "Classifying Brewery Hotspots"
+  },
+  {
+    "objectID": "models_implemented.html#for-the-brewer",
+    "href": "models_implemented.html#for-the-brewer",
+    "title": "Models Implemented",
+    "section": "For the Brewer",
+    "text": "For the Brewer"
+  },
+  {
+    "objectID": "models_implemented.html#for-the-consumer",
+    "href": "models_implemented.html#for-the-consumer",
+    "title": "Models Implemented",
+    "section": "For the Consumer",
+    "text": "For the Consumer"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Meet the Team",
@@ -208,54 +271,5 @@
     "title": "Introduction",
     "section": "",
     "text": "What Is The Project?\n\nThe Brewery Project takes an in depth look into the world of Breweries and Beer in the US. This team will explore features of the brewing market from beer prices to brewery locations to common demographics of successful brewery towns. We will focus on key areas of interest for a range of beer fans from the seasoned brew bros to new, potential brewers. This study will take on interesting perspectives of the beer market in hopes to identify key trends in beer production, consumption and sales.\nThe Brewery Project will start with a look into beer sales and pricing across the country. This will include comparison of all your basic and well known beers across the States and a closer look at local grocery store and pub prices. With a basic understanding of the market, we will begin to focus in our report to review some of the factors that may promote breweries. Sometimes beer is associated with outdoor mountain activities, so we will examine this and other conditions (such as college towns and tech hubs) that may favor the brewery scene. These styles of living may also be intertwined with population demographics, so we’ll expand our exploration into additional factors such as income and age. The Brewery Project will conclude with actionable results that can guide future decisions on where to go if you want to buy beer, make beer, or drink beer.\n\n\n\n\n\n\n\nWhy Does The Project Matter?\n\n\n\n\n\n\nThe Brewery Project gives insight into where brewery hotspots are and how they are associated with communities and activities. We - as beer lovers ourselves - are always looking for new breweries with good beers. We find it interesting how brewing communities often cluster near mountain activity regions and would like to take a closer look at beer consumption across other parts of the country. For many, breweries often foster a relaxed and welcoming community space to unwind and relax after a long day. We hope to identify key areas that have taken strongly to the Brewery life as this may point us in the direction of identifying new towns that could support similar businesses.\nThe composition of breweries (micro to large commercial) and the kinds of populations/areas that support local breweries are important to study in order to maintain a diverse beer market. It is the underlying work of small companies that maintains the craft of brewing and we should do our best to support it. This information can ultimately inform business decisions in the brewing industry if you are a new or experienced brewery looking for your next potential location. A little extra knowledge about your target customers and their lifestyles, might just help point you to a successful brewery hotspot. Of course, if you just want to visit beer towns, this work will help you too.\n\n\n\n\nWho Does The Project Affect?\n\n\nOur project is relevant to both beer drinkers and beer brewers, primarily in the most populated metropolitan areas of the US. Of course as law abiding citizens, this will only apply to those who are 21+ years of age and permitted to consume alcohol.\nFor the bro-est of beer bros, certain localities have what’s known as a “beer passport”, which is a passport-like book that includes various breweries from the area. This encourages the passport holder to visit the included breweries where they will get one free beer and a stamp in their passport. With The Brewery Project, we want to take this a step further, and create a recommendation engine for beer lovers that personalizes brewery suggestions based on the user’s demographics and preferences. The recommendations will be based on features such as personal characteristics, whether the user is on a budget, what activities they like to do, and their location in the US.\nSimilarly, we intend to create a recommendation engine for beer brewers, to suggest the best place to open a new brewery. We know that it can be tricky for any new business to enter the market, and the beer/brewery market is certainly saturated in some places. We believe that this project could assist prospective producers in determining the best location for a new brewery based on market gaps, local demographics, and local attractions correlating with beer consumption.\nUltimately, if you are 21+ and want to drink beer, or brew it for others, this project is for you!\n\n\n\n\n\n\n\n\nWhat Has Been Done So Far?\n\n\n\n\n\n\nThere are several websites, databases, and applications associated with individual beer brands, breweries, and venues.\nWhat could be considered as “the world’s most popular beer-rating platform” [1], UNTAPPD [2] allows the community to rate beers and breweries. They maintain a robust database which helps maintain and showcase the ratings and sustain an almost social media like presences for individuals, brewers, and venues. Previously, they had API access for private app developers to use, but at this point in time has been discontinued.\nA completely open-source database project focused around brewery-related data known as the Open Brewery DB [3]. They maintain API access, a GitHub page with international brewery data available for download, and even a Discord for this community to discuss their projects surrounding this open-source data. They have a project page with featured projects using their database. Most apps and projects at least influenced by this project have a social media or geographical focus.\nThe original data source and scrapers for the Open Brewery DB project was the Brewers Association [4]. Their stated purpose is to “promote and protect American craft brewers, their beers, and the community of brewing enthusiasts.” Their website features detailed exploratory analysis into the growth and other aspects of the brewing industry.\nIn summary, many of the current applications have been initial data compilations of craft beer and breweries, and apps focused on a social media or geographical recommendation focus.\nHowever, an industry which does have plenty of research and is potentially transferable is real estate. The article “5 Ways to Apply Data Science to Real Estate” by Nelson Lau [5] provides a breakdown of how different features in data are applied to make price predictions, perform cluster analysis, and incorporate the use of GIS.\n\n\n\n\nWhat Can Still Be Done?\n\n\nThrough our research on the topic, we have explored various databases and projects relating to beers and breweries. What we have found is that the existing databases and projects primarily focus on exploratory data analysis. We located digital brewery heatmaps, databases detailing various characteristics of breweries and beers, and rating systems for breweries and beers. However, we have yet to find any existing project utilizing a predictive model in the beer and brewery space. As mentioned previously, we intend to build a predictive model for beer lovers to find new breweries, and for prospective beer producers to find spaces to enter the market.\nTo build this model, we intend to utilize the various available datasets related to brewery locations and information, beer pricing, local attractions and nature, local schools and tech hubs, and population/census information. We will aggregate the data and implement data mining techniques to build a model that takes into account an individual’s goals and personal characteristics to suggest the best brewery to visit, or the best place to enter the market as a beer producer. For example, we want to be able to recommend the best brewery for an out of state, 30 year old traveler, who is visiting Colorado to hike a specific 14er. We also want to be able to inform a prospective beer brewer in Texas on the best place to open up a microbrewery.\n\n\n\n\n\n\n\n\n\nResearch Questions\n\nWhat is the frequency of breweries by US state?\nWhat is the frequency of breweries near Outdoor Recreational Areas (hiking hotspots, ski resorts, state or national parks, etc.)?\nWhat is the frequency of breweries near Beach Towns?\nWhat is the frequency of breweries near College Towns?\nWhat is the frequency of breweries near Tech hubs?\nWhat is the frequency of breweries near Major Cities?\nHow can we define a brewery hotspot?\nWhat are the top brewery hotspots?\nWhat are the average population statistics (income, age, race, etc.) near brewery hotspots?\nWhat destinations can be recommended for new brewers looking to start a business?\nWhat destinations can be recommended for beer drinkers?\n\n\n\n\n\n\nReferences\n\n1. Bernot K (2021) Tyranny of the tickers - how UNTAPPD ratings became craft beer’s most Fickle prize. Good Beer Hunting\n\n\n2. UNTAPPD (2024) UNTAPPD\n\n\n3. DB OB (2024) Open brewery DB\n\n\n4. Association B (2024) Brewers association\n\n\n5. Lau N (2020) 5 Ways to Apply Data Science to Real Estate. Medium"
-  },
-  {
-    "objectID": "models_implemented.html#the-starting-dataset",
-    "href": "models_implemented.html#the-starting-dataset",
-    "title": "Models Implemented",
-    "section": "The Starting Dataset",
-    "text": "The Starting Dataset\n\n\nCode\nimport numpy as np\nimport pandas as pd\nfrom itables import show\ncity_df = pd.read_csv('data/city_level.csv')\n\n\n\n\nCode\nshow(city_df)\n\n\n\n\n    \n      \n      city\n      city_brewery_count\n      state\n      state_brewery_count\n      bar\n      brewpub\n      closed\n      contract\n      large\n      location\n      micro\n      nano\n      planning\n      proprietor\n      regional\n      taproom\n      major_city\n      national_park_vistors\n      ski_resort\n      tech_city\n      total population\n      % age 21+\n      % age 65+\n      % race - white\n      % race - black\n      % race - american native\n      % race  - asian\n      % race - pacific islander\n      % race - other\n      % race - hispanic/latino\n      % male\n      2021 median income\n      region\n    \n  Loading... (need help?)"
-  },
-  {
-    "objectID": "models_implemented.html#frequency-by-outdoor-areas",
-    "href": "models_implemented.html#frequency-by-outdoor-areas",
-    "title": "Models Implemented",
-    "section": "Frequency by Outdoor Areas",
-    "text": "Frequency by Outdoor Areas"
-  },
-  {
-    "objectID": "models_implemented.html#frequency-by-college-towns",
-    "href": "models_implemented.html#frequency-by-college-towns",
-    "title": "Models Implemented",
-    "section": "Frequency by College Towns",
-    "text": "Frequency by College Towns"
-  },
-  {
-    "objectID": "models_implemented.html#frequency-by-tech-hubs",
-    "href": "models_implemented.html#frequency-by-tech-hubs",
-    "title": "Models Implemented",
-    "section": "Frequency by Tech Hubs",
-    "text": "Frequency by Tech Hubs"
-  },
-  {
-    "objectID": "models_implemented.html#frequency-by-metropolitan-areas",
-    "href": "models_implemented.html#frequency-by-metropolitan-areas",
-    "title": "Models Implemented",
-    "section": "Frequency by Metropolitan Areas",
-    "text": "Frequency by Metropolitan Areas"
-  },
-  {
-    "objectID": "models_implemented.html#defining-a-brewery-hotspots",
-    "href": "models_implemented.html#defining-a-brewery-hotspots",
-    "title": "Models Implemented",
-    "section": "Defining a Brewery Hotspots",
-    "text": "Defining a Brewery Hotspots"
-  },
-  {
-    "objectID": "models_implemented.html#classifying-brewery-hotspots",
-    "href": "models_implemented.html#classifying-brewery-hotspots",
-    "title": "Models Implemented",
-    "section": "Classifying Brewery Hotspots",
-    "text": "Classifying Brewery Hotspots"
   }
 ]
