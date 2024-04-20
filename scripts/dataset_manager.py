@@ -201,11 +201,18 @@ census_df.columns = census_df.columns.str.lower()
 census_df['city'] = census_df['city'].str.strip()
 census_df['state'] = census_df['state'].str.strip()
 
+# unload regions (groupby removes them)
+state_regions = census_df[['state', 'region']]
+state_regions.drop_duplicates(inplace = True)
+
 # average (to deal with percents) duplicates
 census_df = census_df.groupby(['city','state'], as_index=False).mean()
 
 # find in city_level_df
 city_level_df = pd.merge(city_level_df, census_df, how = 'left', on=['city', 'state'])
+
+# add regions back in
+city_level_df = pd.merge(city_level_df, state_regions, how = 'left', on = 'state')
 
 # nulls = 723 brewery cities not matched with census
 city_nulls = city_level_df[city_level_df['total population'].isnull()]
