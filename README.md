@@ -44,27 +44,26 @@
 ### [Top Metropolitan Cities](https://worldpopulationreview.com/us-cities)
 
 - See `The_Brewery_Project_EDA_(Metro).ipynb` for exploratory measures in extracting data via API
-- See `the_brewery_project_web_scraping_(metro).py` for final extraction from the API into `file.csv`
+- See `the_brewery_project_web_scraping_(metro).py` for final extraction from the API into `metropolianCities.csv`
 
 ### [Top Tech Hubs](https://www.zdnet.com/education/computers-tech/top-tech-hubs-in-the-us/)
 
 - See `The_Brewery_Project_EDA_(Tech).ipynb` for exploratory measures in extracting data via API
-- See `the_brewery_project_web_scraping_(tech).py` for final extraction from the API into `file.csv`
+- See `the_brewery_project_web_scraping_(tech).py` for final extraction from the API into `techHubs.csv`
 
 ### [Ski Resorts](https://en.wikipedia.org/wiki/List_of_ski_areas_and_resorts_in_the_United_States)
 
 - See `The_Brewery_Project_EDA_(Ski_Resorts).ipynb` for exploratory measures in extracting data via API
-- See `the_brewery_project_web_scraping_(ski_resorts).py` for final extraction from the API into `file.csv`
+- See `the_brewery_project_web_scraping_(ski_resorts).py` for final extraction from the API into `ski_resorts.csv`
 
 ### [National Parks](https://www.nationalparktrips.com/parks/us-national-parks-by-state-list/)
 
-- See `the_brewery_project_web_scraping_(national_parks).py` for exploratory measures in extracting data via API
-- See `open-brewery-db-extractor.py` for final extraction from the API into `file.csv`
+- See `The_Brewery_Project_EDA_(National_Parks).ipynb` for exploratory measures in extracting data via API
+- See `the_brewery_project_web_scraping_(national_parks).py` for final extraction from the API into `national_parks.csv`
   
 ### [Census](https://www.census.gov/data/tables/time-series/demo/popest/2020s-counties-detail.html)
 
-- See `[file].ipynb` for exploratory measures in extracting data via API
-- See `[file].py` for final extraction from the API into `file.csv`
+- See `the_brewery_project_web_scraping_(national_parks).py` for final extraction from the API into `censusData.csv`
 
 ## Directory
 
@@ -81,6 +80,7 @@
 1. `cd` into project root directory (will likely look like `The-Brewery-Project (main)`)
 2. `cd` into `scripts`
 3. run `python open-brewery-db-extractor.py`
+4. run `python dataset_manager.py` (for merging together all `csv` files together into a dataset *almost* fit for modeling)
   
 ## Project Management
 

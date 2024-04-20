@@ -2,4 +2,55 @@
 title: "Models Implemented"
 ---
 
-Tab for Models Implemented!
+Here we consolidate our data and results from our exploratory analyses to answer our research questions and ultimately provide for multiple facets within the brewery community.
+
+# Consolidated Data
+
+Using datasets featured in our exploratory analysis, we merged them together in a format conducive to begin building models.
+
+Most columns are boolean or numeric based already, but some columns were kept in categorical format for additional exploratory analysis.
+
+Additionally, some entries contain missing values that we've kept in effort to prevent information loss. We'll test different subsets of columns and rows to produce the best models.
+
+## The Starting Dataset
+
+```{python}
+import numpy as np
+import pandas as pd
+from itables import show
+city_df = pd.read_csv('data/city_level.csv')
+```
+
+```{python}
+show(city_df)
+```
+
+
+# Addressing Frequency
+
+- Principal Component Analysis (PCA)
+- Collinearity Check
+
+## Frequency by Outdoor Areas
+
+## Frequency by College Towns
+
+## Frequency by Tech Hubs
+
+## Frequency by Metropolitan Areas
+
+# Defining and Classifying Brewery Hotspots
+
+## Defining a Brewery Hotspots
+
+## Classifying Brewery Hotspots
+
+# Outlier Analysis
+
+# Where Can I Find a Brewery?
+
+- Decision Tree
+
+## For the Brewer
+
+## For the Consumer
