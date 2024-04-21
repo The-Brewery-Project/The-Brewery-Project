@@ -41,9 +41,160 @@ show(city_df)
 
 # Defining and Classifying Brewery Hotspots
 
-## Defining a Brewery Hotspots
+In this section, we'll create a defintion of hotspots and then create a classification model to predict how much of a hotspot a given city is (or should be).
+
+## Defining and Preparing
+
+### Preparation for Modeling
+
+We will want to remove the following columns in preparation for modeling:
+
+- city (unique identifiers)
+- state (51 more columns don't seem necessary, especially when there is state specific data)
+- 2021 median income (86.4% missing values)
+- encode region (4 categories, *probably* important)
+
+Creating hotspot criteria:
+
+- based on concentration (breweries per city per 1,000 people)
+- create ranking system based on concentration
+- this will need an immediate removal of the rows missing census data
+
+After this process, our dataset is ready for modeling. Here is the first 10 rows of this modeling dataset:
+
+```{python}
+model_df_head = pd.read_csv('data/model_data.csv')
+show(model_df_head)
+```
+
+> Note that our hotspot definition is a rank based from 1-10, with 10 being considered high on the hotspot scale and 1 being not so much.
 
 ## Classifying Brewery Hotspots
+
+Now we that we have defined a hotspot ranking system and prepared our dataset for modeling, it's time to create some classification models!
+
+The complete classification modeling process can be found [here](https://github.com/The-Brewery-Project/The-Brewery-Project/blob/main/scripts/brewery-hotspots.py).
+
+Our modeling process will consist of:
+
+- Perform default algorithms, report metrics
+- Apply scaling, perform default algorithms, report metrics
+- Run hypertuning on the top performing algorithm (or algorithms if multiple have close metrics)
+
+Using the **sklearn** library, the default classification algorithms we'll be testing are:
+
+- Decision Tree: `DecisionTreeClassifier()`
+- Logistic Regression: `LogisticRegression()`
+- K Nearest Neighbors: `KNeighborsClassifier()`
+- Support Vector Machine: `VC()`
+- Naive Bayes: `GaussianNB()`
+- Linear Discriminant Analysis: `LinearDiscriminantAnalysis()`
+
+### Default Algorithms
+
+After performing the default algorithms, we found that the `DecisionTreeClassifier()` performed the best across the metrics Accuracy, Precision, Recall, and F1-Score. The remaining classifiers performed poorly across all metrics.
+
+Here is a printout of the results:
+
+```{python}
+classification_round_1 = pd.read_csv('data/hotspot_round1.csv')
+show(classification_round_1)
+```
+
+### Default Algorithms with Scaled Data
+
+Next, we'll perform the same processs with the default algorithms, this time using scaled data applied with `StandardScaler()`.
+
+Although none of the classifiers performed to a standard acceptable to be deployed, `LogisticRegression()` performed the best. *Note that even though this was supposed to be strictly a default algorithm section, this model required a change to the* `max_iter` *parameter to even run.*
+
+Here is a printout of the results:
+
+```{python}
+classification_round_2 = pd.read_csv('data/hotspot_round2.csv')
+show(classification_round_2)
+```
+
+### Visualizing the Default Results
+
+**Default Algorithms**
+
+![](images/hotspot_models/hotspot_round_1.png)
+
+**Default Algorithms with Scaled Data**
+
+![](images/hotspot_models/hotspot_round_2.png)
+
+As we can deduce from the visualization of the performance metrics, decision tree classification far exceeded all other algorithms for the non-scaled data. When the data was scaled, logistic regression outperformed the other algorithms across all metrics.
+
+> However, note that although logistic regression had the best performance, the x-scale of the image only goes to 0.35. Therefore, logistic regression actually didn't perform well at all, at least to an acceptable standard. We will be moving forward with the decision tree classifier for parameter tuning.
+
+**Default Decision Tree Results**
+
+![](images/hotspot_models/default_decision_tree.png)
+
+### Parameter Hypertuning
+
+Using the sklearn library, we can use `GridSearchCV()` to test a multitude of different combinations for algorithms. For `DecisionTreeClassifier()`, we will test the following parameters:
+
+- criterion: gini, entropy, log_loss,
+- splitter: best, random
+- max_depth: None, 2, 4, 6, 8, 10
+- max_features: None, sqrt, log2
+- class_weight: None, balanced
+
+The results across all possible combinations are as follows:
+
+```{python}
+hypertuned_df = pd.read_csv('data/hotspot_hypertuning.csv')
+show(hypertuned_df)
+```
+
+From this process, we deduced that the best parameters for this model are:
+
+- criterion: entropy
+- splitter: best
+- max_depth: None
+- max_features: None
+- class_weight: None
+
+Namely, using *entropy* as the criterion resulted in a, if only slightly, better model.
+
+A printout between the default and hypertuned model:
+
+```{python}
+decision_tree_compare = pd.read_csv('data/decision_tree_compare.csv')
+show(decision_tree_compare)
+```
+
+Visually, the results can be represented as:
+
+![](images/hotspot_models/hotspot_hypertuned.png)
+
+The hyptertuned model has a **slight** advantage over the default model. Let's zoom in to illustrate this advantage further.
+
+![](images/hotspot_models/hotspot_hypertuned_zoom.png)
+
+### Applying the Model
+
+> Note that the best fitting model was saved as a pickle file, and can be found [here](https://github.com/The-Brewery-Project/The-Brewery-Project/blob/main/model/hotspot_model.pkl).
+
+Let's say we want to see how a city ranks among breweries according to our model. In other words, on our hotspot scale of 1-10, where does our model predict they should be?
+
+Grabbing a sample of 10 random entries from our test set, and their corresponding hotspot rankings, we can give a preview of how well this does.
+
+For illustrative purposes, here is a printout of the **combined** test set features and rankings. 
+
+```{python}
+decision_tree_compare = pd.read_csv('data/decision_tree_compare.csv')
+show(decision_tree_compare)
+```
+
+Akin to our results above, 9/10 rankings were correctly predicted.
+
+```{python}
+hotspot_random_comparison = pd.read_csv('data/hotspot_random_comparison.csv')
+show(hotspot_random_comparison)
+```
 
 # Outlier Analysis
 

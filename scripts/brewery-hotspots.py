@@ -571,6 +571,9 @@ decision_tree_compare = decision_tree_1.copy()
 decision_tree_compare['Version'] = 'Default'
 decision_tree_compare = pd.concat([decision_tree_compare, hyper_tuned_df], ignore_index=True)
 
+# save for website use
+# decision_tree_compare.to_csv('../data/decision_tree_compare.csv', index = False)
+
 # get ready for plotting
 # round hypertune
 melted_hyper = decision_tree_compare.melt(id_vars = ['Version'],
@@ -614,4 +617,4 @@ predicted = pd.DataFrame(random_pred, columns=['Predicted']).reset_index(drop=Tr
 
 # let's compare manually
 random_compare = pd.concat([actual, predicted], axis=1)
-# random_testing.to_csv('../data/hotspot_random_comparison.csv', index = False)
+random_compare.to_csv('../data/hotspot_random_comparison.csv', index = False)
