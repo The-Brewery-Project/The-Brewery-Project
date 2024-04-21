@@ -182,11 +182,11 @@ Let's say we want to see how a city ranks among breweries according to our model
 
 Grabbing a sample of 10 random entries from our test set, and their corresponding hotspot rankings, we can give a preview of how well this does.
 
-For illustrative purposes, here is a printout of the **combined** test set features and rankings. 
+For illustrative purposes, here is a printout of the **combined** test set of features and rankings. 
 
 ```{python}
-decision_tree_compare = pd.read_csv('data/decision_tree_compare.csv')
-show(decision_tree_compare)
+hot_spot_testing = pd.read_csv('data/hotspot_random_testing.csv')
+show(hot_spot_testing)
 ```
 
 Akin to our results above, 9/10 rankings were correctly predicted.
