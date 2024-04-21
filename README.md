@@ -67,6 +67,26 @@
 
 ## Directory
 
+- **data/**: where all datasets there were used and created reside
+- **docs/**: Where the GitHub site is being hosted from, and what gets generated when we apply `Quarto Render` into a webpage HTML. DO NOT manually change or touch
+- **exploratory/**: where the exploratory `.ipynb` (python notebooks) reside
+- **images/**: where the images reside (contains subfolders for particular pages)
+- **model/**: where the modeling `.pkl` reside
+- **scripts/**: where the `.py` data and model scripts reside
+- **.gitignore**: specifies which files shouldn't be pushed to GitHub
+- **README.md**: file which produced this REAMDE
+- **The-Brewery-Project.Rproj**: file which controls the project within Rstudio
+- **_quarto.yml**: file which holds the settings for the quarto website
+- **about.qmd**: generates into the *about* page of the website
+- **conclusion.qmd**: generates into the *conclusion* page of the website
+- **data_exploration.qmd**: generates into the *data exploration* page of the website
+- **diabetologia.csl**: file which controls the citation settings within the generated webpages
+- **index.qmd**: necessary file within for generating the website
+- **introduction.qmd**: generates into the *introduction* page of the website
+- **models_implemented**: generates into the *models implemented* page of the website
+- **references.bib**: file which holds the bibliography
+- **styles.css**: file which controls the styling for the website
+
 ## Compiling
 
 ### Website and Report
