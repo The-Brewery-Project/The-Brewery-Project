@@ -8,6 +8,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import pickle
 
 # pull in city level data
 city_df = pd.read_csv('../data/city_level.csv')
@@ -582,3 +583,35 @@ plt.title('Decision Tree Versions')
 sns.barplot(data = melted_hyper, x = 'value', y = 'Metric', hue = 'Version')
 plt.xlim([0.89, 0.91])
 plt.title('Decision Tree Versions - Zoom')
+
+
+'''
+Applying the Model
+'''
+# before we proceed, let's export this file as a pkl file
+with open('../model/hotspot_model.pkl', 'wb') as f:
+    pickle.dump(clf, f)
+
+# let's say we want to see how a city ranks among breweries according to our model
+# grab random entries from our test set
+random_test_features = X_test.sample(10)
+# grab their corresponding hotspot rankings
+random_test_rankings = y_test.loc[random_test_features.index]
+
+# combine for website
+random_testing = pd.concat([random_test_features, random_test_rankings], axis=1)
+
+# send to data for website
+# random_testing.to_csv('../data/hotspot_random_testing.csv', index = False)
+
+# plug into our model
+random_pred = clf.predict(random_test_features)
+
+# reset indices
+actual = random_test_rankings.reset_index(drop=True)
+actual.columns = ['Actual']
+predicted = pd.DataFrame(random_pred, columns=['Predicted']).reset_index(drop=True)
+
+# let's compare manually
+random_compare = pd.concat([actual, predicted], axis=1)
+# random_testing.to_csv('../data/hotspot_random_comparison.csv', index = False)
