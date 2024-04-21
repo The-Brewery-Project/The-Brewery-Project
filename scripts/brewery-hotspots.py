@@ -611,10 +611,11 @@ random_testing = pd.concat([random_test_features, random_test_rankings], axis=1)
 random_pred = clf.predict(random_test_features)
 
 # reset indices
-actual = random_test_rankings.reset_index(drop=True)
+actual = pd.DataFrame(random_test_rankings.reset_index(drop=True))
 actual.columns = ['Actual']
 predicted = pd.DataFrame(random_pred, columns=['Predicted']).reset_index(drop=True)
 
 # let's compare manually
-random_compare = pd.concat([actual, predicted], axis=1)
-random_compare.to_csv('../data/hotspot_random_comparison.csv', index = False)
+test_nums = pd.DataFrame(np.arange(1, 11), columns = ['Test Number'])
+random_compare = pd.concat([test_nums, actual, predicted], axis=1)
+random_compare.to_csv('../data/hotspot_random_comparison.csv', index=False)
