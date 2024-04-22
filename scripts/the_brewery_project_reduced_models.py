@@ -23,7 +23,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 
 #Call Data:
-city_df = pd.read_csv('https://github.com/The-Brewery-Project/The-Brewery-Project/blob/042a3203668c3439e0bc2e6e73f60ab41ed10134/data/city_level.csv?raw=true')
+city_df = pd.read_csv('../data/city_level.csv')
 
 #Reduce Dataframe to required columns
 reduced_model_df = city_df[["custom_ranked", "total population","college_town",
@@ -170,6 +170,9 @@ clf_results = pd.DataFrame([results])
 round_1_results = pd.concat([round_1_results, clf_results], ignore_index=True)
 round_1_results.sort_values("f1", ascending = False)
 
+# export round 1 results for website - commented out post script run
+round_1_results.to_csv('../data/reduced_model_round1_results.csv', index = False)
+
 #Best Performing Base Models: SVM, Naive Bayes, Linear Discriminant
 #Fine tune these three models to see which is best
 
@@ -192,8 +195,9 @@ gaussNB_clf_hyper.fit(X_train, y_train)
 gaussNB_clf_hyper_results = pd.DataFrame(gaussNB_clf_hyper.cv_results_)
 #gaussNB_clf_hyper_results
 
-#Best Performance: var_smoothing = 0.000001
-gaussNB_clf_hyper.best_params_
+#Best Performance:
+#gaussNB_clf_hyper.best_params_
+#{'var_smoothing': 1e-06}
 
 # Naive Bayes with best params
 clf = GaussianNB(**gaussNB_clf_hyper.best_params_).fit(X_train, y_train)
@@ -227,7 +231,8 @@ linearDisc_clf_hyper_results = pd.DataFrame(linearDisc_clf_hyper.cv_results_)
 #linearDisc_clf_hyper_results
 
 #Best Performance:
-linearDisc_clf_hyper.best_params_
+#linearDisc_clf_hyper.best_params_
+#{'shrinkage': 0.5, 'solver': 'lsqr'}
 
 # Linear Discriminant with best params
 clf = LinearDiscriminantAnalysis(**linearDisc_clf_hyper.best_params_).fit(X_train, y_train)
@@ -262,7 +267,8 @@ SVM_clf_hyper_results = pd.DataFrame(SVM_clf_hyper.cv_results_)
 #SVM_clf_hyper_results
 
 #Best Performance:
-SVM_clf_hyper.best_params_
+#SVM_clf_hyper.best_params_
+#{'class_weight': None, 'degree': 2, 'kernel': 'rbf'}
 
 # Linear Discriminant with best params
 clf = SVC(**SVM_clf_hyper.best_params_).fit(X_train, y_train)
@@ -283,3 +289,5 @@ clf_results = pd.DataFrame([results])
 final_model_results = pd.concat([final_model_results, clf_results], ignore_index=True)
 
 final_model_results.sort_values("F1", ascending = False)
+# export final model results for website - commented out post script run
+final_model_results.to_csv('../data/reduced_model_final_results.csv', index = False)
