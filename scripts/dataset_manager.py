@@ -147,6 +147,11 @@ us_state_abbrev = {k.lower():us_state_abbrev[k].lower() for k in us_state_abbrev
 
 national_park_df['State'] = national_park_df['State'].apply(lambda state: us_state_abbrev[state])
 
+# national park count per state
+national_parks_per_state = pd.DataFrame(national_park_df['State'].value_counts()).reset_index()
+national_parks_per_state.columns = ['state', 'state_national_park_count']
+city_level_df = pd.merge(city_level_df, national_parks_per_state, how='left', on='state')
+city_level_df['state_national_park_count'] = city_level_df['state_national_park_count'].fillna(0)
 
 # drop non pertinent columns
 national_park_df.drop(['National Park', 'Zip Code'], axis = 1, inplace=True)
@@ -161,6 +166,7 @@ national_park_df = national_park_df.groupby(['city','state'], as_index=False).su
 # find in city_level_df
 city_level_df = pd.merge(city_level_df, national_park_df, how = 'left', on=['city', 'state'])
 city_level_df['national_park_vistors'] = city_level_df['national_park_vistors'].fillna(0)
+
 
 '''
 Ski Resorts
@@ -182,6 +188,12 @@ ski_resort_cities['ski_resort'] = 1
 city_level_df = pd.merge(city_level_df, ski_resort_cities, how = 'left', on=['city', 'state'])
 city_level_df['ski_resort'] = city_level_df['ski_resort'].fillna(0)
 city_level_df = city_level_df.drop_duplicates()
+
+# ski resorts per state
+ski_resorts_per_state = pd.DataFrame(ski_resorts_df['State'].value_counts()).reset_index()
+ski_resorts_per_state.columns = ['state', 'ski_resort_count']
+city_level_df = pd.merge(city_level_df, ski_resorts_per_state, how='left', on='state')
+city_level_df['ski_resort_count'] = city_level_df['ski_resort_count'].fillna(0)
 
 '''
 Tech Hubs
@@ -225,6 +237,24 @@ city_level_df = pd.merge(city_level_df, census_df, how = 'left', on=['city', 'st
 
 # add regions back in
 city_level_df = pd.merge(city_level_df, state_regions, how = 'left', on = 'state')
+
+'''
+brewery concentration / hotspot creation
+'''
+
+# create new column with brewery concentration per capita (per 1000)
+city_level_df['brewery_concentration'] = 1000*(city_level_df['city_brewery_count'] / city_level_df['total population'])
+# create ranks: 1 - 10
+# labels as false and the + 1 return ints instead of category type data
+city_level_df['per_capita_ranked'] = pd.qcut(city_level_df['brewery_concentration'], q=10, labels=False) + 1
+
+# classes from 1-6
+city_level_df['custom_ranked'] = 0
+for index in city_level_df.index:
+    if city_level_df['city_brewery_count'][index]<3:
+        city_level_df['custom_ranked'][index] = 1
+    else:
+        city_level_df['custom_ranked'][index] = pd.qcut(city_level_df['city_brewery_count'][city_level_df['city_brewery_count']>=3],q=10,duplicates='drop',labels=False)[index] + 1
 
 # nulls = 723 brewery cities not matched with census
 # city_nulls = city_level_df[city_level_df['total population'].isnull()]

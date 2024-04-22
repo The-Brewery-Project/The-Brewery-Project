@@ -122,11 +122,7 @@ total population             0
 region                       0
 '''
 
-# create new column with brewery concentration per capita (per 1000)
-model_df['brewery_concentration'] = 1000*(model_df['city_brewery_count'] / model_df['total population'])
-# create ranks: 1 - 10
-# labels as false and the + 1 return ints instead of category type data
-model_df['ranked'] = pd.qcut(model_df['brewery_concentration'], q=10, labels=False) + 1
+# no longer need to create concentrations here
 
 # drop brewery concentration (collinearity with ranking)
 # drop city and state
