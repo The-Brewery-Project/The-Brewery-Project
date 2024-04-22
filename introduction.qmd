@@ -133,13 +133,12 @@ To build this model, we intend to utilize the various available datasets related
 # Research Questions
 
 1. What is the frequency of breweries by US state?
-2. What is the frequency of breweries near Outdoor Recreational Areas (hiking hotspots, ski resorts, state or national parks, etc.)?
-3. What is the frequency of breweries near Beach Towns?
-4. What is the frequency of breweries near College Towns?
-5. What is the frequency of breweries near Tech hubs?
-6. What is the frequency of breweries near Major Cities?
-7. How can we define a brewery hotspot?
-8. What are the top brewery hotspots?
-9. What are the average population statistics (income, age, race, etc.) near brewery hotspots?
-10. What destinations can be recommended for new brewers looking to start a business?
-11. What destinations can be recommended for beer drinkers?
+2. Are breweries concentrated in any of the 4 major US regions more than others?
+3. We've identified 5 types of features that could impact brewery popularity in cities. Do any of these features have redundancy/collinearity with one another?
+4. How does the presence of different city features (ski resorts, national parks, tech hubs, major cities, college towns) relate to the count of breweries?
+5. How can we define a brewery hotspot?
+6. What are the top brewery hotspots?
+7. Do brewery hotspots tend to be located near the city features we've outlined?
+8. What are the average population statistics (age, race, etc.) near brewery hotspots?
+9. Given the full knowledge of hotspot demographics, can we expand our models for better results?
+10. Given the information that a normal business owner would have, what tools can they use to guide their location decisions?

@@ -94,14 +94,21 @@ Our modeling process will consist of:
 - Applying scaling, performing default algorithms, reporting metrics
 - Running hypertuning on the top performing default algorithm(s)
 
+The metrics we'll be reporting on are:
+
+- **Accuracy**: the ratio of correct predictions to all predictions
+- **Precision**: the ratio of true positives to the total number of positives (a measure of exactness)
+- **Recall**: the ratio of true positives to the number of total correct predictions (a measure of completeness)
+- **F1-Score**: the *harmonic mean* between precision and recall (a balanced combination, or equal weight, of both precision and recall)
+
 Using the **sklearn** library, the default classification algorithms we'll be testing are:
 
-- Decision Tree: `DecisionTreeClassifier()`
-- Logistic Regression: `LogisticRegression()`
-- K Nearest Neighbors: `KNeighborsClassifier()`
-- Support Vector Machine: `VC()`
-- Naive Bayes: `GaussianNB()`
-- Linear Discriminant Analysis: `LinearDiscriminantAnalysis()`
+- **Decision Tree**: `DecisionTreeClassifier()`
+- **Logistic Regression**: `LogisticRegression()`
+- **K Nearest Neighbors**: `KNeighborsClassifier()`
+- **Support Vector Machine**: `VC()`
+- **Naive Baye**s: `GaussianNB()`
+- **Linear Discriminant Analysis**: `LinearDiscriminantAnalysis()`
 
 ### Default Algorithms
 
@@ -212,7 +219,7 @@ Visualizing the best results:
 
 Overall, `LogisticRegression()` with scaled data performs the best with scores in Accuracy, Precision, Recall, F1-Score in the mid-90s.
 
-One final note is that the overall scores for the *best* `DecisionTreeClassifier()` are lower than the originally run model. This is due to how `GridSearchCV()` tests models, which is through cross validation. The default (which we had ran the models through) uses 5-fold cross validation. This means that the *initial data is randomly partitioned into 5 mutually exclusive subsets (folds), each of approximately equal size, and then training and testing are performed 5 times* [@datamining4th]. This helps in assuring a better model than just using a single split.
+One final note is that the overall scores for the *best* `DecisionTreeClassifier()` are lower than the originally run model. This is due to how `GridSearchCV()` tests models, which is through cross validation. The default (which we had ran the models through) uses 5-fold cross validation. This means that the *initial data is randomly partitioned into 5 mutually exclusive subsets (folds), each of approximately equal size, and then training and testing are performed 5 times* [@datamining4th]. This helps in assuring a better model than just using a single split. Although not produced during the timeframe of this project, with how the scores for the `DecisionTreeClassifier()` changed, and how much of an increase `LogisticRegression()` received, it may be worth utilizing `GridSearchCV()` across more of the models at a later time.
 
 ### Applying the Model
 
