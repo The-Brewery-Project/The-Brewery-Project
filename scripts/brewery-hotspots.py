@@ -204,6 +204,9 @@ X = model_df.drop('ranked', axis=1)
 y = model_df['ranked']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.30, random_state = 42)
 
+'''
+Decision Tree Default
+'''
 # decision tree
 # training
 clf = DecisionTreeClassifier().fit(X_train, y_train)
@@ -223,9 +226,8 @@ clf_results = pd.DataFrame([clf_results])
 round_1_results = pd.concat([round_1_results, clf_results], ignore_index=True)
 
 '''
-Decent results from decision tree
+Logistic Regression Default
 '''
-
 # logistic regression
 # training
 # the model itself failed to converge, so deviating slightly from default to allow
@@ -247,9 +249,8 @@ clf_results = pd.DataFrame([clf_results])
 round_1_results = pd.concat([round_1_results, clf_results], ignore_index=True)
 
 '''
-decent performance
+K-Nearest-Neighbors Default
 '''
-
 # KNN (note that KNN method requires arrays for fitting and training)
 # training
 clf = KNeighborsClassifier().fit(np.array(X_train), np.array(y_train))
@@ -269,9 +270,8 @@ clf_results = pd.DataFrame([clf_results])
 round_1_results = pd.concat([round_1_results, clf_results], ignore_index=True)
 
 '''
-decent performance
+Support Vector Machine - Classification Default
 '''
-
 # SVM
 # training
 clf = SVC().fit(X_train, y_train)
@@ -291,9 +291,8 @@ clf_results = pd.DataFrame([clf_results])
 round_1_results = pd.concat([round_1_results, clf_results], ignore_index=True)
 
 '''
-decent performance
+Naive Bayes Default
 '''
-
 # Naive Bayes
 # training
 clf = GaussianNB().fit(X_train, y_train)
@@ -313,9 +312,8 @@ clf_results = pd.DataFrame([clf_results])
 round_1_results = pd.concat([round_1_results, clf_results], ignore_index=True)
 
 '''
-not great performance
+Linear Discriminant Analysis Default
 '''
-
 # Linear Discriminant Analysis
 # training
 clf = LinearDiscriminantAnalysis().fit(X_train, y_train)
@@ -346,7 +344,7 @@ Results from Round 1:
 5  0.896341  0.874851  0.896341  0.883871  Linear Discriminant Analysis
 '''
 
-# export round 1 results for website
+# export round 1 results for website - commented out post script run
 # round_1_results.to_csv('../data/hotspot_round1.csv', index = False)
 
 '''
@@ -361,6 +359,9 @@ X_test_normal = scaler.fit_transform(X_test)
 # result storing
 round_2_results = pd.DataFrame(columns=result_columns)
 
+'''
+Decision Tree Default - Scaled Data
+'''
 # decision tree
 # training
 clf = DecisionTreeClassifier().fit(X_train_normal, y_train)
@@ -380,9 +381,8 @@ clf_results = pd.DataFrame([clf_results])
 round_2_results = pd.concat([round_2_results, clf_results], ignore_index=True)
 
 '''
-Abysmal performance compared to non-scaled data
+Logistic Regression Default - Scaled Data
 '''
-
 # logistic regression
 # training
 # the model itself failed to converge, so deviating slightly from default to allow
@@ -404,7 +404,7 @@ clf_results = pd.DataFrame([clf_results])
 round_2_results = pd.concat([round_2_results, clf_results], ignore_index=True)
 
 '''
-slight improvement over non-scaled data
+K-Nearest-Neighbors Default - Scaled Data
 '''
 # KNN (note that KNN method requires arrays for fitting and training)
 # training
@@ -425,9 +425,8 @@ clf_results = pd.DataFrame([clf_results])
 round_2_results = pd.concat([round_2_results, clf_results], ignore_index=True)
 
 '''
-We don't need to use array versions with normalized data, but still not great
+Support Vector Machine - Classification Default - Scaled Data
 '''
-
 # SVM
 # training
 clf = SVC().fit(X_train_normal, y_train)
@@ -447,7 +446,7 @@ clf_results = pd.DataFrame([clf_results])
 round_2_results = pd.concat([round_2_results, clf_results], ignore_index=True)
 
 '''
-still not great performance
+Naive Bayes Default - Scaled Data
 '''
 # Naive Bayes
 # training
@@ -468,9 +467,8 @@ clf_results = pd.DataFrame([clf_results])
 round_2_results = pd.concat([round_2_results, clf_results], ignore_index=True)
 
 '''
-Results:
+Linear Discriminant Analysis Default - Scaled Data
 '''
-
 # Linear Discriminant Analysis
 # training
 clf = LinearDiscriminantAnalysis().fit(X_train_normal, y_train)
@@ -489,9 +487,6 @@ clf_results = {'accuracy': clf_accuracy,
 clf_results = pd.DataFrame([clf_results])
 round_2_results = pd.concat([round_2_results, clf_results], ignore_index=True)
 
-'''
-Results:
-'''
 
 '''
 Results from Round 2:
@@ -505,7 +500,7 @@ Results from Round 2:
 5   0.91311  0.891192   0.91311  0.898986  Linear Discriminant Analysis
 '''
 
-# export round 1 results for website
+# export round 1 results for website - commented out post script run
 # round_2_results.to_csv('../data/hotspot_round2.csv', index = False)
 
 '''
@@ -531,7 +526,7 @@ sns.barplot(data = melted_2, x = 'value', y = 'Metric', hue = 'Model')
 plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.title('Default Models Scaled Data')
 
-# decision tree from round 1, logistic regression from round 2
+# decision tree from round 1 (non-scaled data), logistic regression from round 2 (scaled data)
 best_clf_round_1 = round_1_results[round_1_results['model']=='Decision Tree Classification'].reset_index(drop=True)
 best_clf_round_2 = round_2_results[round_2_results['model']=='Logistic Regression'].reset_index(drop=True)
 top_models_round_1 = pd.concat([best_clf_round_1, best_clf_round_2], axis=0, ignore_index=True)
@@ -547,19 +542,13 @@ sns.barplot(data = top_models, x = 'value', y = 'Metric', hue = 'Model')
 plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.title('Top Performing Default Models')
 
-# main_color = sns.color_palette()[0]
 
 '''
-Final Round: Hypertuning the Final Models
+Final Round: Hypertuning the Top Default Models
 '''
-
+# result storage
 result_columns = ['Accuracy', 'Precision', 'Recall', 'F1', 'Model']
 hypertuned_results = pd.DataFrame(columns=result_columns)
-
-# normalizing data
-# scaler = StandardScaler()
-# X_train_normal = scaler.fit_transform(X_train)
-# X_test_normal = scaler.fit_transform(X_test)
 
 # decision tree parameters to run through
 tree_parameters = {'criterion': ('gini', 'entropy', 'log_loss'),
@@ -574,7 +563,7 @@ tree_clf_hyper.fit(X_train, y_train)
 
 # results
 tree_clf_hyper_results = pd.DataFrame(tree_clf_hyper.cv_results_)
-# export results to csv
+# export results to csv - commented out post script run
 # tree_clf_hyper_results.to_csv('../data/hotspot_hyper_tree_results.csv', index = False)
 
 
@@ -618,7 +607,7 @@ logistic_clf_hyper.fit(X_train_normal, y_train)
 
 # results
 logistic_clf_hyper_results = pd.DataFrame(tree_clf_hyper.cv_results_)
-# export results to csv
+# export results to csv - commented out post script run
 # logistic_clf_hyper_results.to_csv('../data/hotspot_hyper_logistic_results.csv', index = False)
 
 logistic_clf_hyper.best_params_
@@ -647,7 +636,7 @@ clf_results = {'Accuracy': clf_accuracy,
 clf_results = pd.DataFrame([clf_results])
 hypertuned_results = pd.concat([hypertuned_results, clf_results], ignore_index=True)
 
-# save results to csv
+# save results to csv - commented out post script run
 # hypertuned_results.to_csv('../data/best_hyper_results.csv', index = False)
 
 # best results visualization

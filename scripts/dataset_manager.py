@@ -143,8 +143,10 @@ us_state_abbrev = {
             'AS': 'America Samoa'
         }
 
+# lowercase dictionary
 us_state_abbrev = {k.lower():us_state_abbrev[k].lower() for k in us_state_abbrev}
 
+# apply dictionary to nation park dataframe
 national_park_df['State'] = national_park_df['State'].apply(lambda state: us_state_abbrev[state])
 
 # national park count per state
@@ -260,28 +262,31 @@ for index in city_level_df.index:
 # city_nulls = city_level_df[city_level_df['total population'].isnull()]
 # city_nulls_info = city_nulls.describe() # commented out for scripting
 
-# remove matched values
-# def remove_matched_census(df1 = census_df, df2 = city_level_df):
-#     # Create a boolean mask where 'city' and 'state' match
-#     mask = df1.apply(lambda row: (row['city'], row['state']) in zip(df2['city'], df2['state']), axis=1)
+# the below functions are commented out for script running purposes
+# remove multistring comment before using functions
+'''
+# function to remove matched values
+def remove_matched_census(df1 = census_df, df2 = city_level_df):
+    # Create a boolean mask where 'city' and 'state' match
+    mask = df1.apply(lambda row: (row['city'], row['state']) in zip(df2['city'], df2['state']), axis=1)
     
-#     # Get the indices where the values match
-#     matching_indices = df1.index[mask].tolist()
+    # Get the indices where the values match
+    matching_indices = df1.index[mask].tolist()
     
-#     # drop indices
-#     df1 = census_df.drop(matching_indices)
-#     df1.reset_index(drop = True, inplace = True)
-#     return df1
+    # drop indices
+    df1 = census_df.drop(matching_indices)
+    df1.reset_index(drop = True, inplace = True)
+    return df1
 
-# check indices for matching 
-# def find_matched_indices(df1 = census_df, df2 = city_level_df):
-#     # Create a boolean mask where 'city' and 'state' match
-#     mask = df1.apply(lambda row: (row['city'], row['state']) in zip(df2['city'], df2['state']), axis=1)
+# function to check indices for matching 
+def find_matched_indices(df1 = census_df, df2 = city_level_df):
+    # Create a boolean mask where 'city' and 'state' match
+    mask = df1.apply(lambda row: (row['city'], row['state']) in zip(df2['city'], df2['state']), axis=1)
     
-#     # Get the indices where the values match
-#     matching_indices = df1.index[mask].tolist()
-#     return matching_indices
-
+    # Get the indices where the values match
+    matching_indices = df1.index[mask].tolist()
+    return matching_indices
+'''
 
 '''
 One Last Data Review
