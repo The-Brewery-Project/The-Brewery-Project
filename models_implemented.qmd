@@ -60,7 +60,7 @@ We will want to perform the following in preparation for modeling:
 - remove `per_capita_ranked` (a variable crated from brewery_concentration)
 - remove `city_brewery_count` (basis for custom_ranked)
 - remove rows where the census data is failed to be captured
-- encode `region``
+- encode `region`
 
 In defining brewery hotspots, we went with two separate methods:
 
@@ -84,7 +84,7 @@ show(model_df_head)
 
 ## Classifying Brewery Hotspots
 
-Now we that we have defined a hotspot ranking system and prepared our dataset for modeling, it's time to create some classification models!
+Now that we have defined a hotspot ranking system and prepared our dataset for modeling, it's time to create some classification models!
 
 The complete classification modeling process can be found [here](https://github.com/The-Brewery-Project/The-Brewery-Project/blob/main/scripts/brewery-hotspots.py).
 
@@ -150,11 +150,11 @@ Using the sklearn library, we can use `GridSearchCV()` to test a multitude of di
 
 For `DecisionTreeClassifier()` (non-scaled data), we will test the following parameters:
 
-- criterion: gini, entropy, log_loss
-- splitter: best, random
-- max_depth: None, 2, 4, 6, 8, 10
-- max_features: None, sqrt, log2
-- class_weight: None, balanced
+- **criterion**: gini, entropy, log_loss
+- **splitter**: best, random
+- **max_depth**: None, 2, 4, 6, 8, 10
+- **max_features**: None, sqrt, log2
+- **class_weight**: None, balanced
 
 The results across all possible combinations are as follows:
 
@@ -165,22 +165,22 @@ show(hypertuned_df)
 
 From this process, we deduced that the best parameters for this model are:
 
-- criterion: entropy
-- splitter: best
-- max_depth: 6
-- max_features: None
-- class_weight: None
+- **criterion**: entropy
+- **splitter**: best
+- **max_depth**: 6
+- **max_features**: None
+- **class_weight**: None
 
 Namely, using *entropy* as the criterion and *max_depth* of 6 resulted in the best best model for the `DecisionTreeClassifier()` (non-scaled data).
 
 
 For `LogisticRegression()` (scaled data), we will test the following parameters:
 
-- class_weight: None, balanced
-- max_iter: 10000
-- multi_class: auto, multinomial
-- penalty: None, l2, l1, balanced
-- solver: lbfgs, saga
+- **class_weight**: None, balanced
+- **max_iter**: 10000
+- **multi_class**: auto, multinomial
+- **penalty**: None, l2, l1, balanced
+- **solver**: lbfgs, saga
 
 The results across all possible combinations are as follows:
 
@@ -191,11 +191,11 @@ show(hypertuned_df)
 
 From this process, we deduced that the best parameters for this model are:
 
-- class_weight: None
-- max_iter: 10000
-- multi_class: auto
-- penalty: l1
-- solver: saga
+- **class_weight**: None
+- **max_iter**: 10000
+- **multi_class**: auto
+- **penalty**: l1
+- **solver**: saga
 
 Namely, using *max_iter* of 10000, *penalty* of l1, and *solver* as saga resulted in the best best model for the `LogisticRegression()` (scaled data).
 
