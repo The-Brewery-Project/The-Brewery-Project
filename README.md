@@ -87,6 +87,179 @@
 - **references.bib**: file which holds the bibliography
 - **styles.css**: file which controls the styling for the website
 
+### Datasets (data/)
+
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 70%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">filename</th>
+<th style="text-align: left;">purpose</th>
+</tr>
+<tr class="odd">
+<th style="text-align: left;">best_hyper_results.csv</th>
+<th style="text-align: left;">contains the model metrics of the hypertuned models from the full model hotspot testing</th>
+</tr>
+<tr class="even">
+<th style="text-align: left;">brewery_count_by_state.csv</th>
+<th style="text-align: left;">contains the total breweries per state</th>
+</tr>
+<tr class="odd">
+<th style="text-align: left;">censusData.csv</th>
+<th style="text-align: left;">contains the full census API extraction with some additional information</th>
+</tr>
+<tr class="even">
+<th style="text-align: left;">city_level.csv</th>
+<th style="text-align: left;">contains the consolidated data from all datasets with additional metrics, almost model ready</th>
+</tr>
+<tr class="odd">
+<th style="text-align: left;">coll-town-count-by-state.csv</th>
+<th style="text-align: left;">contains the total college towns per state</th>
+</tr>
+<tr class="even">
+<th style="text-align: left;">hotspot_hyper_logistic_results.csv</th>
+<th style="text-align: left;">contains the hypertuned best logistic regression model metrics for full model</th>
+</tr>
+<tr class="odd">
+<th style="text-align: left;">hotspot_hyper_tree_results.csv</th>
+<th style="text-align: left;">contains the hypertuned best decision tree classification model metrics for full model</th>
+</tr>
+<tr class="even">
+<th style="text-align: left;">hotspot_round_1.csv</th>
+<th style="text-align: left;">contains the model metrics of the default models with non-scaled data from the full model hotspot testing</th>
+</tr>
+<tr class="odd">
+<th style="text-align: left;">hotspot_round_2.csv</th>
+<th style="text-align: left;">contains the model metrics of the default models with scaled data from the full model hotspot testing</th>
+</tr>
+<tr class="even">
+<th style="text-align: left;">metropolianCities.csv</th>
+<th style="text-align: left;">contains the scraped data for the top metropolitan areas (cities)</th>
+</tr>
+<tr class="odd">
+<th style="text-align: left;">model_data.csv</th>
+<th style="text-align: left;">contains the model ready data derived from city_level.csv</th>
+</tr>
+<tr class="even">
+<th style="text-align: left;">national_parks.csv</th>
+<th style="text-align: left;">contains the scraped data for national parks in the US</th>
+</tr>
+<tr class="odd">
+<th style="text-align: left;">open-brewery-db.csv</th>
+<th style="text-align: left;">contains the full US API extraction from open brewery db</th>
+</tr>
+<tr class="even">
+<th style="text-align: left;">ski_resorts.csv</th>
+<th style="text-align: left;">contains the scraped data for ski resorts in the US</th>
+</tr>
+<tr class="odd">
+<th style="text-align: left;">techHubs.csv</th>
+<th style="text-align: left;">contains the scraped data for ski resorts in the US (cities)</th>
+</tr>
+<tr class="even">
+<th style="text-align: left;">top_colleges.csv</th>
+<th style="text-align: left;">contains the scraped data for the top colleges towns in the US (cities)</th>
+</tr>
+</tbody>
+</table>
+</div>
+
+### Exploratory Notebooks (exploratory/)
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 70%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">filename</th>
+<th style="text-align: left;">purpose</th>
+</tr>
+<tr class="odd">
+<th style="text-align: left;">open-brewery-db-exploration.ipynb</th>
+<th style="text-align: left;">an exploratory analysis from open brewery db API data (US)</th>
+</tr>
+<tr class="even">
+<th style="text-align: left;">The_Brewery_Project_EDA_(Metro).ipynb</th>
+<th style="text-align: left;">an exploratory analysis of the metroplitan data</th>
+</tr>
+<tr class="odd">
+<th style="text-align: left;">The_Brewery_Project_EDA_(National_Parks).ipynb</th>
+<th style="text-align: left;">an exploratory analysis of the national parks data</th>
+</tr>
+<tr class="even">
+<th style="text-align: left;">The_Brewery_Project_EDA_(Ski_Resorts).ipynb</th>
+<th style="text-align: left;">an exploratory analysis of the ski resorts data</th>
+</tr>
+<tr class="odd">
+<th style="text-align: left;">The_Brewery_Project_EDA_(Tech).ipynb</th>
+<th style="text-align: left;">an exploratory analysis of the tech hubs data</th>
+</tr>
+<tr class="even">
+<th style="text-align: left;">top-colleges-exploration.ipynb</th>
+<th style="text-align: left;">an exploratory analysis of the college towns data</th>
+</tr>
+</tbody>
+</table>
+</div>
+
+### Python Scripts (scripts/)
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 70%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">filename</th>
+<th style="text-align: left;">purpose</th>
+</tr>
+<tr class="odd">
+<th style="text-align: left;">brewery-hotspots.py</th>
+<th style="text-align: left;">cleans, prepares, and exports open brewery db data for use in dataset_manager.py</th>
+</tr>
+<tr class="even">
+<th style="text-align: left;">dataset_manager.py</th>
+<th style="text-align: left;">imports and consolidates all datasets needed for modeling into an almost model ready format</th>
+</tr>
+<tr class="odd">
+<th style="text-align: left;">pdf_manager.py</th>
+<th style="text-align: left;">manages the pdfs downloadable from the project website</th>
+</tr>
+<tr class="even">
+<th style="text-align: left;">the_brewery_project_web_scraping_(census).py</th>
+<th style="text-align: left;">cleans, prepares, and exports the census data for use in dataset_manager.py</th>
+</tr>
+<tr class="odd">
+<th style="text-align: left;">the_brewery_project_web_scraping_(metro).py</th>
+<th style="text-align: left;">cleans, prepares, and exports the metropolitan data for use in dataset_manager.py</th>
+</tr>
+<tr class="even">
+<th style="text-align: left;">the_brewery_project_web_scraping_(national_parks).py</th>
+<th style="text-align: left;">cleans, prepares, and exports the national park data for use in dataset_manager.py</th>
+</tr>
+<tr class="odd">
+<th style="text-align: left;">the_brewery_project_web_scraping_(ski_resorts).py</th>
+<th style="text-align: left;">cleans, prepares, and exports the ski resort data for use in dataset_manager.py</th>
+</tr>
+<tr class="even">
+<th style="text-align: left;">the_brewery_project_web_scraping_(tech).py</th>
+<th style="text-align: left;">cleans, prepares, and exports the tech hub data for use in dataset_manager.py</th>
+</tr>
+<tr class="odd">
+<th style="text-align: left;">top-colleges-extractor.py</th>
+<th style="text-align: left;">cleans, prepares, and exports the college town data for use in dataset_manager.py</th>
+</tr>
+</tbody>
+</table>
+</div>
+
 ## Compiling
 
 ### Website and Report
