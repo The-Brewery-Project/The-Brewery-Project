@@ -10,6 +10,7 @@ import regex as re
 
 # import datasets
 open_brewery_df = pd.read_csv('../data/open-brewery-db.csv')
+college_df = pd.read_csv('../data/top_colleges.csv')
 metro_df = pd.read_csv('../data/metropolianCities.csv')
 national_park_df = pd.read_csv('../data/national_parks.csv')
 ski_resorts_df = pd.read_csv('../data/ski_resorts.csv')
@@ -36,6 +37,17 @@ city_level_df = pd.merge(city_level_df, breweries_per_state, how='inner', on='st
 # brewery types per city
 brewery_type = open_brewery_df.pivot_table(index='city', columns='brewery_type', aggfunc='size', fill_value=0)
 city_level_df = pd.merge(city_level_df, brewery_type, how='inner', on='city')
+
+'''
+College Towns
+'''
+# college town boolean
+college_towns = college_df[['city', 'state']]
+college_towns['college_town'] = 1
+
+# find in city_level_df
+city_level_df = pd.merge(city_level_df, college_towns, how = 'left', on=['city', 'state'])
+city_level_df['college_town'] = city_level_df['college_town'].fillna(0)
 
 '''
 Major Metropolitan
@@ -215,30 +227,30 @@ city_level_df = pd.merge(city_level_df, census_df, how = 'left', on=['city', 'st
 city_level_df = pd.merge(city_level_df, state_regions, how = 'left', on = 'state')
 
 # nulls = 723 brewery cities not matched with census
-city_nulls = city_level_df[city_level_df['total population'].isnull()]
+# city_nulls = city_level_df[city_level_df['total population'].isnull()]
 # city_nulls_info = city_nulls.describe() # commented out for scripting
 
 # remove matched values
-def remove_matched_census(df1 = census_df, df2 = city_level_df):
-    # Create a boolean mask where 'city' and 'state' match
-    mask = df1.apply(lambda row: (row['city'], row['state']) in zip(df2['city'], df2['state']), axis=1)
+# def remove_matched_census(df1 = census_df, df2 = city_level_df):
+#     # Create a boolean mask where 'city' and 'state' match
+#     mask = df1.apply(lambda row: (row['city'], row['state']) in zip(df2['city'], df2['state']), axis=1)
     
-    # Get the indices where the values match
-    matching_indices = df1.index[mask].tolist()
+#     # Get the indices where the values match
+#     matching_indices = df1.index[mask].tolist()
     
-    # drop indices
-    df1 = census_df.drop(matching_indices)
-    df1.reset_index(drop = True, inplace = True)
-    return df1
+#     # drop indices
+#     df1 = census_df.drop(matching_indices)
+#     df1.reset_index(drop = True, inplace = True)
+#     return df1
 
 # check indices for matching 
-def find_matched_indices(df1 = census_df, df2 = city_level_df):
-    # Create a boolean mask where 'city' and 'state' match
-    mask = df1.apply(lambda row: (row['city'], row['state']) in zip(df2['city'], df2['state']), axis=1)
+# def find_matched_indices(df1 = census_df, df2 = city_level_df):
+#     # Create a boolean mask where 'city' and 'state' match
+#     mask = df1.apply(lambda row: (row['city'], row['state']) in zip(df2['city'], df2['state']), axis=1)
     
-    # Get the indices where the values match
-    matching_indices = df1.index[mask].tolist()
-    return matching_indices
+#     # Get the indices where the values match
+#     matching_indices = df1.index[mask].tolist()
+#     return matching_indices
 
 
 '''
