@@ -33,9 +33,12 @@ planning                        0
 proprietor                      0
 regional                        0
 taproom                         0
+college_town                    0
 major_city                      0
+state_national_park_count       0
 national_park_vistors           0
 ski_resort                      0
+ski_resort_count                0
 tech_city                       0
 total population              723
 % age 21+                     723
@@ -50,6 +53,9 @@ total population              723
 % male                        723
 2021 median income           2512
 region                          0
+brewery_concentration         723
+per_capita_ranked             723
+custom_ranked                   0
 '''
 
 # check region
@@ -70,22 +76,26 @@ We will want to remove the following columns in preparation for modeling:
     - state (51 more columns don't seem necessary, especially when there is
              state specific data)
     - 2021 median income (86.4% missing values)
+    - brewery_concentration (a variable created from population and city brewery count)
+    - per_capita_ranked (a variable crated from brewery_concentration)
     - encode region (4 categories, *probably* important)
+    - city_brewery_count (basis for custom_ranked)
 
 Creating hotspot criteria:
-    - based on concentration -> per capita
+    - we used a method which ranked the city from 1-6 (6 being consider the max hotspot)
+    - this was based on city_brewery_count (reason for dropping)
     - create ranking system based on concentration
     - this will need an immediate removal of the rows requiring census data
 '''
 
 # remove income column
-model_df = city_df.drop(['2021 median income'], axis=1).copy()
+model_df = city_df.drop(['2021 median income'], axis=1, inplace=True)
 
 # remove rows without census data
 model_df.dropna(subset=['total population'], axis=0, inplace=True)
 
 # check nulls
-# model_df.isnull().sum()
+model_df.isnull().sum()
 
 '''
 city                         0
@@ -104,9 +114,12 @@ planning                     0
 proprietor                   0
 regional                     0
 taproom                      0
+college_town                 0
 major_city                   0
+state_national_park_count    0
 national_park_vistors        0
 ski_resort                   0
+ski_resort_count             0
 tech_city                    0
 total population             0
 % age 21+                    0
@@ -120,27 +133,36 @@ total population             0
 % race - hispanic/latino     0
 % male                       0
 region                       0
+brewery_concentration        0
+per_capita_ranked            0
+custom_ranked                0
 '''
+
+# size of dataset
+model_df.shape
 
 # no longer need to create concentrations here
 
 # drop brewery concentration (collinearity with ranking)
 # drop city and state
-model_df.drop(['city','state','brewery_concentration'], axis=1, inplace=True)
-
-# REMEMBER: a misclassification could mean either too low or too high concentration
+# drop city_brewery_count
+# drop per_capita_ranked
+columns_to_drop = ['city', 'state', 'brewery_concentration', 'city_brewery_count', 'per_capita_ranked']
+model_df.drop(columns_to_drop, axis=1, inplace=True)
 
 # encode regions
 model_df = pd.get_dummies(model_df, columns=['region'], drop_first=True)
 
-# check datatypes
+# rename custom_ranking to ranking
+model_df.rename({'custom_ranked':'ranked'}, inplace=True, axis=1)
+
+# check datatypes - want all numerical
 # model_df.info()
 
 # may need to rename columns for interpretability and normality
 # export head of column for use in website
 # model_df_head = model_df.head(10)
 # model_df_head.to_csv('../data/model_data.csv', index = False)
-
 
 '''
 Modeling
@@ -225,7 +247,7 @@ clf_results = pd.DataFrame([clf_results])
 round_1_results = pd.concat([round_1_results, clf_results], ignore_index=True)
 
 '''
-not great performance and requires deviation from default to even produce results
+decent performance
 '''
 
 # KNN (note that KNN method requires arrays for fitting and training)
@@ -247,7 +269,7 @@ clf_results = pd.DataFrame([clf_results])
 round_1_results = pd.concat([round_1_results, clf_results], ignore_index=True)
 
 '''
-not great performance and requires array workaround to fit and predict
+decent performance
 '''
 
 # SVM
@@ -269,7 +291,7 @@ clf_results = pd.DataFrame([clf_results])
 round_1_results = pd.concat([round_1_results, clf_results], ignore_index=True)
 
 '''
-not great performance
+decent performance
 '''
 
 # Naive Bayes
@@ -316,12 +338,12 @@ round_1_results = pd.concat([round_1_results, clf_results], ignore_index=True)
 Results from Round 1:
     
    accuracy precision    recall        f1                         model
-0  0.896341  0.899739  0.896341  0.896276  Decision Tree Classification
-1  0.282012  0.255597  0.282012  0.261475           Logistic Regression
-2  0.518293  0.546575  0.518293  0.523997                           KNN
-3  0.160061  0.093318  0.160061  0.093528        Support Vector Machine
-4  0.155488  0.080463  0.155488  0.086722                   Naive Bayes
-5   0.22561  0.229622   0.22561  0.225666  Linear Discriminant Analysis
+0  0.926829  0.928881  0.926829   0.92698  Decision Tree Classification
+1     0.875   0.79324     0.875  0.831636           Logistic Regression
+2  0.873476  0.841246  0.873476   0.84128                           KNN
+3  0.878049  0.783841  0.878049   0.82793        Support Vector Machine
+4  0.036585  0.873634  0.036585  0.016129                   Naive Bayes
+5  0.896341  0.874851  0.896341  0.883871  Linear Discriminant Analysis
 '''
 
 # export round 1 results for website
@@ -446,7 +468,7 @@ clf_results = pd.DataFrame([clf_results])
 round_2_results = pd.concat([round_2_results, clf_results], ignore_index=True)
 
 '''
-nope, just nope
+Results:
 '''
 
 # Linear Discriminant Analysis
@@ -468,19 +490,19 @@ clf_results = pd.DataFrame([clf_results])
 round_2_results = pd.concat([round_2_results, clf_results], ignore_index=True)
 
 '''
-not great
+Results:
 '''
 
 '''
 Results from Round 2:
     
    accuracy precision    recall        f1                         model
-0   0.27439  0.280048   0.27439   0.22599  Decision Tree Classification
-1  0.314024  0.316085  0.314024  0.295649           Logistic Regression
-2  0.224085  0.225138  0.224085  0.217315                           KNN
-3  0.219512   0.22855  0.219512  0.217283        Support Vector Machine
-4  0.096037  0.125984  0.096037  0.031613                   Naive Bayes
-5  0.224085  0.230842  0.224085  0.224684  Linear Discriminant Analysis
+0  0.908537  0.914935  0.908537  0.910845  Decision Tree Classification
+1  0.928354   0.92785  0.928354   0.92684           Logistic Regression
+2  0.884146  0.831365  0.884146  0.851703                           KNN
+3  0.907012  0.860135  0.907012  0.876955        Support Vector Machine
+4  0.022866  0.866248  0.022866   0.00685                   Naive Bayes
+5   0.91311  0.891192   0.91311  0.898986  Linear Discriminant Analysis
 '''
 
 # export round 1 results for website
@@ -496,6 +518,8 @@ melted_1 = round_1_results.melt(id_vars = ['model'],
 melted_1 = melted_1.rename(columns={'model':'Model', 'metric': 'Metric'})
 melted_1['Metric'] = melted_1['Metric'].str.capitalize()
 sns.barplot(data = melted_1, x = 'value', y = 'Metric', hue = 'Model')
+plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+plt.title('Default Models Non-Scaled Data')
 
 # round 2
 melted_2 = round_2_results.melt(id_vars = ['model'],
@@ -504,50 +528,67 @@ melted_2 = round_2_results.melt(id_vars = ['model'],
 melted_2 = melted_2.rename(columns={'model':'Model', 'metric': 'Metric'})
 melted_2['Metric'] = melted_2['Metric'].str.capitalize()
 sns.barplot(data = melted_2, x = 'value', y = 'Metric', hue = 'Model')
+plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+plt.title('Default Models Scaled Data')
 
-# just decision tree from round 1
-decision_tree_1 = round_1_results[round_1_results['model']=='Decision Tree Classification']
-decision_tree_1.drop(['model'], axis=1, inplace=True)
-decision_tree_1.columns = ['Accuracy', 'Precision', 'Recall', 'F1']
-main_color = sns.color_palette()[0]
-sns.barplot(data = decision_tree_1, color = main_color, orient='h')
-plt.xlim(0,1)
-plt.title('Default Decision Tree Results')
+# decision tree from round 1, logistic regression from round 2
+best_clf_round_1 = round_1_results[round_1_results['model']=='Decision Tree Classification'].reset_index(drop=True)
+best_clf_round_2 = round_2_results[round_2_results['model']=='Logistic Regression'].reset_index(drop=True)
+top_models_round_1 = pd.concat([best_clf_round_1, best_clf_round_2], axis=0, ignore_index=True)
+top_models_round_1['model'] = pd.Series(['Decision Tree - Non-Scaled Data', 'Logistic Regression - Scaled Data'])
 
+top_models = top_models_round_1.melt(id_vars = ['model'],
+                                             value_vars = ['accuracy', 'precision', 'recall', 'f1'],
+                                             var_name = 'metric')
+top_models = top_models.rename(columns={'model':'Model', 'metric': 'Metric'})
+top_models['Metric'] = top_models['Metric'].str.capitalize()
+
+sns.barplot(data = top_models, x = 'value', y = 'Metric', hue = 'Model')
+plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+plt.title('Top Performing Default Models')
+
+# main_color = sns.color_palette()[0]
 
 '''
-Final Round: Hypertuning the Decision Tree
+Final Round: Hypertuning the Final Models
 '''
 
-# parameters to run through
-parameters = {'criterion': ('gini', 'entropy', 'log_loss'),
+result_columns = ['Accuracy', 'Precision', 'Recall', 'F1', 'Model']
+hypertuned_results = pd.DataFrame(columns=result_columns)
+
+# normalizing data
+# scaler = StandardScaler()
+# X_train_normal = scaler.fit_transform(X_train)
+# X_test_normal = scaler.fit_transform(X_test)
+
+# decision tree parameters to run through
+tree_parameters = {'criterion': ('gini', 'entropy', 'log_loss'),
               'splitter': ('best', 'random'),
               'max_depth': (None, 2, 4, 6, 8, 10),
               'max_features': (None, 'sqrt', 'log2'),
               'class_weight': (None, 'balanced')}
 # create gridsearchcv object
-clf_hyper = GridSearchCV(DecisionTreeClassifier(), parameters)
+tree_clf_hyper = GridSearchCV(DecisionTreeClassifier(), tree_parameters)
 # train the model
-clf_hyper.fit(X_train, y_train)
+tree_clf_hyper.fit(X_train, y_train)
 
 # results
-clf_hyper_results = pd.DataFrame(clf_hyper.cv_results_)
+tree_clf_hyper_results = pd.DataFrame(tree_clf_hyper.cv_results_)
 # export results to csv
-# clf_hyper_results.to_csv('../data/hotspot_hypertuning.csv', index = False)
+# tree_clf_hyper_results.to_csv('../data/hotspot_hyper_tree_results.csv', index = False)
 
-clf_hyper.best_params_
+
+tree_clf_hyper.best_params_
 '''
 {'class_weight': None,
  'criterion': 'entropy',
- 'max_depth': None,
+ 'max_depth': 6,
  'max_features': None,
  'splitter': 'best'}
 '''
 
-clf_hyper.scorer_
-
 # decision tree with best params
-clf = DecisionTreeClassifier(**clf_hyper.best_params_).fit(X_train, y_train)
+clf = DecisionTreeClassifier(**tree_clf_hyper.best_params_).fit(X_train, y_train)
 # prediction
 clf_y_pred = clf.predict(X_test)
 # results (will set average to weighted for multiclass vs binary)
@@ -559,59 +600,68 @@ clf_results = {'Accuracy': clf_accuracy,
                'Precision': clf_precision,
                'Recall': clf_recall,
                'F1': clf_f1,
-               'Version': 'Hypertuned'}
-hyper_tuned_df = pd.DataFrame([clf_results])
+               'Model': 'Hypertuned Decision Tree - Non-Scaled Data'}
+clf_results = pd.DataFrame([clf_results])
+hypertuned_results = pd.concat([hypertuned_results, clf_results], ignore_index=True)
 
-# compare results to default decision tree
-decision_tree_compare = decision_tree_1.copy()
-decision_tree_compare['Version'] = 'Default'
-decision_tree_compare = pd.concat([decision_tree_compare, hyper_tuned_df], ignore_index=True)
+# logistic regression
+# decision tree parameters to run through
+logistic_parameters = {'max_iter': [10000],
+                       'penalty': (None, 'l2', 'l1', 'elasticnet'),
+                       'class_weight': (None, 'balanced'),
+                       'solver': ('lbfgs', 'saga'),
+                       'multi_class': ('auto', 'multinomial')}
+# create gridsearchcv object
+logistic_clf_hyper = GridSearchCV(LogisticRegression(), logistic_parameters)
+# train the model
+logistic_clf_hyper.fit(X_train_normal, y_train)
 
-# save for website use
-# decision_tree_compare.to_csv('../data/decision_tree_compare.csv', index = False)
+# results
+logistic_clf_hyper_results = pd.DataFrame(tree_clf_hyper.cv_results_)
+# export results to csv
+# logistic_clf_hyper_results.to_csv('../data/hotspot_hyper_logistic_results.csv', index = False)
 
-# get ready for plotting
-# round hypertune
-melted_hyper = decision_tree_compare.melt(id_vars = ['Version'],
-                                          value_vars = ['Accuracy', 'Precision', 'Recall', 'F1'],
-                                          var_name = 'Metric')
-sns.barplot(data = melted_hyper, x = 'value', y = 'Metric', hue = 'Version')
-plt.title('Decision Tree Versions')
+logistic_clf_hyper.best_params_
+'''
+{'class_weight': None,
+ 'max_iter': 10000,
+ 'multi_class': 'auto',
+ 'penalty': 'l1',
+ 'solver': 'saga'}
+'''
 
-# zoom in
-sns.barplot(data = melted_hyper, x = 'value', y = 'Metric', hue = 'Version')
-plt.xlim([0.89, 0.91])
-plt.title('Decision Tree Versions - Zoom')
+# decision tree with best params
+clf = LogisticRegression(**logistic_clf_hyper.best_params_).fit(X_train_normal, y_train)
+# prediction
+clf_y_pred = clf.predict(X_test_normal)
+# results (will set average to weighted for multiclass vs binary)
+clf_accuracy = accuracy_score(y_test, clf_y_pred)
+clf_precision = precision_score(y_test, clf_y_pred, average='weighted')
+clf_recall = recall_score(y_test, clf_y_pred, average='weighted')
+clf_f1 = f1_score(y_test, clf_y_pred, average='weighted')
+clf_results = {'Accuracy': clf_accuracy,
+               'Precision': clf_precision,
+               'Recall': clf_recall,
+               'F1': clf_f1,
+               'Model': 'Hypertuned Logistic Regression - Scaled Data'}
+clf_results = pd.DataFrame([clf_results])
+hypertuned_results = pd.concat([hypertuned_results, clf_results], ignore_index=True)
 
+# save results to csv
+# hypertuned_results.to_csv('../data/best_hyper_results.csv', index = False)
+
+# best results visualization
+melted_best = hypertuned_results.melt(id_vars = ['Model'],
+                                             value_vars = ['Accuracy', 'Precision', 'Recall', 'F1'],
+                                             var_name = 'Metric')
+
+sns.barplot(data = melted_best, x = 'value', y = 'Metric', hue = 'Model')
+plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+plt.title('Best Hypertuned Models')
 
 '''
-Applying the Model
+Saving the Model
 '''
-# before we proceed, let's export this file as a pkl file
-with open('../model/hotspot_model.pkl', 'wb') as f:
+# let's export this file as a pkl file
+with open('../models/hotspot_model.pkl', 'wb') as f:
     pickle.dump(clf, f)
-
-# let's say we want to see how a city ranks among breweries according to our model
-# grab random entries from our test set
-random_test_features = X_test.sample(10)
-# grab their corresponding hotspot rankings
-random_test_rankings = y_test.loc[random_test_features.index]
-
-# combine for website
-random_testing = pd.concat([random_test_features, random_test_rankings], axis=1)
-
-# send to data for website
-# random_testing.to_csv('../data/hotspot_random_testing.csv', index = False)
-
-# plug into our model
-random_pred = clf.predict(random_test_features)
-
-# reset indices
-actual = pd.DataFrame(random_test_rankings.reset_index(drop=True))
-actual.columns = ['Actual']
-predicted = pd.DataFrame(random_pred, columns=['Predicted']).reset_index(drop=True)
-
-# let's compare manually
-test_nums = pd.DataFrame(np.arange(1, 11), columns = ['Test Number'])
-random_compare = pd.concat([test_nums, actual, predicted], axis=1)
-random_compare.to_csv('../data/hotspot_random_comparison.csv', index=False)
