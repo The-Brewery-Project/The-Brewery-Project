@@ -19,7 +19,7 @@ from sklearn import tree
 import graphviz
 
 #Call Data:
-city_df = pd.read_csv('https://github.com/The-Brewery-Project/The-Brewery-Project/blob/042a3203668c3439e0bc2e6e73f60ab41ed10134/data/city_level.csv?raw=true')
+city_df = pd.read_csv('../data/city_level.csv')
 
 #Reduce Dataframe to required columns and transform
 model_df = city_df.drop(["city", "state","city_brewery_count",
