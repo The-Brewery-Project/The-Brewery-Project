@@ -21,6 +21,9 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
 from sklearn.naive_bayes import GaussianNB
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+import pickle
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 #Call Data:
 city_df = pd.read_csv('../data/city_level.csv')
@@ -173,6 +176,16 @@ round_1_results.sort_values("f1", ascending = False)
 # export round 1 results for website - commented out post script run
 round_1_results.to_csv('../data/reduced_model_round1_results.csv', index = False)
 
+# round 1
+melted_1 = round_1_results.melt(id_vars = ['model'],
+                                             value_vars = ['accuracy', 'precision', 'recall', 'f1'],
+                                             var_name = 'metric')
+melted_1 = melted_1.rename(columns={'model':'Model', 'metric': 'Metric'})
+melted_1['Metric'] = melted_1['Metric'].str.capitalize()
+sns.barplot(data = melted_1, x = 'value', y = 'Metric', hue = 'Model')
+plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+plt.title('Default Models Settings')
+
 #Best Performing Base Models: SVM, Naive Bayes, Linear Discriminant
 #Fine tune these three models to see which is best
 
@@ -291,3 +304,16 @@ final_model_results = pd.concat([final_model_results, clf_results], ignore_index
 final_model_results.sort_values("F1", ascending = False)
 # export final model results for website - commented out post script run
 final_model_results.to_csv('../data/reduced_model_final_results.csv', index = False)
+
+# best results visualization
+melted_best = final_model_results.melt(id_vars = ['Model'],
+                                             value_vars = ['Accuracy', 'Precision', 'Recall', 'F1'],
+                                             var_name = 'Metric')
+
+sns.barplot(data = melted_best, x = 'value', y = 'Metric', hue = 'Model')
+plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+plt.title('Best Hypertuned Models')
+
+
+with open('../models/reduced_hotspot_model.pkl', 'wb') as f:
+    pickle.dump(clf, f)
