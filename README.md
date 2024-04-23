@@ -208,6 +208,34 @@
 </table>
 </div>
 
+### Models (models/)
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 70%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">filename</th>
+<th style="text-align: left;">purpose</th>
+</tr>
+<tr class="odd">
+<th style="text-align: left;">location_decision_tree_model.pkl</th>
+<th style="text-align: left;">best model for reduced feature dataset</th>
+</tr>
+<tr class="even">
+<th style="text-align: left;">hotspot_model.pkl</th>
+<th style="text-align: left;">best model for full feature dataset</th>
+</tr>
+<tr class="odd">
+<th style="text-align: left;">linear_regression_model.pkl</th>
+<th style="text-align: left;">best model for reduced feature dataset using linear regression</th>
+</tr>
+</tbody>
+</table>
+</div>
+
 ### Python Scripts (scripts/)
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
@@ -222,7 +250,7 @@
 </tr>
 <tr class="odd">
 <th style="text-align: left;">brewery-hotspots.py</th>
-<th style="text-align: left;">cleans, prepares, and exports open brewery db data for use in dataset_manager.py</th>
+<th style="text-align: left;">model analysis for full feature dataset</th>
 </tr>
 <tr class="even">
 <th style="text-align: left;">dataset_manager.py</th>
@@ -233,26 +261,38 @@
 <th style="text-align: left;">manages the pdfs downloadable from the project website</th>
 </tr>
 <tr class="even">
+<th style="text-align: left;">the_brewery_project_location_decision_tree.py</th>
+<th style="text-align: left;">model analysis for usable decision tree</th>
+</tr>
+<tr class="odd">
+<th style="text-align: left;">the_brewery_project_modeling_(pca_linreg).py</th>
+<th style="text-align: left;">model analysis for reduced feature dataset using PCA and linear regression</th>
+</tr>
+<tr class="even">
+<th style="text-align: left;">the_brewery_project_reduced_models.py</th>
+<th style="text-align: left;">model analysis for reduced feature dataset</th>
+</tr>
+<tr class="odd">
 <th style="text-align: left;">the_brewery_project_web_scraping_(census).py</th>
 <th style="text-align: left;">cleans, prepares, and exports the census data for use in dataset_manager.py</th>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th style="text-align: left;">the_brewery_project_web_scraping_(metro).py</th>
 <th style="text-align: left;">cleans, prepares, and exports the metropolitan data for use in dataset_manager.py</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th style="text-align: left;">the_brewery_project_web_scraping_(national_parks).py</th>
 <th style="text-align: left;">cleans, prepares, and exports the national park data for use in dataset_manager.py</th>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th style="text-align: left;">the_brewery_project_web_scraping_(ski_resorts).py</th>
 <th style="text-align: left;">cleans, prepares, and exports the ski resort data for use in dataset_manager.py</th>
 </tr>
-<tr class="even">
+<tr class="odd">
 <th style="text-align: left;">the_brewery_project_web_scraping_(tech).py</th>
 <th style="text-align: left;">cleans, prepares, and exports the tech hub data for use in dataset_manager.py</th>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th style="text-align: left;">top-colleges-extractor.py</th>
 <th style="text-align: left;">cleans, prepares, and exports the college town data for use in dataset_manager.py</th>
 </tr>
