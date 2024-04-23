@@ -222,7 +222,7 @@
 </tr>
 <tr class="odd">
 <th style="text-align: left;">location_decision_tree_model.pkl</th>
-<th style="text-align: left;">best model for reduced feature dataset</th>
+<th style="text-align: left;">best model for simple visual information gain from reduced feature dataset</th>
 </tr>
 <tr class="even">
 <th style="text-align: left;">hotspot_model.pkl</th>
@@ -231,6 +231,11 @@
 <tr class="odd">
 <th style="text-align: left;">linear_regression_model.pkl</th>
 <th style="text-align: left;">best model for reduced feature dataset using linear regression</th>
+</tr>
+</tr>
+<tr class="even">
+<th style="text-align: left;">reduced_model_hotspot.pkl</th>
+<th style="text-align: left;">best model for reduced feature dataset</th>
 </tr>
 </tbody>
 </table>

@@ -52,7 +52,7 @@ The principal components were then mapped against each other as we can see below
 
 ![](images/frequency/pca_mapped.png){fig-align="center"}
 
-Looking at the PCA plots, we can definitely see that there is some sort of pattern going on within our dataset. In the first plot, we see pretty distinct horizontal lines which indicate clusters of data that are separated among PC1, though they appear to vary more among PC2. This may be due to our boolean variables influencing the variation of PC1. We see a somewhat similar occurrence in the PC2 and PC3 plot, however here we see clustering rather than distinct lines, which may indicate subsets of the data that share similar characteristics. Finally, we see diagonal lines in the bottom two PC plots, indicating that there may be correlations between the variables of our datasets.
+Looking at the PCA plots, we can definitely see that there is some sort of pattern going on within our dataset. In the first plot, we see pretty distinct vertical lines which indicate clusters of data that are separated among PC1, though they appear to vary more among PC2. This may be due to our boolean variables influencing the variation of PC1. We see a somewhat similar occurrence in the PC2 and PC3 plot, however here we see clustering rather than distinct lines, which may indicate subsets of the data that share similar characteristics. Finally, we see diagonal lines in the bottom two PC plots, indicating that there may be correlations between the variables of our datasets.
 
 ## Linear Regression
 
@@ -173,6 +173,10 @@ The **Naive Bayes** classification model performed the best out of the front run
 ![](images/simple_classification/simple_classification_5.png){fig-align="center"}
 
 The results here show that our models can generally calculate accurate city ranking in about 85-86% of cases. This is decent, but opens up a conversation on using more of our available data to classify these cities.
+
+
+> Note that the best fitting model was saved as a pickle file, and can be found [here](https://github.com/The-Brewery-Project/The-Brewery-Project/blob/main/models/reduced_hotspot_model.pkl).
+
 
 In the next section, we will expand our models to use additional data.
 
