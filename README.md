@@ -93,7 +93,7 @@
 <table class="table table-sm table-striped small">
 <colgroup>
 <col style="width: 20%">
-<col style="width: 70%">
+<col style="width: 80%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -173,7 +173,7 @@
 <table class="table table-sm table-striped small">
 <colgroup>
 <col style="width: 20%">
-<col style="width: 70%">
+<col style="width: 80%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -213,7 +213,7 @@
 <table class="table table-sm table-striped small">
 <colgroup>
 <col style="width: 20%">
-<col style="width: 70%">
+<col style="width: 80%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -241,7 +241,7 @@
 <table class="table table-sm table-striped small">
 <colgroup>
 <col style="width: 20%">
-<col style="width: 70%">
+<col style="width: 80%">
 </colgroup>
 <thead>
 <tr class="header">
