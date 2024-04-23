@@ -17,7 +17,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score, f1_score, confusion_matrix, precision_score, recall_score
 from sklearn import tree
 import graphviz
-
+import pickle
 #Call Data:
 city_df = pd.read_csv('../data/city_level.csv')
 
@@ -79,6 +79,14 @@ clf_results = {'Accuracy': clf_accuracy,
 clf_results = pd.DataFrame([clf_results])
 clf_results
 
+#x[2] refers to total count of brewpubs
+#x[7] refers to total microbreweries
+#x[20] refers to % of population age 21+
+#x[23] refers to % of population identifying as black
 dot_data = tree.export_graphviz(clf, out_file=None)
 graph = graphviz.Source(dot_data)
 graph
+
+# let's export this file as a pkl file
+with open('../models/location_decision_tree_model.pkl', 'wb') as f:
+    pickle.dump(clf, f)
