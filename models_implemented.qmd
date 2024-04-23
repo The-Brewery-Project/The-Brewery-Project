@@ -29,27 +29,156 @@ city_df = pd.read_csv('data/city_level.csv')
 show(city_df)
 ```
 
-
 # Addressing Frequency
 
-- Principal Component Analysis (PCA)
-- Collinearity Check
+Through our exploratory analysis, we identified 5 different city features that may impact the frequency of breweries. The features we identified were the number of ski resorts in the state that the brewery is located in, number of national parks in the state that the brewery is located in, and whether the location is considered a tech hub, a college town, or a major city. We represented tech hubs, college towns, and major cities with Boolean values where a 1 meant the location of the brewery did meet that characteristic and a 0 meant the location did not meet that characteristic.
 
-## Frequency by Outdoor Areas
+## Principal Component Analysis (PCA)
 
-## Frequency by College Towns
+First, we began by implementing a PCA analysis to check the relationships between our variables and identify any redundancy in our dataset. The starting dataset can be viewed above. We implemented data preprocessing and a snippet of the dataset can be viewed below.
 
-## Frequency by Tech Hubs
+![](images/frequency/pca_dataset.png){fig-align="center"}
 
-## Frequency by Metropolitan Areas
+The PCA process was then [implemented](https://github.com/The-Brewery-Project/The-Brewery-Project/blob/main/scripts/the_brewery_project_modeling_(pca_linreg).py) and the cumulative variance table can be viewed below, as well as the individual variance explained by each principal component.
+
+
+![](images/frequency/pca_variance_table.png){fig-align="center"}
+
+
+![](images/frequency/pca_variance_barplot.png){fig-align="center"}
+
+
+The principal components were then mapped against each other as we can see below.
+
+![](images/frequency/pca_mapped.png){fig-align="center"}
+
+Looking at the PCA plots, we can definitely see that there is some sort of pattern going on within our dataset. In the first plot, we see pretty distinct horizontal lines which indicate clusters of data that are separated among PC1, though they appear to vary more among PC2. This may be due to our boolean variables influencing the variation of PC1. We see a somewhat similar occurrence in the PC2 and PC3 plot, however here we see clustering rather than distinct lines, which may indicate subsets of the data that share similar characteristics. Finally, we see diagonal lines in the bottom two PC plots, indicating that there may be correlations between the variables of our datasets.
+
+## Linear Regression
+
+To analyze our model further, we began with [implementing](https://github.com/The-Brewery-Project/The-Brewery-Project/blob/main/scripts/the_brewery_project_modeling_(pca_linreg).py) a linear regression of the 5 identified city features mentioned above. Using scikit-learn’s linear regression feature, a regression model was identified with the following coefficients to predict city brewery count.
+
+![](images/frequency/linear_regression_1.png){fig-align="center"}
+
+We can see that being a **tech hub** was associated with the greatest increase in brewery count. Holding all features constant, being a tech city is associated with an increase of about 27 breweries on average. The next most influential feature appears to be whether or not the city was considered a **major city**. We see that being a major city is associated with an increase of about 6 breweries on average. Next, we see that being a **college town** is associated with an increase of almost 3 breweries on average. The relationships between the number of ski resorts in a state and breweries, and the number of national parks in the state and breweries are positive but seem to be quite small.
+
+Ultimately, this gave us some insight into how our 5 selected features relate to the number of breweries in a city, but the details of the model were minimal. To dive a bit deeper into the details, we implemented linear regression using statsmodels OLS module. The output for the full model with all features can be viewed below.
+
+![](images/frequency/linear_regression_2.png){fig-align="center"}
+
+Interestingly, our $R^2$ isn’t very high at 0.459 and two of our coefficients are insignificant at the $\alpha = 0.05$ level. Our **MSPE** for the full model was calculated to be 17.183. We implemented backwards selection to see if the model would improve. The first step is to remove `state_national_park_count` as that feature has the highest p-value. The output for the reduced model can be viewed below.
+
+![](images/frequency/linear_regression_3.png){fig-align="center"}
+
+Our $R^2$ for this reduced model remains at 0.459 and the **MSPE** was calculated to be 17.199. However we are still seeing that one of our coefficients, `ski_resort_count`, is statistically insignificant. The next step in the backward selection process is to remove that feature. The output for the next reduced model can be viewed below.
+
+![](images/frequency/linear_regression_4.png){fig-align="center"}
+
+Here we see that all of our features are statistically significant, but our $R^2$ for the final reduced model has decreased slightly to 0.458 and the **MSPE** for this model was calculated to be 17.283. 
+
+Overall, we see that our model captures around 45.8% of the variability in the `city_brewery_count`. It appears that some of the city features we identified as impacting brewery count are likely to be influential, but do not capture the entire story.
+
+Namely, out of our 5 starting features, **brewery count per city** is most influenced by **tech hubs**, **major cities**, and **college towns**.
+
+> Note that the best fitting model was saved as a pickle file, and can be found [here](https://github.com/The-Brewery-Project/The-Brewery-Project/blob/main/models/linear_regression_model.pkl).
+
+Next, we will look at other model types to explore how we can improve our analyses.
+
 
 # Defining and Classifying Brewery Hotspots
 
+
 In this section, we'll create a defintion of hotspots and then create a classification model to predict how much of a hotspot a given city is (or should be).
 
-## Defining and Preparing
 
-### Preparation for Modeling
+## Defining a Hotspot
+
+
+Next, we will investigate the power of the city features and population in identifying brewery hotspots. For our training and testing, we need to identify a measure to quantify these hot spots.
+
+There are two methods that we identified for measuring top brewery hot spots.
+
+-	Breweries per capita:
+    -	Calculates total breweries per 1000 people living in the city
+    -	Benefits: Scales with population, smaller towns with many breweries can be considered hot spots
+    -	Challenges: Major cities with large populations may be disadvantaged. Extremely small cities with a single brewery have potential to be ranked overly high on scale. 
+-	Total brewery count:
+    -	Counts total breweries per city
+    -	Benefits: Major cities with more breweries will rank higher. Cities with just one brewery will not be considered as a hotspot. 
+    -	Challenges: Small towns may be discounted for only having a few breweries.
+
+Both of these methods are ways that we can quantify brewery hot spots. When we review the outcomes of these ranking metrics, we find that the top rank of the Breweries per Capita yields many small towns that only have 1 or 2 breweries and excludes many very well known brewery locations such as Portland, Oregon (since Portland has such a large population, Breweries per capita calculated very low). 
+
+The data representing the top tier brewery hotspots calculated with the Total brewery count follows much more logically with our understanding of current brewery hot spots in the US. To avoid challenges with classifying cities with 1 or 2 breweries as hot spots, we will proceed with the analysis using the rank based on Total Brewery Count by city with one notable exception: all cities with less than 3 breweries will be classified a 1 on the 1-6 Brewery Hotspot ranking. The remainder of our analysis will use this custom ranking to assess our models ability to classify towns into the proper ranks. We hope to be able to clearly distinguish cities with a high rank of 6, indicating a sure brewery hotspot.
+
+
+## Simple Classification
+
+
+Now that we have established a metric for quantifying how much of a hotspot each city is, we can proceed to implementing models that can train on this data. We start by asking if common city features (**college towns**, **tech hubs**, **major cities**, **national parks**, and **ski resorts**) and **population** can help predict if a town is high or low on the brewery hotspot scale *(1:low - 6:high)*.
+
+To start our analysis, we will reduce our master data set to only the necessary columns:
+
+![](images/simple_classification/simple_classification_1.png){fig-align="center"}
+
+Using this data, we implemented preliminary modeling using the following techniques:
+
+- **Decision Trees**
+- **Logistic Regression**
+- **K Nearest Neighbors**
+- **SVM**
+- **Naive Bayes**
+- **Linear Discriminant Analysis**
+
+This work can be reviewed [here](https://github.com/The-Brewery-Project/The-Brewery-Project/blob/main/scripts/the_brewery_project_reduced_models.py). An initial unrefined model of each of these was used and the final results were compared.
+
+The metrics we'll be reporting on are:
+
+- **Accuracy**: the ratio of correct predictions to all predictions
+- **Precision**: the ratio of true positives to the total number of positives (a measure of exactness)
+- **Recall**: the ratio of true positives to the number of total correct predictions (a measure of completeness)
+- **F1-Score**: the *harmonic mean* between precision and recall (a balanced combination, or equal weight, of both precision and recall)
+
+The following results were attained.
+
+![](images/simple_classification/simple_classification_2.png){fig-align="center"}
+
+These results have been reorder by F1-Score to see the highest performing models. We can plot these results for a more visual sense of highest performing models as well.
+
+![](images/simple_classification/simple_classification_3.png){fig-align="center"}
+
+**Naive Bayes**, **SVM**, and **Linear Discriminant Analysis** were the top performers in the initial testing based on their F1-Score. We followed these tests with more detailed hypertuning to maximize their performance. We utilized the `GridSearchCV` function to run each model under a series of potential parameters settings. 
+
+The best parameters for the **Naive Bayes** classification were:
+
+- **var_smoothing**: 1e-06
+
+The best parameters for the **Support Vector Machine (SVM)** classification were:
+
+- **class_weight**: None
+- **degree**: 2
+- **kernel**: rbf
+
+The best parameters for the **Linear Discriminant Analysis** classification were:
+
+- **shrinkage**: 0.5
+- **solver**: lsqr
+
+The parameters of each best performing model were used in final refined models and yielded these results using the test data.
+
+![](images/simple_classification/simple_classification_4.png){fig-align="center"}
+
+The **Naive Bayes** classification model performed the best out of the front runners based on the F1-Score, although each of these models are performing quite similarly in terms of accuracy, precision and recall. 
+
+![](images/simple_classification/simple_classification_5.png){fig-align="center"}
+
+The results here show that our models can generally calculate accurate city ranking in about 85-86% of cases. This is decent, but opens up a conversation on using more of our available data to classify these cities.
+
+In the next section, we will expand our models to use additional data.
+
+## Preparation for Modeling - Full Dataset Features
+
+Returning back to our initial dataset, we'll perform classification using more features to see if we can create a better performing model.
 
 We will want to perform the following in preparation for modeling:
 
@@ -62,18 +191,7 @@ We will want to perform the following in preparation for modeling:
 - remove rows where the census data is failed to be captured
 - encode `region`
 
-In defining brewery hotspots, we went with two separate methods:
-
-- per capita (per 1,000 people) - based on population and brewery counts per city with 10 classes
-- custom method - based on brewery counts per city and uses additional rules 
-
-Model brewery hotspot criteria:
-
-- based on counts per city
-- uses a rule of any city below 3 breweries would be categorized as a 1 (low)
-- bins across 6 categories
-
-> Due to `city_brewery_count` being used in creating the hotspot criteria, it was removed for modeling.
+> Due to `city_brewery_count` being used in creating the hotspot criteria (ranked 1-6), it was removed for modeling.
 
 After this process, our dataset is ready for modeling. Here are the first 10 rows of this modeling dataset:
 
@@ -82,7 +200,7 @@ model_df_head = pd.read_csv('data/model_data.csv')
 show(model_df_head)
 ```
 
-## Classifying Brewery Hotspots
+## Classifying Brewery Hotspots - Full Dataset Features
 
 Now that we have defined a hotspot ranking system and prepared our dataset for modeling, it's time to create some classification models!
 
@@ -180,7 +298,6 @@ From this process, we deduced that the best parameters for this model are:
 
 Namely, using *entropy* as the criterion and *max_depth* of 6 resulted in the best best model for the `DecisionTreeClassifier()` (non-scaled data).
 
-
 For `LogisticRegression()` (scaled data), we will test the following parameters:
 
 - **class_weight**: None, balanced
@@ -226,12 +343,39 @@ One final note is that the overall scores for the *best* `DecisionTreeClassifier
 > Note that the best fitting model was saved as a pickle file, and can be found [here](https://github.com/The-Brewery-Project/The-Brewery-Project/blob/main/models/hotspot_model.pkl).
 
 
-# Outlier Analysis
+# Making Decisions: Is that a Good Place for a New Brewery?
 
-# Where Can I Find a Brewery?
+Using the full data set for an expanded classification model has proven to strengthen our insights greatly. We know that having all this data (current brewery counts/types, city features, understanding of population) can therefore help us classify cities within our ranked levels of hotspots. It is Business 101 that you should do your research and collect this information if you are planning to start a business anywhere.
 
-- Decision Tree
+## Creating the Decision Tree
 
-## For the Brewer
+We wanted to provide a clear and helpful resource for any current or potential business owners looking for their next brewery location. To do this, we’ve [constructed](https://github.com/The-Brewery-Project/The-Brewery-Project/blob/main/scripts/the_brewery_project_location_decision_tree.py) a decision tree that will help to put market research to good use. We utilized `GridSearchCV` again to model our decision tree using different combinations of parameters. Keeping in mind that this model should be *succinct* and *usable* to the human eye, the **max_depth** of the model was capped at 4 to maintain a manageable tree size. Limiting this parameter also *sacrifices* some of the *accuracy* of the model, so we keep careful watch on the performance metrics with this reduced depth. 
 
-## For the Consumer
+The best performing **decision tree** used the following parameters:
+
+- **class_weight**: None
+- **criterion**: gini
+- **max_depth**: 4
+- **max_features**: None
+- **splitter**: best
+
+
+> Note that the best fitting model was saved as a pickle file, and can be found [here](https://github.com/The-Brewery-Project/The-Brewery-Project/blob/main/models/location_decision_tree_model.pkl).
+
+
+This model allowed us to achieve strong performance at a very *realistic/approachable* scale.
+
+![](images/decision_tree/decision_tree_1.png){fig-align="center"}
+
+This model requires users to attain 4 key pieces of information to make their decisions:
+
+- **microbreweries**
+- **brewpubs**
+- **race**
+- **age**
+
+They will be able to see the classification of their prospective location and whether that is a known brewery hotspot*(6)*, on the rise*(4-5)*, or lower on the ranking scale.
+
+![](images/decision_tree/decision_tree_2.png){fig-align="center"}
+
+This decision tree can help to inform brewery owners about the city they are thinking of opening a new location in. Cities ranking 4, 5, or 6 on the scale have demonstrated success and interest in the brewery scene and these may be good spots to invest in. Keep in mind though that the Rank 6 cities may also have more brewery competition!
