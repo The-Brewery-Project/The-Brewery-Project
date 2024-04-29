@@ -178,7 +178,7 @@ The results here show that our models can generally calculate accurate city rank
 > Note that the best fitting model was saved as a pickle file, and can be found [here](https://github.com/The-Brewery-Project/The-Brewery-Project/blob/main/models/reduced_hotspot_model.pkl).
 
 
-In the next section, we will expand our models to use additional data.
+In the next section, we will expand our models to use additional data [@census].
 
 ## Preparation for Modeling - Full Dataset Features
 
