@@ -81,6 +81,7 @@
 - **conclusion.qmd**: generates into the *conclusion* page of the website
 - **data_exploration.qmd**: generates into the *data exploration* page of the website
 - **diabetologia.csl**: file which controls the citation settings within the generated webpages
+- **final_report.qmd**: generates into the *final report* pdf linked on the webpage
 - **index.qmd**: necessary file within for generating the website
 - **introduction.qmd**: generates into the *introduction* page of the website
 - **models_implemented**: generates into the *models implemented* page of the website
@@ -323,4 +324,5 @@
 ## Project Management
 
 - [**Google Colab**](https://colab.research.google.com/drive/1ibfuagpEE6WWkICI7EIa3ieKFlFbBQqU?authuser=1)
-- [**Google Document**](https://docs.google.com/document/d/1eNdriCLmfu4RV5lMJWjYJYKHs_v17lRWWTFNnlEVmzs/edit)
+- [**The Brewery Project Introduction**](https://docs.google.com/document/d/1eNdriCLmfu4RV5lMJWjYJYKHs_v17lRWWTFNnlEVmzs/edit)
+- [**The Brewery Project Final Document**](https://docs.google.com/document/d/1HsSnApYgGiEJzSwVznOP2qHGPXh4j1Om11SPj_s2knU/edit)
