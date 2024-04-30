@@ -17,6 +17,8 @@ format:
 
 Breweries have become popular socializing spaces due to their tasty craft beers, cozy environments, and fun activities like trivia and board games. Yet the frequency of breweries varies greatly from location to location, with some cities appearing to be "hotspots" for breweries and other cities seeming to arbitrarily lack a notable frequency of breweries. The goal of The Brewery Project is to assess the various features that contribute to brewery frequency in US cities. In order to evaluate this, we gathered the most comprehensive data available on brewery locations in the US, as well as data on outdoor attractions, city classification features, and census data. We built various models with the goal of classifying brewery hotspots, observing the impact of various features on brewery frequency, and determining the most influential features on brewery frequency. We found that a city being a tech hub had a significant influence on a city’s brewery frequency, as well as the age and race demographics of the city, and finally the types of existing breweries (e.g. microbrewery, brewpub). These findings can be used to inform potential future brewery operators on the best new locations to open up a brewery.
 
+---
+
 # Introduction
 
 ## What Is The Project?
@@ -84,9 +86,6 @@ With this aggregated dataset, we explored different features we thought might be
 ![](images/conclusion/breweries_by_state_heatmap.png){fig-align="center"}
 
 For a detailed exploratory analysis, please see [this page on our website](https://the-brewery-project.github.io/The-Brewery-Project/data_exploration.html).
-
-
----
 
 ## Models Implemented
 
@@ -318,3 +317,7 @@ Another potential shortcoming of our model is the hotspot ranking system. Althou
 To continue with the idea of granularity improving recommendations for multiple facets within the brewing community, further research could include data associated with pricing and information about ease of import and export to certain areas.
 
 Limitations aside, we have created models which are usable for brewer and consumer to make informed decisions with. Even given limited information about a city, someone setting up shop or deciding where to grab a beer can dependably rely on this research.
+
+\newpage
+
+# References
