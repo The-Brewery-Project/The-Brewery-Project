@@ -4,10 +4,18 @@ title: "Meet the Team"
 
 Meet the team behind The Brewery Project!
 
+The group members behind The Brewery Project are current Masters of Data Science students at the University of Colorado - Boulder. They have been tasked to collect data, implement Data Mining techniques, and analyze the results to produce meaningful insights.
+
+Aside from being Data Buffs, the team is also beer fans themselves!
+
 # Jessica Groven
+
+Jessica (Jess) is native to the Pacific Northwest and is a fan of trying new breweries wherever she can find them, especially if there is trivia involved. She prefers a nice West-coast IPA or an Amber beer to enjoy as she answers questions with friends on a weeknight. Even better when there is outdoor seating and dogs allowed! 
 
 # Julia Gallwitz
 
+Julia is a born and raised New Jerseyan (go birds) who moved to Colorado for the mountains and outdoor sports. She doesn’t consider herself to be the bro-est of beer bros, but absolutely enjoys a fruity sour beer, especially at the lodge after a long day of skiing.
+
 # Carl Klein
 
-Prior to pursuing a master's degree in data science at CU Boulder, Carl worked in the insurance industry for five years as a data analyst after receiving his bachelor's degree in mathematics from the University of Washington. When he's not in the mountains, he's fine tuning his data science skills. Carl aspires to integrate his passions of mathematics and programming in an Earth Sciences field, where he can study and uncover patterns involving natural phenomenon.
+Carl also has his roots in the Pacific Northwest, where his love for the mountains and breweries began. After moving to Colorado, he found communities rich in both of these. Carl enjoys a variety of beers, and tries to keep up with new releases from local breweries. After a day in the mountains, probably hiking or snowboarding, Carl likes to wind down cheersing with friends!

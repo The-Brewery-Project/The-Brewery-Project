@@ -33,16 +33,6 @@ The Brewery Project gives insight into where brewery hotspots are and how they a
 
 The composition of breweries (micro to large commercial) and the kinds of populations/areas that support local breweries are important to study. This information can ultimately inform business decisions in the brewing industry if you are a new or experienced brewery looking for your next potential location.
 
-## Who Does The Project Affect?
-
-Our project is relevant to both beer drinkers and beer brewers, primarily in the most populated metropolitan areas of the US. Of course as law abiding citizens, this will only apply to those who are 21+ years of age and permitted to consume alcohol. 
-
-For the bro-est of beer bros, certain localities have what’s known as a “beer passport”, which is a passport-like book that includes various breweries from the area. This encourages the passport holder to visit the included breweries where they will get one free beer and a stamp in their passport. With The Brewery Project, we want to take this a step further, and create a recommendation engine for beer lovers that personalizes brewery suggestions based on the user’s demographics and preferences. The recommendations will be based on features such as personal characteristics, whether the user is on a budget, what activities they like to do, and their location in the US.
-
-Similarly, we intend to create a recommendation engine for beer brewers, to suggest the best place to open a new brewery. We know that it can be tricky for any new business to enter the market, and the beer/brewery market is certainly saturated in some places. We believe that this project could assist prospective producers in determining the best location for a new brewery based on market gaps, local demographics, and local attractions correlating with beer consumption.
-
-Ultimately, if you are 21+ and want to drink beer, or brew it for others, this project is for you!
-
 ## Related Work
 
 There are several websites, databases, and applications associated with individual beer brands, breweries, and venues.

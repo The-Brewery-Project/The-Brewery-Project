@@ -264,7 +264,7 @@
 </tr>
 <tr class="odd">
 <th style="text-align: left;">pdf_manager.py</th>
-<th style="text-align: left;">manages the pdfs downloadable from the project website</th>
+<th style="text-align: left;">manages the pdfs downloadable from the project website (NOTE: CURRENTLY DEPRECATED)</th>
 </tr>
 <tr class="even">
 <th style="text-align: left;">the_brewery_project_location_decision_tree.py</th>
@@ -311,9 +311,8 @@
 ### Website and Report
 1. `cd` into project root directory (will likely look like `The-Brewery-Project (main)`)
 2. run `quarto render`
-3. `cd` into `scripts`
-4. run `python pdf_manager.py`
-5. `cd` back into project root directory (`cd ..`)
+3. if pdf version of report was altered, copy `docs/final_report` to `images/the-brewery-project`
+2. run `quarto render` again after this process if report pdf was altered
 
 ### Data Management
 1. `cd` into project root directory (will likely look like `The-Brewery-Project (main)`)
